@@ -27,7 +27,7 @@ excerpt: "<strong>Vector analysis</strong>: curves, fields , line- and surface i
         <meta name="viewport" content="width=device-width">
   </head>
   <body>
-    <object data="{{ site.baseurl }}/assets/generated_figures/Analyse_III/Analyse_III.pdf" type="application/pdf" style="min-height:100vh;width:100%"></object>
+    <object data="{{ site.baseurl }}/assets/generated_figures/Calculus_III/Calculus_III.pdf" type="application/pdf" style="min-height:100vh;width:100%"></object>
   </body>
 </html>
 
