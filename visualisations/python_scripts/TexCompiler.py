@@ -344,7 +344,6 @@ class tex_compiler:
             image = pdf2image.convert_from_path(figure_object.standalone_pdf_path , dpi=dpi_used)     # dpi=Dots per inch, determines quality
             image[0].save(destination_PNG, 'PNG')       # Save the first page as PNG
         # also copy the summary pdf
-        self.asset_parent_directory = os.path.join(local_export_folder, self.project_name)
         shutil.copy(self.summary_pdf_path, self.asset_parent_directory)
         
     def make_figures_yml(self, local_export_folder):
@@ -355,23 +354,26 @@ class tex_compiler:
             figures_yml_data.append(figure_object.YAML_data)
         
         # write to a .yml file
-        self.yml_path = os.path.join(local_export_folder, self.project_name + "_figures.yml")    # path for the yml file
-        # Ensure figures_yml_data is wrapped as a list if it's not already
         with open(self.yml_path, 'w') as file:
             yaml.dump(figures_yml_data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     def push_content_to_gh_pages(self):
         local_export_folder = self.script_dir   # temporarily store in parent folder
+        # define paths
+        self.asset_parent_directory = os.path.join(local_export_folder, self.project_name)
+        self.yml_path = os.path.join(local_export_folder, self.project_name + "_figures.yml")    # path for the yml file
         # export figures and .yml file
-        self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
-        self.make_figures_yml(local_export_folder)
+        #self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
+        #self.make_figures_yml(local_export_folder)
 
-        
-        repo_dir = os.getcwd()  # current working directory is the repo directory
+        # Step 1: retrieve repository root directory
+        repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
 
         # paths in the gh-pages branch
         gh_pages_yml_parent_path = os.path.join(repo_dir, '_data')
         gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
+
+        print(repo_dir)
 
         # navigate to repo_dir:
         os.chdir(repo_dir)
