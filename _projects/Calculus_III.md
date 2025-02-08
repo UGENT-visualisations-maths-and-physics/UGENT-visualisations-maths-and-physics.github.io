@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Calculus III"
-thumbnail: "assets/manual_figures/{{ page.title | replace: ' ', '_' }}/thumbnail.png"
-figures_data:  "{{ page.title | replace: ' ', '_' }}_figures"
+thumbnail: "assets/manual_figures/Calculus_III/thumbnail.png"
+figures_data: "Calculus_III_figures"
 excerpt: "<strong>Vector analysis</strong>: curves, fields , line- and surface integrals... <br>
 <strong>Complex analysis</strong>: holomorphic functions, series, residue theorem..."  
 ---
