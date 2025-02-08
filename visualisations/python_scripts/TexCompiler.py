@@ -389,12 +389,20 @@ class tex_compiler:
 
         # Step 3: check if already exist and delete if necessary
         if os.path.exists(gh_pages_asset_path):
+            print("remove 1")
+            print(gh_pages_asset_path)
             os.remove(gh_pages_asset_path)
         if os.path.exists(gh_pages_yml_path):
+            print("remove 2")
+            print(gh_pages_yml_path)
             os.remove(gh_pages_yml_path)
 
         # Step 4: Move the generated files into place
+        print(self.yml_path)
+        print( gh_pages_yml_parent_path)
         shutil.move(self.yml_path, gh_pages_yml_parent_path)  # Move the .yml file
+        print(self.asset_parent_directory)
+        print(gh_pages_asset_parent_path)
         shutil.move(self.asset_parent_directory, gh_pages_asset_parent_path)  # Move the asset file
 
         # Step 5: Add, commit, and push changes
