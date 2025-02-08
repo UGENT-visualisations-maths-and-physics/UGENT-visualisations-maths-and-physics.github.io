@@ -403,7 +403,7 @@ class tex_compiler:
         shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
 
         current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip().decode('utf-8')
-        print(current_branch)
+        assert current_branch=='gh-pages', print("in wrong branch: %s (make sure all changes are comitted)") % (current_branch)
 
         # Step 5: Add, commit, and push changes
         subprocess.run(['git', 'add', '.'])
