@@ -361,17 +361,15 @@ class tex_compiler:
         # Step 1: retrieve repository root directory
         repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
 
-        local_export_folder = os.path.dirname(repo_dir)   # temporarily store in parent folder
         # define names of the asset directory and .yml file
         asset_directory_name = self.project_name
         yml_file_name =  self.project_name + "_figures.yml"
 
+        # define paths for temporaru storage
+        local_export_folder = os.path.dirname(repo_dir)   # parent folder of repo
         # define corresponding paths
         self.asset_directory = os.path.join(local_export_folder, asset_directory_name)
-        self.yml_path = os.path.join(local_export_folder, yml_file_name)    # path for the yml file
-        # export figures and .yml file to temporary location
-        self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
-        self.make_figures_yml(local_export_folder)
+        self.yml_path = os.path.join(local_export_folder, yml_file_name) 
 
         # paths in the gh-pages branch of parent directories
         gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
@@ -381,6 +379,10 @@ class tex_compiler:
         gh_pages_asset_path = os.path.join(gh_pages_asset_parent_path, asset_directory_name)
         gh_pages_yml_path = os.path.join(gh_pages_yml_parent_path, yml_file_name)
 
+        # export figures and .yml file to temporary location
+        self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
+        self.make_figures_yml(local_export_folder)
+        
         # navigate to repo_dir:
         os.chdir(repo_dir)
 
