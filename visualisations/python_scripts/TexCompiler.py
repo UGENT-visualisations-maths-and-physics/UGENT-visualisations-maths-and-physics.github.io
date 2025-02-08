@@ -392,11 +392,9 @@ class tex_compiler:
         # Step 3: check if already exist and delete if necessary
         if os.path.exists(gh_pages_asset_path):
             print("remove 1")
-            print(gh_pages_asset_path)
             os.remove(gh_pages_asset_path)
         if os.path.exists(gh_pages_yml_path):
             print("remove 2")
-            print(gh_pages_yml_path)
             os.remove(gh_pages_yml_path)
 
         # Step 4: Move the generated files into place
@@ -406,6 +404,9 @@ class tex_compiler:
         print(self.asset_directory)
         print(gh_pages_asset_parent_path)
         shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
+
+        current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip().decode('utf-8')
+        print(current_branch)
 
         # Step 5: Add, commit, and push changes
         subprocess.run(['git', 'add', '.'])
