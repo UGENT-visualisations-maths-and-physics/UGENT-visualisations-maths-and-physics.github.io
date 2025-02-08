@@ -398,19 +398,9 @@ class tex_compiler:
         # Step 2: Checkout gh-pages branch (this assumes you already have it)
         subprocess.run(['git', 'checkout', 'gh-pages'])
 
-        # Step 3: check if already exist and delete if necessary
-        if os.path.exists(gh_pages_asset_path):
-            print("remove 1")
-            os.remove(gh_pages_asset_path)
-        if os.path.exists(gh_pages_yml_path):
-            print("remove 2")
-            os.remove(gh_pages_yml_path)
-
-        # Step 4: Move the generated files into place
-        
-        
+        # Step 4: Move the generated files into place (provide full path -> will overwrite if already exists)
         shutil.move(self.yml_path, gh_pages_yml_path)  # Move the .yml file
-        shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
+        shutil.move(self.asset_directory, gh_pages_asset_path)  # Move the asset file
 
         current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip().decode('utf-8')
         print(current_branch)
