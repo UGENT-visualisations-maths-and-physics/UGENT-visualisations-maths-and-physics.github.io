@@ -1,23 +1,14 @@
 ---
 layout: default
 title: "Calculus III"
-thumbnail: "assets/manual_figures/Calculus_III/thumbnail.png"
-figures_data: "Calculus_III_figures"
+thumbnail: "assets/manual_figures/{{ page.title | replace: ' ', '_' }}/thumbnail.png"
+figures_data:  "{{ page.title | replace: ' ', '_' }}_figures"
 excerpt: "<strong>Vector analysis</strong>: curves, fields , line- and surface integrals... <br>
 <strong>Complex analysis</strong>: holomorphic functions, series, residue theorem..."  
 ---
 <h1>{{ page.title }}</h1>
 
-{% assign figures = site.data[page.figures_data] %}
-<div class="figures-gallery">
-  {% for figure in figures %}
-    <div class="figure-item">
-      <h3>{{ figure.title }}:</h3>
-      <center><img src="{{ site.baseurl }}/{{ figure.image }}" style="max-width: 70%; height: auto;"/></center>
-      <br>
-    </div>
-  {% endfor %}
-</div>
+{% include figures.html %}
 
 <h2>PDF of all the figures:</h2>
 

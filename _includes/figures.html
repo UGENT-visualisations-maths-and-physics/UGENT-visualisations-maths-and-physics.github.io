@@ -1,0 +1,12 @@
+<!-- Code that displays all figures of a project -->
+
+{% assign figures = site.data[page.figures_data] %}
+<div class="figures-gallery">
+  {% for figure in figures %}
+    <div class="figure-item">
+      <h3>{{ figure.title }}:</h3>
+      <center><img src="{{ site.baseurl }}/{{ figure.image }}" style="max-width: 70%; height: auto;"/></center>
+      <br>
+    </div>
+  {% endfor %}
+</div>
