@@ -183,7 +183,7 @@ class tex_compiler:
         """create dictionary containing path to tex files as keys and the corresponding figure objects as values"""
         figure_dict = {}
         for i, main_tex_path in enumerate(self.sorted_main_tex_files_abs):
-            if i<2:
+            if i<5:
                 # get the relevant paths
                 parent_directory_path = os.path.dirname(main_tex_path)
                 standalone_pdf_path = os.path.join(parent_directory_path, 'standalone/standalone.pdf')
@@ -398,9 +398,15 @@ class tex_compiler:
         # Step 2: Checkout gh-pages branch (this assumes you already have it)
         subprocess.run(['git', 'checkout', 'gh-pages'])
 
+        if os.path.exists(gh_pages_asset_path):
+            shutil.rmtree(gh_pages_asset_path)  # removes the directory and its contents
+
+        if os.path.exists(gh_pages_yml_path):
+            os.remove(gh_pages_yml_path) # removes the file
+
         # Step 4: Move the generated files into place (provide full path -> will overwrite if already exists)
         shutil.move(self.yml_path, gh_pages_yml_path)  # Move the .yml file
-        shutil.move(self.asset_directory, gh_pages_asset_path)  # Move the asset file
+        shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
 
         current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip().decode('utf-8')
         print(current_branch)
