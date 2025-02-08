@@ -1,0 +1,244 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{animate}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{ifthen}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{patterns, patterns.meta}
+\usetikzlibrary{shapes}
+
+\begin{document}
+
+\centering
+
+% Put all non-frame dependend code in front (faster compilation and ensures uniform figures)
+\tikzset{
+    BigTextFont/.style={font=\large},
+    every node/.style={font=\normalsize, text=black},
+    CircleNodeStyle/.style={draw=black, shape=circle, fill=black, minimum size=\CircleSize*2 cm, inner sep=0pt},
+    arrowstyle/.style={->, >=stealth}}
+\pgfmathsetmacro{\CircleSize}{0.08} 
+\pgfmathsetmacro{\InnerCircleRadius}{1.5}
+\pgfmathsetmacro{\OuterCircleRadius}{3.0}
+\pgfmathsetmacro{\MaxSize}{5.0}
+
+
+\pgfmathsetmacro{\fps}{20}   % frames per second
+
+% first series of frames: gradually draw partition lines
+% first series of frames variables
+\pgfmathsetmacro{\FramesA}{20}                          % total amount of frames in this series
+\pgfmathsetmacro{\IncrementSeriesA}{1.0 / \FramesA}     % increment that increases the factor that lines are drawn per frame
+
+% second series of frames: gradually split the partitions apart
+% second series of frames variables
+\pgfmathsetmacro{\FramesB}{30}
+\pgfmathsetmacro{\SplitPartMax}{1.5}                     % Max separation of the 4 partitions at the end of the animation
+\pgfmathsetmacro{\IncrementSeriesB}{1.5 / \FramesB}      % increment that increases separation of the 4 partitions
+
+% third series of frames: the labels of the 4 areas are gradually displayed
+% third series of frames variables
+\pgfmathsetmacro{\FramesC}{5}
+
+% fourth series of frames: gradually show arrows around contour. 
+% fourth series of frames: variables
+\pgfmathsetmacro{\FramesD}{6}
+\pgfmathsetmacro{\FramesPerArrowA}{1}           % determines after which frame the first arrow is displayed
+\pgfmathsetmacro{\FramesPerArrowBA}{2}          % determines after which frame the second arrow is displayed
+\pgfmathsetmacro{\FramesPerArrowBB}{3}          % etc.
+\pgfmathsetmacro{\FramesPerArrowC}{4}
+\pgfmathsetmacro{\FramesPerArrowD}{5}
+
+\begin{animateinline}{\fps} % start animation and set fps
+    % first series of frames
+    \multiframe{\FramesA}{r=0+\IncrementSeriesA}{ %\FramesA are the amount of frames, r is the factor of the lines that are drawn starts from zero and each frame an increment is added
+
+        \begin{tikzpicture}[scale=0.8]
+        % same bounding box must be used over all frames to ensure same frame size!
+        \useasboundingbox (-\MaxSize, -\MaxSize) rectangle (\MaxSize, \MaxSize);
+
+        \pgfmathsetmacro{\FractionDraw}{\r}     % define \r in Tikz environment with a better variable name
+        % draw  the area
+        \draw[very thick] (0,0) circle [radius=\InnerCircleRadius];
+        \draw[very thick] (0,0) circle [radius=\OuterCircleRadius];
+
+        % define the endpoints of the partially drawn lines
+        \coordinate (UpperEndPoint) at ($(0,\InnerCircleRadius)!\FractionDraw!(0,\OuterCircleRadius)$);
+        \coordinate (LowerEndPoint) at ($(0,-\InnerCircleRadius)!\FractionDraw!(0,-\OuterCircleRadius)$);
+        \coordinate (RightEndPoint) at ($(\InnerCircleRadius, 0)!\FractionDraw!(\OuterCircleRadius, 0)$);
+        \coordinate (LeftEndPoint) at ($(-\InnerCircleRadius, 0)!\FractionDraw!(-\OuterCircleRadius, 0)$);
+
+        % partitions
+        \draw[thick] (0,\InnerCircleRadius) -- (UpperEndPoint);
+        \draw[thick] (0,-\InnerCircleRadius) -- (LowerEndPoint);
+        \draw[thick] (\InnerCircleRadius, 0) -- (RightEndPoint);
+        \draw[thick] (-\InnerCircleRadius, 0) -- (LeftEndPoint);
+
+        % fill area with pattern (even odd rule for exclusion of inner circle)
+        \fill[even odd rule, pattern={Lines[angle=30, distance=0.4cm, line width=0.6pt]}, pattern color=gray] circle (\InnerCircleRadius) circle (\OuterCircleRadius);
+
+        % G area symbol
+        \pgfmathsetmacro{\NodeRadius}{(\InnerCircleRadius + \OuterCircleRadius)/2}
+        \node[draw=white, circle, inner sep=0, fill=white, BigTextFont] at (45 : \NodeRadius) {G};
+
+    \end{tikzpicture}
+    }
+
+    \newframe         % newframe is needed for smooth transition between frames!
+    % second series of frames
+    \multiframe{\FramesB}{r=\IncrementSeriesB+\IncrementSeriesB}{ % \PartSplit is the distance that the partitions are split apart
+    
+        \begin{tikzpicture}[scale=0.8]
+        % same bounding box must be used over all frames to ensure same frame size
+        \useasboundingbox (-\MaxSize, -\MaxSize) rectangle (\MaxSize, \MaxSize);
+        
+        \pgfmathsetmacro{\PartSplit}{\r}        
+        
+        \foreach \StartAngle/\EndAngle/\label in {0/90/{$D_{3}$}, 90/180/{$D_{4}$}, 180/270/{$D_{1}$}, 270/360/{$D_{2}$}} {
+
+        % shift each part in a different direction
+        \pgfmathsetmacro{\xshift}{\PartSplit*cos((\StartAngle+\EndAngle)/2)}
+        \pgfmathsetmacro{\yshift}{\PartSplit*sin((\StartAngle+\EndAngle)/2)}
+        \begin{scope}[shift={(\xshift, \yshift)}]
+            % draw the 4 edges of the part, with arrows counterclockwise
+            \draw[very thick] (\StartAngle :\InnerCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\InnerCircleRadius];
+            \draw[very thick] (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius];
+            
+            \draw[very thick] (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius);
+
+            \draw[very thick] (\EndAngle :\InnerCircleRadius) -- (\EndAngle :\OuterCircleRadius);
+             % fill the contour
+            \fill[pattern={Lines[angle=30, distance=0.4cm, line width=0.6pt]}, pattern color=gray] (\EndAngle :\InnerCircleRadius) arc [start angle=\EndAngle, end angle=\StartAngle, radius=\InnerCircleRadius] -- (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius) -- (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius] -- cycle;
+        \end{scope}
+        }
+    \end{tikzpicture}
+    }
+
+    % third series of frames:
+    \newframe*[3]       % newframe* makes the animation wait for a mouseclick before continuing. We also set the framerate to 3 here
+    \multiframe{\FramesC}{r=1.0+1.0}{ % r is used as index and using an if statement, the labels are displayed
+
+        \begin{tikzpicture}[scale=0.8]
+        % same bounding box must be used over all frames to ensure same frame size
+        \useasboundingbox (-\MaxSize, -\MaxSize) rectangle (\MaxSize, \MaxSize);
+        
+        \pgfmathsetmacro{\PartSplit}{\SplitPartMax}
+
+        % include extra parameter to extract index
+        \foreach \Index/\StartAngle/\EndAngle/\label in {3/0/90/{$D_{3}$}, 4/90/180/{$D_{4}$}, 1/180/270/{$D_{1}$}, 2/270/360/{$D_{2}$}} {
+
+        % shift each part in a different direction
+        \pgfmathsetmacro{\xshift}{\PartSplit*cos((\StartAngle+\EndAngle)/2)}
+        \pgfmathsetmacro{\yshift}{\PartSplit*sin((\StartAngle+\EndAngle)/2)}
+        \begin{scope}[shift={(\xshift, \yshift)}]
+            % draw the 4 edges of the part, with arrows counterclockwise
+            \draw[very thick] (\StartAngle :\InnerCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\InnerCircleRadius];
+
+            \draw[very thick] (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius);
+
+            \draw[very thick] (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius];
+
+            \draw[very thick] (\EndAngle :\InnerCircleRadius) -- (\EndAngle :\OuterCircleRadius);
+
+
+            % fill the contour
+            \fill[pattern={Lines[angle=30, distance=0.4cm, line width=0.6pt]}, pattern color=gray] (\EndAngle :\InnerCircleRadius) arc [start angle=\EndAngle, end angle=\StartAngle, radius=\InnerCircleRadius] -- (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius) -- (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius] -- cycle;
+
+            \pgfmathsetmacro{\IndexNormalised}{\Index * \FramesC/ (4*1.4)}
+            \pgfmathsetmacro{\NodeRadius}{(\InnerCircleRadius + \OuterCircleRadius)/2}
+            \pgfmathsetmacro{\NodeAngle}{(\StartAngle + \EndAngle)/2}
+
+            % if statement to display label increasingly with index
+            % if num doesn't accept non integers! (-> use pgfmathparse)
+            \pgfmathparse{\r > \IndexNormalised}
+            \ifnum \pgfmathresult=1
+            \node[draw=white, circle, inner sep=0, fill=white, BigTextFont] at (\NodeAngle : \NodeRadius) {\label};
+            \fi
+
+        \end{scope}
+        }
+    \end{tikzpicture}
+    }
+
+    % fourth series of frames:
+    % The code uses a lot of if statements because the contours are split in 4 different components.
+    % for arrows around a single contour something along the lines of "mark = between positions 0.0 and \r step 0.1 with {\arrow{stealth}}" would work nicely
+    \newframe   % is needed for smooth transition
+    \multiframe{\FramesD}{r=1.0+1.0}{ % 20 frames, increasing \PartSplit from 0.1 in steps of 0.05
+
+        \begin{tikzpicture}[scale=0.8]
+        % same bounding box must be used over all frames to ensure same frame size
+        \useasboundingbox (-\MaxSize, -\MaxSize) rectangle (\MaxSize, \MaxSize);
+        
+        \pgfmathsetmacro{\PartSplit}{\SplitPartMax}
+        
+        \foreach \StartAngle/\EndAngle/\label in {0/90/{$D_{3}$}, 90/180/{$D_{4}$}, 180/270/{$D_{1}$}, 270/360/{$D_{2}$}} {
+
+        % shift each part in a different direction
+        \pgfmathsetmacro{\xshift}{\PartSplit*cos((\StartAngle+\EndAngle)/2)}
+        \pgfmathsetmacro{\yshift}{\PartSplit*sin((\StartAngle+\EndAngle)/2)}
+        \begin{scope}[shift={(\xshift, \yshift)}]
+            % draw the 4 edges of the part, with arrows counterclockwise
+            \ifnum \r > \FramesPerArrowA
+            \draw[postaction={decorate}, decoration={
+                markings,
+                mark=at position 0.50 with {\arrow{stealth}}}]
+            [very thick] (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius);
+            \else
+            \draw[very thick] (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius);
+            \fi
+            
+            \ifnum \r > \FramesPerArrowBB
+            \draw[postaction={decorate}, decoration={
+                markings,
+                mark = between positions 0.3 and 1 step 0.375 with {\arrow{stealth}}}]
+            [very thick] (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius];
+            \else
+            \draw[very thick] (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius];  
+            \fi
+
+            \ifnum \r > \FramesPerArrowBA
+            \draw[postaction={decorate}, decoration={
+                markings,
+                mark = at position 0.30 with {\arrow{stealth}}}]
+            [very thick] (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius];
+            \fi
+
+            \ifnum \r > \FramesPerArrowC
+            \draw[postaction={decorate}, decoration={
+                markings,
+                mark=at position 0.50 with  {\arrowreversed{stealth}}}]
+            [very thick] (\EndAngle :\InnerCircleRadius) -- (\EndAngle :\OuterCircleRadius);
+            \else
+            \draw[very thick] (\EndAngle :\InnerCircleRadius) -- (\EndAngle :\OuterCircleRadius);
+            \fi
+
+            \ifnum \r > \FramesPerArrowD
+            \draw[postaction={decorate}, decoration={
+            markings,
+            mark = between positions 0.375 and 1 step 0.75 with {\arrowreversed{stealth}}}]
+            [very thick] (\StartAngle :\InnerCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\InnerCircleRadius];
+            \else
+            \draw[very thick] (\StartAngle :\InnerCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\InnerCircleRadius];
+            \fi
+
+            % fill the contour
+            \fill[pattern={Lines[angle=30, distance=0.4cm, line width=0.6pt]}, pattern color=gray] (\EndAngle :\InnerCircleRadius) arc [start angle=\EndAngle, end angle=\StartAngle, radius=\InnerCircleRadius] -- (\StartAngle :\InnerCircleRadius) -- (\StartAngle :\OuterCircleRadius) -- (\StartAngle :\OuterCircleRadius) arc [start angle=\StartAngle, end angle=\EndAngle, radius=\OuterCircleRadius] -- cycle;
+
+            \pgfmathsetmacro{\NodeRadius}{(\InnerCircleRadius + \OuterCircleRadius)/2}
+            \pgfmathsetmacro{\NodeAngle}{(\StartAngle + \EndAngle)/2}
+            % display label 
+            \node[draw=white, circle, inner sep=0, fill=white, BigTextFont] at (\NodeAngle : \NodeRadius) {\label};
+            
+        \end{scope}
+        }
+    \end{tikzpicture}
+    }
+\end{animateinline}
+
+\end{document}

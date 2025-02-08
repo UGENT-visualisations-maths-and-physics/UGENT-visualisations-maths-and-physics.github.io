@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usetikzlibrary{intersections, calc}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{patterns, patterns.meta}
+\usetikzlibrary{shapes}
+\usetikzlibrary{bbox}
+
+\begin{document}
+
+\centering
+
+\begin{tikzpicture}
+\pgfmathsetmacro{\PtToCm}{0.0352777778}
+\tikzset{BigTextFont/.style={font=\large},   % Big text font
+every node/.style={font=\normalsize,text=black},  % Small text font
+arrowstyle/.style={->, >=stealth}}
+
+% custom colors
+\definecolor{Green}{rgb}{0.0, 0.4, 0.0}
+\definecolor{Red}{rgb}{1, 0, 0}
+
+\pgfmathsetmacro{\OutwardVectorSize}{0.8}       % size of the 3 outward pointed vectors
+\pgfmathsetmacro{\DesiredSurfaceWidth}{2.5}     % desired width of both the upper and lower surface
+\pgfmathsetmacro{\ProjectionZ}{-1.0}            % Z-position of the projection
+\pgfmathsetmacro{\EpsSafety}{0.10}              % us used to account for thickness lines when getting xmin and xmax values
+
+% ellipse Y to X ratio axis for the upper and lower surface bounds
+\pgfmathsetmacro{\YXratioUpperSurface}{1/10.0}
+\pgfmathsetmacro{\YXratioLowerSurface}{1/12.0}
+% ellipse Y to X relative ratio axis for outer curve of upper and lower surface
+\pgfmathsetmacro{\YXRelativeRatioUpperCurve}{3.0}
+\pgfmathsetmacro{\YXRelativeRatioLowerCurve}{3.5}
+
+% axes
+\pgfmathsetmacro{\AxisSize}{6.0} 
+\pgfmathsetmacro{\OvershootAxis}{1.3} 
+% x and z-axes
+\draw[arrowstyle, thick] (-\OvershootAxis,0) -- (\AxisSize,0) node[pos=1, right, BigTextFont] {$y$};
+\draw[arrowstyle, thick] (0,-\OvershootAxis) -- (0,\AxisSize * 0.85) node[pos=1, above, BigTextFont] {$z$};
+% y-axis (angled)
+\pgfmathsetmacro{\ZAxisBeginX}{cos(45) * \OvershootAxis * 0.7}
+\pgfmathsetmacro{\ZAxisBeginY}{ sin(45) * \OvershootAxis * 0.7}
+\pgfmathsetmacro{\ZAxisEndX}{- cos(45) * 0.5 * \AxisSize}
+\pgfmathsetmacro{\ZAxisEndY}{ - sin(45) * 0.5 * \AxisSize}
+\draw[arrowstyle, thick] (\ZAxisBeginX, \ZAxisBeginY) -- (\ZAxisEndX, \ZAxisEndY) node[pos=1, below left, BigTextFont] {$x$};
+
+% Upper surface
+% save bounding box (as plotbox), this will later be used for checking the max and min of the path. The bezier bounding box is used because it is needed for a proper box when using rotations.
+\tikzset{UpperSurfaceTransformation/.style={shift={(2,3.2)},rotate=30, yscale=1.0 * \YXratioUpperSurface, xscale=1.0}}    % define transformation
+\begin{scope}[local bounding box=plotbox, bezier bounding box]
+    \path[name path global=myplot, thick,->, UpperSurfaceTransformation] (0,0) circle [radius=0.3];    % create some kind of ellips shape
+\end{scope}
+
+% Function: get the min and max x- and y-values of a path 
+\def\GetMinAndMaxPath{%
+% get the max x- and y-values of a path 
+\path[name path=myplotmax] (plotbox.south east) -- (plotbox.north east);    % this is the right bound of the bounding box
+\path[name intersections={of=myplot and myplotmax, by={mymax}}];            % get intersection point of right bound bounding box and the shape/path
+% extract x- and y- dimension of the intersection point
+\newdimen\xmaxPt
+\newdimen\ymaxPt 
+\pgfextractx{\xmaxPt}{\pgfpointanchor{mymax}{center}}
+\pgfextracty{\ymaxPt}{\pgfpointanchor{mymax}{center}}
+% convert from Pt to cm
+\pgfmathsetmacro{\xmax}{\xmaxPt * \PtToCm}
+\pgfmathsetmacro{\ymax}{\ymaxPt * \PtToCm}  
+
+% get the min x- and y-values of a path 
+\path[name path=myplotmin] (plotbox.south west) -- (plotbox.north west);    % this is the left bound of the bounding box
+\path[name intersections={of=myplot and myplotmin, by={mymin}}];
+\newdimen\xminPt 
+\newdimen\yminPt 
+\pgfextractx{\xminPt}{\pgfpointanchor{mymin}{center}}
+\pgfextracty{\yminPt}{\pgfpointanchor{mymin}{center}}  
+\pgfmathsetmacro{\xmin}{\xminPt * \PtToCm}
+\pgfmathsetmacro{\ymin}{\yminPt * \PtToCm}
+
+% determine scale factor to ensure a certain width
+\pgfmathsetmacro{\xwidth}{(\xmax - \xmin)}
+\pgfmathsetmacro{\scale}{\DesiredSurfaceWidth / \xwidth}
+}
+
+% call function to get proper scaling
+\GetMinAndMaxPath{}
+
+% now draw using the proper scaling
+\tikzset{UpperSurfaceTransformation/.style={shift={(2,3.2)},rotate=30, yscale=\scale * \YXratioUpperSurface, xscale=\scale}}
+\begin{scope}[local bounding box=plotbox, bezier bounding box]
+    \path[name path global=myplot, thick, Green, UpperSurfaceTransformation] (0,0) circle [radius=0.3];
+\end{scope}
+
+% draw full part of bounds
+\begin{scope}[UpperSurfaceTransformation]
+    \clip (- 0.3 - \EpsSafety, -0.3 - \EpsSafety) rectangle (0.3 + \EpsSafety, 0.0);
+    \draw[thick, Green] (0,0) circle [radius=0.3];
+\end{scope}
+% draw dashed part of bounds
+\begin{scope}[UpperSurfaceTransformation]
+    \clip (- 0.3 - \EpsSafety, 0.0) rectangle (0.3 + \EpsSafety, 0.3 + \EpsSafety);
+    \draw[thick, Green, densely dashed] (0,0) circle [radius=0.3];
+\end{scope}
+% draw outer curve
+\begin{scope}[shift={(2,3.2)},rotate=30, yscale=\scale * \YXRelativeRatioUpperCurve * \YXratioUpperSurface, xscale=\scale]
+    \clip (- 0.3 - \EpsSafety, 0.0) rectangle (0.3 + \EpsSafety, 0.3 + \EpsSafety);
+    \draw[thick, Green] (0,0) circle [radius=0.3];
+\end{scope}
+
+
+% draw 1st outward vector
+\pgfmathsetmacro{\StartYVectorA}{\YXRelativeRatioUpperCurve * \YXratioUpperSurface * (\DesiredSurfaceWidth / 2)}    % get the height of the outer curve/ellipse
+\draw[postaction={decorate}, decoration={
+    markings,
+    mark=at position 0.50 with {\node[left, BigTextFont] {$\vec{n}^{\,u}$};},
+    }]
+[thick, arrowstyle, shift={(2,3)},rotate=30] (0, \StartYVectorA) -- (0, \StartYVectorA + \OutwardVectorSize);
+
+% get resulting min and max values for later side wall drawing
+\GetMinAndMaxPath{}
+\coordinate (UpperLeft) at (\xmin, \ymin);
+\coordinate (UpperRight) at (\xmax, \ymax);
+\node at (UpperRight) [anchor=200, outer sep=0.3cm, text=Green] {$[x,y,\beta(x,y)]$};   % parametric equation upper surface
+
+% Lower Surface: by analogy as Upper Surface
+\tikzset{LowerSurfaceTransformation/.style={shift={(2,1.5)}, rotate=-10, yscale=1.0 * \YXratioLowerSurface, xscale=1.0}}
+\begin{scope}[local bounding box=plotbox, bezier bounding box]
+    \path[name path global=myplot, thick, LowerSurfaceTransformation] (0,0) circle [radius=0.3];
+\end{scope}
+
+\GetMinAndMaxPath{}
+
+\tikzset{LowerSurfaceTransformation/.style={shift={(2,1.2)}, rotate=-10, yscale=\YXratioLowerSurface * \scale, xscale=\scale}}
+\begin{scope}[local bounding box=plotbox, bezier bounding box]
+    \path[name path global=myplot, thick, Red, LowerSurfaceTransformation] (0,0) circle [radius=0.3];
+\end{scope}
+
+% draw full part of bounds
+\begin{scope}[LowerSurfaceTransformation]
+    \clip (- 0.3 - \EpsSafety, -0.3 - \EpsSafety) rectangle (0.3 + \EpsSafety, 0.0);
+    \draw[thick, Red] (0,0) circle [radius=0.3];
+\end{scope}
+% draw dashed part of bounds
+\begin{scope}[LowerSurfaceTransformation]
+    \clip (- 0.3 - \EpsSafety, 0.0) rectangle (0.3 + \EpsSafety, 0.3 + \EpsSafety);
+    \draw[thick, Red, densely dashed] (0,0) circle [radius=0.3];
+\end{scope}
+% draw outer curve
+\begin{scope}[shift={(2,1.2)}, rotate=-10, yscale=\YXRelativeRatioLowerCurve * \YXratioLowerSurface * \scale, xscale=\scale]
+    \clip (- 0.3 - \EpsSafety, -0.3 - \EpsSafety) rectangle (0.3 + \EpsSafety, 0.0);
+    \draw[thick, Red] (0,0) circle [radius=0.3];
+\end{scope}
+
+% draw 2nd outward vector
+\pgfmathsetmacro{\StartYVectorB}{- \YXRelativeRatioLowerCurve * \YXratioLowerSurface * (\DesiredSurfaceWidth / 2)}
+\draw[postaction={decorate}, decoration={
+    markings,
+    mark=at position 0.70 with {\node[right, BigTextFont] {$\vec{n}^{\,u}$};}, 
+    }]
+[thick, arrowstyle, shift={(2,1.2)},rotate=-10] (0,\StartYVectorB) -- (0,\StartYVectorB-\OutwardVectorSize);
+
+\GetMinAndMaxPath{}
+\coordinate (LowerLeft) at (\xmin, \ymin);
+\coordinate (LowerRight) at (\xmax, \ymax);
+\node at (LowerRight) [anchor=west, outer sep=0.3cm, text=Red] {$[x,y,\alpha(x,y)]$};  % parametric equation lower surface
+
+% side walls
+\draw[thick] (LowerLeft)--(UpperLeft);
+\draw[thick] (LowerRight)--(UpperRight);
+
+% third outward vector
+\coordinate (UpRight) at ($(LowerRight)!0.70!(UpperRight)$);
+\draw[postaction={decorate}, decoration={
+    markings,
+    mark=at position 1.0 with {\node[right] {$\vec{n}^{\,u}=[n_1, n_2, 0]$};}, 
+    }]
+[thick, arrowstyle] (UpRight) -- ($(UpRight) + (\OutwardVectorSize, 0)$);
+
+% dashed lines representing projection
+\draw[semithick, densely dashed] (\xmin, \ProjectionZ)--(LowerLeft);
+\draw[semithick, densely dashed] (\xmax, \ProjectionZ)--(LowerRight);
+
+% projection itself: ellips shape
+\pgfmathsetmacro{\ProjectionX}{(\xmax + \xmin) / 2}
+\pgfmathsetmacro{\ProjectionRadius}{(\xmax - \xmin) / 2}
+\fill[pattern={Lines[angle=30, distance=0.2cm, line width=0.6pt]}, pattern color=gray, shift={(\ProjectionX, \ProjectionZ)}, yscale=0.3] (0, 0) circle[radius=\ProjectionRadius];
+\draw[semithick, shift={(\ProjectionX, \ProjectionZ)}, yscale=0.3] (0, 0) circle[radius=\ProjectionRadius];
+\node at (\ProjectionX, \ProjectionZ) [draw=white, ellipse, inner sep=0, fill=white, BigTextFont, BigTextFont] {$V_{xy}$};     % node with projection name
+
+\end{tikzpicture}
+
+\end{document}
