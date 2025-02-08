@@ -401,11 +401,11 @@ class tex_compiler:
 
         # Step 4: Move the generated files into place
         print(self.yml_path)
-        print( gh_pages_yml_parent_path)
+        print(gh_pages_yml_parent_path)
         shutil.move(self.yml_path, gh_pages_yml_parent_path)  # Move the .yml file
         print(self.asset_directory)
         print(gh_pages_asset_parent_path)
-        shutil.move(self.asset_parent_directory, gh_pages_asset_parent_path)  # Move the asset file
+        shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
 
         # Step 5: Add, commit, and push changes
         subprocess.run(['git', 'add', '.'])
