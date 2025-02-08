@@ -1,2 +1,5 @@
 # ignore all standalone outputs
 standalone
+
+# ignore summary files
+Calculus_III.tex
