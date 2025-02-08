@@ -31,6 +31,5 @@ env/
 *.fls
 *.log
 *.synctex.gz
-*.pdf
 *.toc
 *.out
