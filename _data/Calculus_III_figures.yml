@@ -6,3 +6,15 @@
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.4_Example_evolute_catenary/standalone.PNG
   properties:
     format: PNG
+- title: 1.2.5 Example involute catenary (tractrix)
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.5_Example_involute_catenary_(tractrix)/standalone.PNG
+  properties:
+    format: PNG
+- title: 1.2.8 Example envelope family of straight lines
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.8_Example_envelope_family_of_straight_lines/standalone.PNG
+  properties:
+    format: PNG
+- title: 2.3 Gradient of scalar field
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH2_Fields/2.3_Gradient_of_scalar_field/standalone.PNG
+  properties:
+    format: PNG
