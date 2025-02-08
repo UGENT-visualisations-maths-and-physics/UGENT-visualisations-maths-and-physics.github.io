@@ -358,16 +358,16 @@ class tex_compiler:
             yaml.dump(figures_yml_data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     def push_content_to_gh_pages(self):
-        local_export_folder = self.script_dir   # temporarily store in parent folder
+        # Step 1: retrieve repository root directory
+        repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
+
+        local_export_folder = os.path.dirname(repo_dir)   # temporarily store in parent folder
         # define paths
         self.asset_parent_directory = os.path.join(local_export_folder, self.project_name)
         self.yml_path = os.path.join(local_export_folder, self.project_name + "_figures.yml")    # path for the yml file
         # export figures and .yml file
-        #self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
-        #self.make_figures_yml(local_export_folder)
-
-        # Step 1: retrieve repository root directory
-        repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
+        self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
+        self.make_figures_yml(local_export_folder)
 
         # paths in the gh-pages branch
         gh_pages_yml_parent_path = os.path.join(repo_dir, '_data')
