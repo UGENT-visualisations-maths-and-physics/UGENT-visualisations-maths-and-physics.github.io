@@ -176,7 +176,7 @@ class tex_compiler:
 
         self.summary_pdf_path = None    # path for the summary pdf
         # variables for web export
-        self.asset_parent_directory = None
+        self.asset_directory = None
         self.yml_path = None
 
     def create_figure_dict(self):
@@ -403,7 +403,7 @@ class tex_compiler:
         print(self.yml_path)
         print( gh_pages_yml_parent_path)
         shutil.move(self.yml_path, gh_pages_yml_parent_path)  # Move the .yml file
-        print(self.asset_parent_directory)
+        print(self.asset_directory)
         print(gh_pages_asset_parent_path)
         shutil.move(self.asset_parent_directory, gh_pages_asset_parent_path)  # Move the asset file
 
