@@ -1,0 +1,34 @@
+# tells git to ignore certain files, as they are locally generated (and need to be kept local)
+# Python bytecode cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# build artifacts
+artifacts/
+build/
+dist/
+*.egg-info/
+
+# outputs as (can be dynamically regenerated)
+output/
+
+# mac artifacts
+.DS_store
+
+# virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.pdf
+*.toc
+*.out
