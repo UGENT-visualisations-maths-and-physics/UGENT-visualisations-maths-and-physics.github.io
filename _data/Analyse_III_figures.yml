@@ -1,0 +1,121 @@
+- title: 1.2.3 Voorbeeld evolute cycloïde
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H1_Krommen/1.2_Vlakke_krommen/1.2.3_Voorbeeld_evolute_cycloïde/standalone.PNG
+  properties:
+    format: PNG
+- title: 1.2.4 Voorbeeld evolute kettinglijn
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H1_Krommen/1.2_Vlakke_krommen/1.2.4_Voorbeeld_evolute_kettinglijn/standalone.PNG
+  properties:
+    format: PNG
+- title: 1.2.5 Voorbeeld evolvente kettinglijn (tractrix)
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H1_Krommen/1.2_Vlakke_krommen/1.2.5_Voorbeeld_evolvente_kettinglijn_(tractrix)/standalone.PNG
+  properties:
+    format: PNG
+- title: 1.2.8 Voorbeeld omhullende schaar van rechten
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H1_Krommen/1.2_Vlakke_krommen/1.2.8_Voorbeeld_omhullende_schaar_van_rechten/standalone.PNG
+  properties:
+    format: PNG
+- title: 2.3 Gradiënt van een scalair veld
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H2_Velden/2.3_Gradiënt_van_een_scalair_veld/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.1 Lijnintegraal van een scalair veld
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.1_Lijnintegraal_van_een_scalair_veld/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.2 Lijnintegraal van een vectorveld
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.2_Lijnintegraal_van_een_vectorveld/3.2_Lijnintegraal
+    van een vectorveld/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.4.2 Conservatief veld langs gesloten kromme
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.4_Lijnintegraal_van_een_conservatief_vectorveld/3.4.2_Conservatief_veld_langs_gesloten_kromme/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.4.3 Bewijs conservatief veld
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.4_Lijnintegraal_van_een_conservatief_vectorveld/3.4.3_Bewijs_conservatief_veld/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.5.1 Bewijs stelling van Green
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.5_De_stelling_van_Green/3.5.1_Bewijs_stelling_van_Green/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.5.2 Unie van normaalgebieden
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.5_De_stelling_van_Green/3.5.2_Unie_van_normaalgebieden/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.5.4 Alternatieve formulering stelling van Green
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H3_Lijnintegralen/3.5_De_stelling_van_Green/3.5.4_Alternatieve_formulering_stelling_van_Green/standalone.PNG
+  properties:
+    format: PNG
+- title: 4.1 Oppervlakintegraal van een scalair veld
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H4_Oppervlakintegralen/4.1_Oppervlakintegraal_van_een_scalair_veld/4.1_Oppervlakintegraal_van_een_scalair_veld/standalone.PNG
+  properties:
+    format: PNG
+- title: 4.4.1 De divergentiestelling
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H4_Oppervlakintegralen/4.4_De_divergentiestelling/4.4.1_De_divergentiestelling/standalone.PNG
+  properties:
+    format: PNG
+- title: 4.6.0 Kurkentrekkerregel
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H4_Oppervlakintegralen/4.6_Stelling_van_Stokes/4.6.0_Kurkentrekkerregel/standalone.PNG
+  properties:
+    format: PNG
+- title: 4.6.1 Stelling van Stokes
+  image: assets/generated_figures/Analyse_III/I_Vectorcalculus/H4_Oppervlakintegralen/4.6_Stelling_van_Stokes/4.6.1_Stelling_van_Stokes/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.1 Inverse functie
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H5_Lijnintegraal_van_een_complexe_functie/5.1_Inverse_functie/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.1 Complexe functie
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H5_Lijnintegraal_van_een_complexe_functie/5.1_Complexe_functie/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.1.2
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H5_Lijnintegraal_van_een_complexe_functie/5.1.2/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.2 Complexe lijnintegraal
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H5_Lijnintegraal_van_een_complexe_functie/5.2_Complexe_lijnintegraal/standalone.PNG
+  properties:
+    format: PNG
+- title: 6.2.1 Complexe afgeleide
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H6_Holomorfe_functies/6.2_Complexe_afgeleide/6.2.1_Complexe_afgeleide/standalone.PNG
+  properties:
+    format: PNG
+- title: 6.3 Formule van Cauchy voor disjuncte gaten
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H6_Holomorfe_functies/6.3_Formule_van_Cauchy_voor_disjuncte_gaten/standalone.PNG
+  properties:
+    format: PNG
+- title: 6.3 Contour niet enkelvoudig samenhangend
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H6_Holomorfe_functies/6.3_Contour_niet_enkelvoudig_samenhangend/standalone.PNG
+  properties:
+    format: PNG
+- title: 6.3 Contour enkelvoudig samenhangend
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H6_Holomorfe_functies/6.3_Contour_enkelvoudig_samenhangend/standalone.PNG
+  properties:
+    format: PNG
+- title: 6.3.3 Bewijs integraalformule van Cauchy
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H6_Holomorfe_functies/6.3_Stelling_en_formule_van_Cauchy/6.3.3_Bewijs_integraalformule_van_Cauchy/standalone.PNG
+  properties:
+    format: PNG
+- title: 7.2.4 Stelling convergentiegebieden PMR en NMR
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H7_Rijen_en_reeksen_van_holomorfe_functies/7.2.4_Stelling_convergentiegebieden_PMR_en_NMR/standalone.PNG
+  properties:
+    format: PNG
+- title: 8.2.1 Bewijs Stelling Laurentreeks
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H8_Lokaal_gedrag_van_holomorfe_functies/8.2.1_Bewijs_Stelling_Laurentreeks/standalone.PNG
+  properties:
+    format: PNG
+- title: 8.5.6 Residustelling voor gebied met meerdere singularitieiten
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H8_Lokaal_gedrag_van_holomorfe_functies/8.5.6_Residustelling_voor_gebied_met_meerdere_singularitieiten/standalone.PNG
+  properties:
+    format: PNG
+- title: 9.3 Kleine limietstelling
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H9_Toepassingen/9.3_Kleine_limietstelling/standalone.PNG
+  properties:
+    format: PNG
+- title: 9.5 Sommaties van reeksen
+  image: assets/generated_figures/Analyse_III/II_Complexe_analyse/H9_Toepassingen/9.5_Sommaties_van_reeksen/standalone.PNG
+  properties:
+    format: PNG
