@@ -183,18 +183,19 @@ class tex_compiler:
         """create dictionary containing path to tex files as keys and the corresponding figure objects as values"""
         figure_dict = {}
         for i, main_tex_path in enumerate(self.sorted_main_tex_files_abs):
-            # get the relevant paths
-            parent_directory_path = os.path.dirname(main_tex_path)
-            standalone_pdf_path = os.path.join(parent_directory_path, 'standalone/standalone.pdf')
-            standalone_directory_path = os.path.join(parent_directory_path, 'standalone')                              
-            standalone_tex_path = os.path.join(parent_directory_path, 'standalone/standalone.tex')
-            standalone_pdf_rel_path = os.path.relpath(standalone_pdf_path, self.script_dir)
+            if i<2:
+                # get the relevant paths
+                parent_directory_path = os.path.dirname(main_tex_path)
+                standalone_pdf_path = os.path.join(parent_directory_path, 'standalone/standalone.pdf')
+                standalone_directory_path = os.path.join(parent_directory_path, 'standalone')                              
+                standalone_tex_path = os.path.join(parent_directory_path, 'standalone/standalone.tex')
+                standalone_pdf_rel_path = os.path.relpath(standalone_pdf_path, self.script_dir)
 
-            # relative path of standalone pdf directory, for export to syllabus or website
-            export_directory_rel_path = os.path.join(self.project_name, os.path.relpath(parent_directory_path, self.script_dir)).replace(".tex", "")
+                # relative path of standalone pdf directory, for export to syllabus or website
+                export_directory_rel_path = os.path.join(self.project_name, os.path.relpath(parent_directory_path, self.script_dir)).replace(".tex", "")
 
-            figure_object = figure(standalone_directory_path=standalone_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, export_directory_rel_path=export_directory_rel_path)
-            figure_dict[main_tex_path] = figure_object
+                figure_object = figure(standalone_directory_path=standalone_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, export_directory_rel_path=export_directory_rel_path)
+                figure_dict[main_tex_path] = figure_object
         return figure_dict
     
     def update_figures_section(self):
