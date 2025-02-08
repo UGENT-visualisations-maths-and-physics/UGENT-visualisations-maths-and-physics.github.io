@@ -2,3 +2,7 @@
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.3_Example_evolute_cycloid/standalone.PNG
   properties:
     format: PNG
+- title: 1.2.4 Example evolute catenary
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.4_Example_evolute_catenary/standalone.PNG
+  properties:
+    format: PNG
