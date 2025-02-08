@@ -183,23 +183,24 @@ class tex_compiler:
         """create dictionary containing path to tex files as keys and the corresponding figure objects as values"""
         figure_dict = {}
         for i, main_tex_path in enumerate(self.sorted_main_tex_files_abs):
-            # get the relevant paths
-            parent_directory_path = os.path.dirname(main_tex_path)
-            standalone_pdf_path = os.path.join(parent_directory_path, 'standalone/standalone.pdf')
-            standalone_directory_path = os.path.join(parent_directory_path, 'standalone')                              
-            standalone_tex_path = os.path.join(parent_directory_path, 'standalone/standalone.tex')
-            standalone_pdf_rel_path = os.path.relpath(standalone_pdf_path, self.script_dir)
+            if i==0:    # TODO: remove
+                # get the relevant paths
+                parent_directory_path = os.path.dirname(main_tex_path)
+                standalone_pdf_path = os.path.join(parent_directory_path, 'standalone/standalone.pdf')
+                standalone_directory_path = os.path.join(parent_directory_path, 'standalone')                              
+                standalone_tex_path = os.path.join(parent_directory_path, 'standalone/standalone.tex')
+                standalone_pdf_rel_path = os.path.relpath(standalone_pdf_path, self.script_dir)
 
-            # relative path of standalone pdf directory, for export to syllabus or website
-            export_directory_rel_path = os.path.join(self.project_name, os.path.relpath(parent_directory_path, self.script_dir)).replace(".tex", "")
+                # relative path of standalone pdf directory, for export to syllabus or website
+                export_directory_rel_path = os.path.join(self.project_name, os.path.relpath(parent_directory_path, self.script_dir)).replace(".tex", "")
 
-            figure_object = figure(standalone_directory_path=standalone_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, export_directory_rel_path=export_directory_rel_path)
-            figure_dict[main_tex_path] = figure_object
+                figure_object = figure(standalone_directory_path=standalone_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, export_directory_rel_path=export_directory_rel_path)
+                figure_dict[main_tex_path] = figure_object
         return figure_dict
     
     def update_figures_section(self):
         """Update the sections for every figure object"""
-        for i, main_tex_path in enumerate(self.sorted_main_tex_files_abs):
+        for main_tex_path in self.figure_dict:
             figure_object = self.figure_dict[main_tex_path]
             if os.path.exists(main_tex_path):
                 # extract the section number and actual section code
@@ -373,11 +374,10 @@ class tex_compiler:
 
         # paths in the gh-pages branch of parent directories
         gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
-        gh_pages_yml_parent_path = os.path.join(repo_dir, '_data')
         
         # paths in the gh-pages branch of actual directory/file
         gh_pages_asset_path = os.path.join(gh_pages_asset_parent_path, asset_directory_name)
-        gh_pages_yml_path = os.path.join(gh_pages_yml_parent_path, yml_file_name)
+        gh_pages_yml_path = os.path.join(repo_dir, '_data', yml_file_name)
 
         # export figures and .yml file to temporary location
         self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
@@ -386,6 +386,11 @@ class tex_compiler:
         # navigate to repo_dir:
         os.chdir(repo_dir)
 
+        print(self.yml_path)
+        print(gh_pages_yml_path)
+        print(self.asset_directory)
+        print(gh_pages_asset_parent_path)
+        
         # Step 2: Checkout gh-pages branch (this assumes you already have it)
         subprocess.run(['git', 'checkout', 'gh-pages'])
 
@@ -398,11 +403,9 @@ class tex_compiler:
             os.remove(gh_pages_yml_path)
 
         # Step 4: Move the generated files into place
-        print(self.yml_path)
-        print(gh_pages_yml_parent_path)
-        shutil.move(self.yml_path, gh_pages_yml_parent_path)  # Move the .yml file
-        print(self.asset_directory)
-        print(gh_pages_asset_parent_path)
+        
+        
+        shutil.move(self.yml_path, gh_pages_yml_path)  # Move the .yml file
         shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
 
         current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip().decode('utf-8')
