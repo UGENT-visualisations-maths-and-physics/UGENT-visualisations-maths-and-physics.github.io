@@ -374,10 +374,14 @@ class tex_compiler:
 
         # paths in the gh-pages branch of parent directories
         gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
-        
+        gh_pages_yml_parent_path = os.path.join(repo_dir, '_data')
+        # ensure parent directories exist
+        self.ensure_directories_exist(gh_pages_asset_parent_path)
+        self.ensure_directories_exist(gh_pages_yml_parent_path)
+
         # paths in the gh-pages branch of actual directory/file
         gh_pages_asset_path = os.path.join(gh_pages_asset_parent_path, asset_directory_name)
-        gh_pages_yml_path = os.path.join(repo_dir, '_data', yml_file_name)
+        gh_pages_yml_path = os.path.join(gh_pages_yml_parent_path, yml_file_name)
 
         # export figures and .yml file to temporary location
         self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
