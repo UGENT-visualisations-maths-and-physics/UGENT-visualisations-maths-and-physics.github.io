@@ -175,6 +175,9 @@ class tex_compiler:
         self.figure_dict = self.create_figure_dict()
 
         self.summary_pdf_path = None    # path for the summary pdf
+        # variables for web export
+        self.asset_parent_directory = None
+        self.yml_path = None
 
     def create_figure_dict(self):
         """create dictionary containing path to tex files as keys and the corresponding figure objects as values"""
@@ -327,13 +330,13 @@ class tex_compiler:
             # compile standalone.tex file
             subprocess.run(['pdflatex', '-output-directory', destination_directory, destination_tex])
 
-    def convert_to_PNG_and_export(self, dpi_used=200):
+    def convert_to_PNG_and_export(self, local_export_folder, dpi_used=200):
         """Convert all figures to PNG (websites have bad support for pdf viewing) and export"""
         for main_tex_path in self.figure_dict:
             figure_object = self.figure_dict[main_tex_path]
             # define the absolute paths of the destination directory and PNG
-            destination_PNG = os.path.join(Image_destination_folder, figure_object.destination_PNG_rel)        # file path of the copied file
-            destination_directory = os.path.join(Image_destination_folder, figure_object.export_directory_rel_path)
+            destination_PNG = os.path.join(local_export_folder, figure_object.destination_PNG_rel)        # file path of the copied file
+            destination_directory = os.path.join(local_export_folder, figure_object.export_directory_rel_path)
 
             self.ensure_directories_exist(destination_directory)         # ensure all parent directories exists
 
@@ -341,10 +344,10 @@ class tex_compiler:
             image = pdf2image.convert_from_path(figure_object.standalone_pdf_path , dpi=dpi_used)     # dpi=Dots per inch, determines quality
             image[0].save(destination_PNG, 'PNG')       # Save the first page as PNG
         # also copy the summary pdf
-        parent_destination_directory = os.path.join(Image_destination_folder, self.project_name)
-        shutil.copy(self.summary_pdf_path, parent_destination_directory)
+        self.asset_parent_directory = os.path.join(local_export_folder, self.project_name)
+        shutil.copy(self.summary_pdf_path, self.asset_parent_directory)
         
-    def make_figures_yml(self):
+    def make_figures_yml(self, local_export_folder):
         figures_yml_data = []   # list containing all figure data
         for main_tex_path in self.figure_dict:
             figure_object = self.figure_dict[main_tex_path]
@@ -352,8 +355,37 @@ class tex_compiler:
             figures_yml_data.append(figure_object.YAML_data)
         
         # write to a .yml file
-        yml_path = os.path.join(Image_destination_folder, self.project_name + "_figures.yml")    # path for the yml file
+        self.yml_path = os.path.join(local_export_folder, self.project_name + "_figures.yml")    # path for the yml file
         # Ensure figures_yml_data is wrapped as a list if it's not already
-        with open(yml_path, 'w') as file:
+        with open(self.yml_path, 'w') as file:
             yaml.dump(figures_yml_data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
-                
+
+    def push_content_to_gh_pages(self):
+        local_export_folder = self.script_dir   # temporarily store in parent folder
+        # export figures and .yml file
+        self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
+        self.make_figures_yml(local_export_folder)
+
+        
+        repo_dir = os.getcwd()  # current working directory is the repo directory
+
+        # paths in the gh-pages branch
+        gh_pages_yml_parent_path = os.path.join(repo_dir, '_data')
+        gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
+
+        # navigate to repo_dir:
+        os.chdir(repo_dir)
+
+        # Step 2: Checkout gh-pages branch (this assumes you already have it)
+        subprocess.run(['git', 'checkout', 'gh-pages'])
+
+        # Step 3: Move the generated files into place
+        shutil.move(self.yml_path, gh_pages_yml_parent_path)  # Move the .yml file
+        shutil.move(self.asset_parent_directory, gh_pages_asset_parent_path)  # Move the asset file
+
+        # Step 4: Add, commit, and push changes
+        subprocess.run(['git', 'add', '.'])
+        subprocess.run(['git', 'commit', '-m', 'Update assets and YAML for gh-pages'])
+        subprocess.run(['git', 'push', 'origin', 'gh-pages'])
+
+        print("Files successfully pushed to gh-pages branch!")

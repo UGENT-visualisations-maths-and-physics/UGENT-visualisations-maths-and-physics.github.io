@@ -7,6 +7,5 @@ Analyse_compiler = tex_compiler(folder="Calculus_III")
 Analyse_compiler.create_standalone_tex_files(reset=False)
 Analyse_compiler.create_summary_file(title="Calculus_III", authors="Felix Claeys, Brecht Verbeken, Simon Verbruggen")
 #%%
-Analyse_compiler.convert_to_PNG_and_export()
-Analyse_compiler.make_figures_yml()
+Analyse_compiler.push_content_to_gh_pages()
 # %%
