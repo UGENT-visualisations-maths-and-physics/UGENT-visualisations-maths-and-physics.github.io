@@ -16,7 +16,7 @@ setup(
     name='math_visualisations',     # package name
     version='0.1',
     packages=find_packages(),
-    install_requires = ['numpy'],   # specifies which packages get installed
+    install_requires = ['numpy', "pdf2image", "pyyaml"],   # specifies which packages get installed
     include_package_data=True,
     python_requires='>=3.6',        # specify Python version requirement
 )
