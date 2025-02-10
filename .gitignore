@@ -1,3 +1,4 @@
+# avoid commit problems when switching branches in VSCODE
 visualisations
 
 # tells git to ignore certain files, as they are locally generated (and need to be kept local)
