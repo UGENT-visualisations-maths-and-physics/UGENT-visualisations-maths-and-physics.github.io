@@ -1,0 +1,79 @@
+Note: substitute the placeholder text in <> with your personal details.
+
+1. Create UGent github account: https://github.ugent.be/ (log in with UGent username (not email adress!) and UGent password)
+
+Video for steps 2. and 3. : https://www.youtube.com/watch?v=cGcpVQlhbuI
+2. Generate SSH key: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac
+(Follow these steps "Generating a new SSH key" and "Adding your SSH key to the ssh-agent")
+
+Note: the SSH config file should be different for UGent account than in the tutorials above. 
+The config file is located in the .ssh folder, which has the path C:\Users\<YourUsername>\.ssh, by default.
+
+Replace the config file's content with this (with IdentityFileRelativePath by default: ~/.ssh/id_ed22519):
+
+Host github.ugent.be
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile IdentityFileRelativePath
+
+3. Add (copy paste) SSH key to github account: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=mac
+
+4. Download and install Visual studio code (VSCODE)
+5. Install github extensions for VScode: Remote repositories, Github Repositories, Github Pull request
+- (optional) Install usefull VScode extensions: Python, Jupyter, SVG previewer, ...
+
+6. Check if git is installed (should be fine for MAC)
+- execute in terminal:
+
+    git --version
+
+- if no error (for example a good response is "git version 2.41.0") -> everything is fine.
+
+7. Setup username and email in git config file:
+
+- Execute in terminal:
+
+git config --global user.name "<UGentUsername>"
+
+- Execute in terminal:
+
+git config --global user.email "<UGentEmail@UGent.be>"
+
+These can be checked via:
+
+git config --global user.name 
+
+git config --global user.email
+
+8. Check SSH connection: 
+
+- execute in terminal:
+
+ssh -T git@github.ugent.be
+
+- If prompted:
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+    
+  Execute in terminal: 
+    yes
+
+- Upon succes the response is:
+Warning: Permanently added 'github.ugent.be' (ECDSA) to the list of known hosts.
+Hi <UGentUsername>! You've sucessfully authenticated, but Github does not provide shell acess.
+
+9. Clone a repository (ensure you have access to the repository you want to clone):
+- Open search bar (at the top) of Vscode
+- Click on "Show and Run Commands"
+- Search: "git:clone"
+- Provide repository URL (in “provide repository URL or pick a repository source.”)
+- Choose repository location on computer
+
+10. (optional) Follow setup instructions (setup.py or README) of the repository
+
+11. Check pushing and pulling: 
+- Alter a file
+- Go to source control (left panel VScode)
+- Give in a random message (there MUST be a message) and commit
+- Sync (Push and pull)
+- Check if your changes are adapted in the used ugent.github repository
+

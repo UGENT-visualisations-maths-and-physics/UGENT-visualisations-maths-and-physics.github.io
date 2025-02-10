@@ -1,0 +1,93 @@
+Note: substitute the placeholder text in <> with your personal details.
+
+1. Create UGent github account: https://github.ugent.be/ (log in with UGent username (not email adress!) and UGent password)
+
+Video for steps 2. and 3. : ADD
+2. Generate SSH key: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows
+(Follow these steps "Generating a new SSH key" and "Adding your SSH key to the ssh-agent")
+3. Create SSH config file:
+
+- Check the path to the .ssh folder (where it is located), by default this is C:\Users\<YourUsername>\.ssh we will call this path "Path.ssh".
+- Open powershell as administrator (https://www.ninjaone.com/blog/open-an-elevated-powershell-prompt/#:~:text=Right%2Dclick%20on%20%E2%80%9CWindows%20PowerShell,Administrator%E2%80%9D%20in%20the%20title%20bar.)
+- Execute in powershell, (replace <Path.ssh>, with your path to the ssh folder):
+
+New-Item -Path <Path.ssh>\config -ItemType File -Force
+
+- Go to the config file (located in the path above), open it and replace its content with the following (with <RelativePathIdentityFile> per default: ~/.ssh/id_ed22519):
+
+Host ugent.github.be
+    HostName github.ugent.be
+    User <UgentUsername>
+    IdentityFile <RelativePathIdentityFile>
+
+4. Add (copy paste) SSH key to github account: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=windows
+
+5. Download and install Visual studio code (VSCODE)
+6. Install github extensions for VScode: Remote repositories, Github Repositories, Github Pull request
+- (optional) Install usefull VScode extensions: Python, Jupyter, SVG previewer, ...
+
+7. Check if git is installed:
+- execute in terminal:
+
+    git --version
+
+- git is not pre-installed for Windows, so we probably get an error:
+'git' is not recognized as an internal or external command, operable program or batch file.
+
+- If we get this error -> install git https://git-scm.com/download/win
+
+- Check installation, by executing in terminal:
+
+    git --version
+
+An example of good response is "git version 2.46.0"
+
+8. Setup username and email in git config file:
+
+- Execute in terminal:
+
+git config --global user.name "<UGentUsername>"
+
+- Execute in terminal:
+
+git config --global user.email "<UGentEmail@UGent.be>"
+
+- These can be checked via:
+
+git config --global user.name 
+
+git config --global user.email
+
+9. Check SSH connection: 
+
+- execute in terminal:
+
+ssh -T git@github.ugent.be
+
+- If prompted:
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+    
+  Execute in terminal: 
+    yes
+
+- Upon succes the response is:
+Warning: Permanently added 'github.ugent.be' (ECDSA) to the list of known hosts.
+Hi UGentUsername! You've sucessfully authenticated, but Github does not provide shell acess.
+
+10. Clone a repository (ensure you have access to the repository you want to clone):
+- Open search bar (at the top) of Vscode
+- Click on "Show and Run Commands"
+- Search: "git:clone"
+- Provide repository URL (in “provide repository URL or pick a repository source.”)
+- Choose repository location on computer
+
+11. (optional) Follow setup instructions (setup.py or README) of the repository
+
+12. Check pushing and pulling: 
+- Alter a file
+- Go to source control (left panel VScode)
+- Give in a random message (there MUST be a message) and commit
+- Sync (Push and pull)
+- Check if your changes are adapted in the used ugent.github repository
+
+
