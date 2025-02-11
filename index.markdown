@@ -23,4 +23,4 @@ layout: home
 
 Welcome! Choose a setup guide:  
 
-- [Setup GitHub on macOS](_setup_support/github/setup github/setup_github_MAC.md)  
+- [Setup GitHub on macOS](_setup_support/github/setup_github/setup_github_MAC.md)  
