@@ -16,3 +16,11 @@ layout: home
     </div>
   {% endfor %}
 </div>
+
+<h2>Setup support</h2>
+
+# Setup Support  
+
+Welcome! Choose a setup guide:  
+
+- [Setup GitHub on macOS](_setup_support/github/setup github/setup_github_MAC.md)  
