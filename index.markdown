@@ -19,8 +19,6 @@ layout: home
 
 <h2>Setup support</h2>
 
-# Setup Support  
+<h3><a href="{{ site.baseurl }}/setup_support">{{ project.title }}</a></h3>
 
-Welcome! Choose a setup guide:  
 
-- [Setup GitHub on macOS](_setup_support/github/setup_github/setup_github_MAC.md)  
