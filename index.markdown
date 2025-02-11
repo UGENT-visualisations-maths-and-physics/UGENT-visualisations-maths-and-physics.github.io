@@ -19,7 +19,7 @@ layout: home
 
 {% assign setup_page = site.pages | where: "title", "Setup support" | first %}
 
-<h2><a href="{{ site.baseurl }}/setup_support.html">Setup support</a></h2>
+<h2><a href="{{ site.baseurl }}{{ setup_page.url }}">Setup support</a></h2>
 <p>{{ setup_page.excerpt }}</p>
 
 
