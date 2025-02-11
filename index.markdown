@@ -17,8 +17,9 @@ layout: home
   {% endfor %}
 </div>
 
-<h2>Setup support</h2>
+{% assign setup_page = site.pages | where: "title", "Setup support" | first %}
 
-<h3><a href="{{ site.baseurl }}/setup_support/">{{ project.title }}</a></h3>
+<h2><a href="{{ site.baseurl }}/setup_support.html">Setup support</a></h2>
+<p>{{ setup_page.excerpt }}</p>
 
 

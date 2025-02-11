@@ -1,8 +1,11 @@
-# Setup LaTeX (locally) on macOS (for use in VS Code)
+---
+layout: page
+title: Setup LaTeX on macOS
+---
 
 ## 1: Ensure that a LaTeX contribution is installed on device
 If not, download a LaTeX contribution: <br>
-e.g. MacTex (https://www.tug.org/mactex/mactex-download.html)
+e.g. MacTex [https://www.tug.org/mactex/mactex-download.html](https://www.tug.org/mactex/mactex-download.html)
 
 ## 2: Install "LaTeX workshop" extension in VSCODE
 

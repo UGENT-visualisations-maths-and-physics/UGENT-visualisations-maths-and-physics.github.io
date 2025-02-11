@@ -39,6 +39,8 @@ plugins:
 collections:
   projects:
     output: true
+  setup_support:
+    output: true
 
 
 
