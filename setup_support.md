@@ -1,7 +1,7 @@
 ---
 layout: page
 title: setup_support
-permalink: /setup_support
+excerpt:
 ---
 
 Welcome! Choose a setup guide:  
