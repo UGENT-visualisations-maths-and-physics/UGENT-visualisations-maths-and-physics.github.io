@@ -19,6 +19,6 @@ layout: home
 
 <h2>Setup support</h2>
 
-<h3><a href="{{ site.baseurl }}/setup_support">{{ project.title }}</a></h3>
+<h3><a href="{{ site.baseurl }}/setup_support/">{{ project.title }}</a></h3>
 
 
