@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Setup support
-excerpt: Guides on setting up LaTeX distribution, for compiling figures and github for accessing repositories.
+excerpt: Guides on setting up LaTeX distribution, for compiling figures <br> and github for accessing repositories.
 ---
 
 <h2>Github</h2>
