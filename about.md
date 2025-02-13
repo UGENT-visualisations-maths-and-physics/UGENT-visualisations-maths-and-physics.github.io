@@ -12,7 +12,7 @@ Dr. Srđan Lazendić:  <a href="https://users.ugent.be/~slazendi/">https://users
 
 <h2>Team members:</h2>
 Felix Claeys <br>
-Brecht verbeken <br>
+Brecht Verbeken <br>
 Simon Verbruggen <br>
 
 <h2>Source code</h2>
