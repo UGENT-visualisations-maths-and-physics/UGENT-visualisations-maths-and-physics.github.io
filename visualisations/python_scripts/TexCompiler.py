@@ -1,12 +1,9 @@
 "Functions for extracting Tikz code from a directory of Tex files and writing to summary Tex files"
 
-import os, re, subprocess
+import os, re, subprocess, glob
 import shutil
 import pdf2image
 import yaml
-
-# TODO: fix as variable
-Image_destination_folder = "/Users/simonverbruggen/Desktop"
 
 def find_files(root_directory, filename):
     """find all the files with a certain name in a root directory"""
@@ -116,8 +113,6 @@ def find_packages(latex_packages, resulting_packages_list=[]):
     return resulting_packages_list
 
 #%% Compiler class
-
-
 
 class figure:
     def __init__(self, standalone_directory_path, standalone_pdf_path, standalone_tex_path, standalone_pdf_rel_path, export_directory_rel_path):
@@ -315,13 +310,20 @@ class tex_compiler:
         for dir_to_create in reversed(missing_dirs):
             os.makedirs(dir_to_create)
 
+    def get_local_export_directory_path(self):
+        """Get the local directory where files are supposed to be stored. By default this the parent folder of the repository"""
+        repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')     # retrieve repository root directory
+        local_export_folder = os.path.dirname(repo_dir)   # local export folder: parent folder of repo
+        return repo_dir, local_export_folder
+
     def export_for_syllabus(self):
         """Export all standalone.tex files in a structured folder for integration into syllabus"""
         for main_tex_path in self.figure_dict:
             figure_object = self.figure_dict[main_tex_path]
             # define the absolute paths of the destination directory and PNG
-            destination_tex = os.path.join(Image_destination_folder, figure_object.destination_tex_rel)  
-            destination_directory = os.path.join(Image_destination_folder, figure_object.export_directory_rel_path)
+            _, local_export_directory = self.get_local_export_directory_path()
+            destination_tex = os.path.join(local_export_directory, figure_object.destination_tex_rel)  
+            destination_directory = os.path.join(local_export_directory, figure_object.export_directory_rel_path)
            
             self.ensure_directories_exist(destination_directory)        # ensure all parent directories exists
             
@@ -329,6 +331,16 @@ class tex_compiler:
             shutil.copy(figure_object.standalone_tex_path, destination_directory)
             # compile standalone.tex file
             subprocess.run(['pdflatex', '-output-directory', destination_directory, destination_tex])
+
+            # Check generated files and only retain .tex and .pdf (the rest are auxiliary files)
+            generated_files = glob.glob(os.path.join(destination_directory, "standalone.*"))
+            print("generated files")
+            print(generated_files)
+            for file in generated_files:
+                if not (file.endswith(".pdf") or file.endswith(".tex")): 
+                    os.remove(file)
+
+        print("Exported all figures to %s" % (local_export_directory))
 
     def convert_to_PNG_and_export(self, local_export_folder, dpi_used=200):
         """Convert all figures to PNG (websites have bad support for pdf viewing) and export"""
@@ -358,18 +370,15 @@ class tex_compiler:
             yaml.dump(figures_yml_data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     def push_content_to_gh_pages(self):
-        # Step 1: retrieve repository root directory
-        repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')
+        repo_dir, local_export_directory = self.get_local_export_directory_path()
 
         # define names of the asset directory and .yml file
         asset_directory_name = self.project_name
         yml_file_name =  self.project_name + "_figures.yml"
 
-        # define paths for temporaru storage
-        local_export_folder = os.path.dirname(repo_dir)   # parent folder of repo
-        # define corresponding paths
-        self.asset_directory = os.path.join(local_export_folder, asset_directory_name)
-        self.yml_path = os.path.join(local_export_folder, yml_file_name) 
+        # define paths for temporary storage
+        self.asset_directory = os.path.join(local_export_directory, asset_directory_name)
+        self.yml_path = os.path.join(local_export_directory, yml_file_name) 
 
         # paths in the gh-pages branch of parent directories
         gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
@@ -383,8 +392,8 @@ class tex_compiler:
         gh_pages_yml_path = os.path.join(gh_pages_yml_parent_path, yml_file_name)
 
         # export figures and .yml file to temporary location
-        self.convert_to_PNG_and_export(local_export_folder, dpi_used=200)
-        self.make_figures_yml(local_export_folder)
+        self.convert_to_PNG_and_export(local_export_directory, dpi_used=200)
+        self.make_figures_yml(local_export_directory)
         
         # navigate to repo_dir:
         os.chdir(repo_dir)
@@ -407,7 +416,7 @@ class tex_compiler:
 
         # Step 5: Add, commit, and push changes
         subprocess.run(['git', 'add', '.'])
-        subprocess.run(['git', 'commit', '-m', 'Update assets and YAML for gh-pages'])
+        subprocess.run(['git', 'commit', '-m', 'Automatic update: %s assets and YAML for gh-pages'] % (self.project_name))
         subprocess.run(['git', 'push', 'origin', 'gh-pages'])
 
-        print("Files successfully pushed to gh-pages branch!")
+        print("Files of %s successfully pushed to gh-pages branch!" % (self.project_name))
