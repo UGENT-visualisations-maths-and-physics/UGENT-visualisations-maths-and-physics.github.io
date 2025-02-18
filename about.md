@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<h2>Promoters:</h2>
+<h2>Promotors:</h2>
 
 Prof. Dr. Geert Verdoolaege:  <a href="https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege">https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege</a> <br>
 Dr. Srđan Lazendić:  <a href="https://users.ugent.be/~slazendi/">https://users.ugent.be/~slazendi/</a>
