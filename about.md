@@ -13,7 +13,7 @@ permalink: /about/
 <h2>Team members:</h2>
 <a href="https://www.linkedin.com/in/felix-claeys-7b4047279/">Felix Claeys:</a> <br>
 <a href="https://www.linkedin.com/in/brecht-verbeken-837b4b352/">Brecht Verbeken</a> <br>
-<a href="www.linkedin.com/in/simon-verbruggen-7ba82a324">Simon Verbruggen</a> <br>
+<a href="https://www.linkedin.com/in/simon-verbruggen-7ba82a324/">Simon Verbruggen</a> <br>
 
 <h2>Source code</h2>
 LaTeX source code for all the figures are available at GitHub (open source):  
