@@ -6,14 +6,14 @@ permalink: /about/
 
 <h2>Promotors:</h2>
 
-Prof. Dr. Geert Verdoolaege:  <a href="https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege">https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege</a> <br>
-Dr. Srđan Lazendić:  <a href="https://users.ugent.be/~slazendi/">https://users.ugent.be/~slazendi/</a>
+<a href="https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege">Prof. Dr. Geert Verdoolaege</a> <br>
+<a href="https://users.ugent.be/~slazendi/">Dr. Srđan Lazendić</a> <br>
 
 
 <h2>Team members:</h2>
-Felix Claeys <br>
-Brecht Verbeken <br>
-Simon Verbruggen <br>
+<a href="https://www.linkedin.com/in/felix-claeys-7b4047279/">Felix Claeys:</a> <br>
+<a href="https://www.linkedin.com/in/brecht-verbeken-837b4b352/">Brecht Verbeken</a> <br>
+<a href="www.linkedin.com/in/simon-verbruggen-7ba82a324">Simon Verbruggen</a> <br>
 
 <h2>Source code</h2>
 LaTeX source code for all the figures are available at GitHub (open source):  
