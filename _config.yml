@@ -20,7 +20,7 @@
 
 title: "Beauty is in the eye of the beholder: visualisations of mathematical concepts in classical and modern physics"
 email: 
-description: >- # this means to ignore newlines until "baseurl:"
+description:"Open-source visualisations in maths and physics made for engineering students at UGent" # this means to ignore newlines until "baseurl:""
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
@@ -32,6 +32,8 @@ github_repo: https://github.com/UGENT-visualisations-maths-and-physics/UGENT-vis
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag    # adds meta to improve site's searchability
+  - jekyll-sitemap    # automatically generate site map
 
 # add collection (grouped pages)
 collections:
