@@ -20,8 +20,7 @@
 
 title: "Beauty is in the eye of the beholder: visualisations of mathematical concepts in classical and modern physics"
 email: 
-description:"Open-source visualisations in maths and physics made for engineering students at UGent" # this means to ignore newlines until "baseurl:""
-
+description: "Open-source visualisations in maths and physics made for engineering students at UGent"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
