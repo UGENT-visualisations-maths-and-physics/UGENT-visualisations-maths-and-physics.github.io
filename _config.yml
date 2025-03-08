@@ -26,6 +26,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username: UGENT-visualisations-maths-and-physics
 github_repo: https://github.com/UGENT-visualisations-maths-and-physics/UGENT-visualisations-maths-and-physics.github.io
+author: UGent
 
 # Build settings
 theme: minima
