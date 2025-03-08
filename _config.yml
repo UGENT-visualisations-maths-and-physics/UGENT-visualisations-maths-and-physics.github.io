@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+description: "Open-source visualisations in maths and physics made for engineering students at UGent"
 title: "Beauty is in the eye of the beholder: visualisations of mathematical concepts in classical and modern physics"
 email: 
-description: "Open-source visualisations in maths and physics made for engineering students at UGent"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
