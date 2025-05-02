@@ -1,5 +1,4 @@
-#%% Combine all the Tikz files of "Calculus_III" into one tex file and compile
-import os
+#%% Combine all the Tikz files into one tex file and compile
 from visualisations.python_scripts.TexCompiler import tex_compiler
 
 # actually call the class now
