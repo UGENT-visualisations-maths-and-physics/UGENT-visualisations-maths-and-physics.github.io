@@ -13,16 +13,16 @@
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{arrows, arrows.meta}
 \usetikzlibrary{patterns,patterns.meta}
+\usetikzlibrary{shapes}
 \usepgfmodule{nonlineartransformations}
 
 \begin{document}
 
 \centering
 
-\begin{tikzpicture}[scale=1.0, xshift=1.347cm]  % set scale same as picturescale!
-\pgfmathsetmacro{\PtToCm}{0.0352777778}
-\pgfmathsetmacro{\PictureScale}{1.0}
-\pgfmathsetmacro{\CircleSize}{0.03}     % radius of coordinate circles/dots
+\begin{tikzpicture}[scale=1.0, xshift=1.347cm]  
+\pgfmathsetmacro{\PictureScale}{1.0}        % set scale as used for tikzpicture!
+\pgfmathsetmacro{\CircleSize}{0.03}         % radius of coordinate circles/dots
 % conversion from cm to pt and vice versa
 \pgfmathsetmacro{\CmToPt}{28.3464566929}
 \pgfmathsetmacro{\PtToCm}{0.0352777778}
@@ -31,22 +31,31 @@
 CircleNodeStyle/.style={draw=black, shape=circle, fill=black, minimum size=\CircleSize*2.5 cm, inner sep=0pt},
 arrowstyle/.style={->, >=stealth}}
 
+% declare pgflayers
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
 
-% second axis
+%% AXES
 \pgfmathsetmacro{\OvershootAxis}{0.5}
-% y and z-axes
-\draw[arrowstyle, thick, name path=YAxis] (-\OvershootAxis,0) -- (3.8,0) node[pos=1, right] {$y$};
-\draw[arrowstyle, thick] (0,-\OvershootAxis) -- (0,3.0) node[pos=1, above] {$z$};
-% x-axis (angled)
+% x-axis variables
 \pgfmathsetmacro{\XAxisLength}{2.0}
 \pgfmathsetmacro{\AngleAxis}{45}
 \pgfmathsetmacro{\ZAxisBeginX}{cos(\AngleAxis) * \OvershootAxis * 0.7}
 \pgfmathsetmacro{\ZAxisBeginY}{ sin(\AngleAxis) * \OvershootAxis * 0.7}
 \pgfmathsetmacro{\ZAxisEndX}{- cos(\AngleAxis)*\XAxisLength}
 \pgfmathsetmacro{\ZAxisEndY}{ - sin(\AngleAxis) * \XAxisLength}
-\draw[arrowstyle, thick, name path=XAxis] (\ZAxisBeginX, \ZAxisBeginY) -- (\ZAxisEndX, \ZAxisEndY) node[pos=1, below left] {$x$};
 
-% surface D (u and v)
+\begin{pgfonlayer}{background}
+% draw y and z-axes
+\draw[arrowstyle, thick, name path=YAxis] (-\OvershootAxis,0) -- (3.8,0) node[pos=1, right] {$y$};
+\draw[arrowstyle, thick] (0,-\OvershootAxis) -- (0,3.0) node[pos=1, above] {$z$};
+% draw x axis
+\draw[arrowstyle, thick, name path=XAxis] (\ZAxisBeginX, \ZAxisBeginY) -- (\ZAxisEndX, \ZAxisEndY) node[pos=1, below left] {$x$};
+\end{pgfonlayer}
+
+
+% surface D variables (u and v)
 \pgfmathsetmacro{\Startuv}{0.5}
 \pgfmathsetmacro{\Endu}{3.5}
 \pgfmathsetmacro{\Endv}{2}
@@ -55,9 +64,13 @@ arrowstyle/.style={->, >=stealth}}
 \pgfmathsetmacro{\ustepsize}{(\Endu-\Startuv)/\usegments}
 \pgfmathsetmacro{\vstepsize}{(\Endv-\Startuv)/\vsegments}
 
-% u and v index, of highlighted rectangle
+% u and v index, of highlighted tangent point
 \pgfmathsetmacro{\HiglightedIndexU}{2}
 \pgfmathsetmacro{\HiglightedIndexV}{2}
+
+% define offsets for the surface (in pt)
+\pgfmathsetmacro{\XOffsetSurface}{6.0}
+\pgfmathsetmacro{\YOffsetSurface}{10.0}
 
 
 % surface S (non-linear transformation of surface D)
@@ -122,7 +135,7 @@ arrowstyle/.style={->, >=stealth}}
 \pgfmathsetmacro{\xshiftTot}{\xshiftOrig + (0.5) * \CmToPt } 
 \pgfmathsetmacro{\yshiftTot}{\yshiftOrig + 1.5*\CmToPt}
 
-% define corners of transformation highlighted square: flip indices for X as image appears to be flipped
+% define corners of transformation highlighted tangent point: flip indices for X as image appears to be flipped
 \pgfmathsetmacro{\HighlightedX}{- \ustepsize * (\usegments - \HiglightedIndexU)}
 \pgfmathsetmacro{\HighlightedY}{ \vstepsize * (\HiglightedIndexV)}
 % Define begin and end points of lines
@@ -131,15 +144,11 @@ arrowstyle/.style={->, >=stealth}}
 \pgfmathsetmacro{\HighlightedMinY}{\vstepsize * 0}
 \pgfmathsetmacro{\HighlightedMaxY}{\vstepsize * (\vsegments)}
 
-% need reference points to calculate the derivative close to the highlighted point z0
-\pgfmathsetmacro{\epsderiv}{0.5}        % increase (as fraction of stepsize) for derivative calculation
+% need reference points to calculate the partial derivative close to the highlighted point z0
+\pgfmathsetmacro{\epsderiv}{0.5}            % increase (as fraction of stepsize) for derivative calculation
 \pgfmathsetmacro{\segmentseps}{1 / \epsderiv} 
 \pgfmathsetmacro{\RefX}{\HighlightedX + \ustepsize * \epsderiv}
 \pgfmathsetmacro{\RefY}{\HighlightedY + \vstepsize * \epsderiv}
-
-% define offsets for the surface (in pt)
-\pgfmathsetmacro{\XOffsetSurface}{6.0}
-\pgfmathsetmacro{\YOffsetSurface}{10.0}
 
 
 % draw surface D and apply non linear transformation -> surface S
@@ -156,8 +165,9 @@ arrowstyle/.style={->, >=stealth}}
         \pgfmathsetmacro{\XcoordA}{ - \ustepsize * \usegments}
         \pgfmathsetmacro{\XcoordB}{0}
         \draw[semithick] (\XcoordA, \Ycoord)--(\XcoordB, \Ycoord);
-    % draw contour of surface D and highlighted square
+    % draw contour of surface D and highlighted tangent point
     \draw[thick, black]  (0, 0) -- ( - \ustepsize * \usegments,  0) -- ( - \ustepsize * \usegments,  \vstepsize * \vsegments) -- (0, \vstepsize * \vsegments) -- cycle;
+    % draw the x- and y-tangent on curved surface
     \draw[thick, red] (\HighlightedX, \HighlightedMinY) -- (\HighlightedX, \HighlightedMaxY);
     \draw[thick, red] (\HighlightedMinX, \HighlightedY) -- (\HighlightedMaxX, \HighlightedY);
     % Coordinates that are transformed 
@@ -174,10 +184,10 @@ arrowstyle/.style={->, >=stealth}}
 \coordinate (Xtop) at ($(HighlightedCoord)!\XMagnifierTop!(XderivCoord)$);
 \pgfmathsetmacro{\YMagnifierTop}{\segmentseps * (\vsegments - \HiglightedIndexV)}
 \coordinate (Ytop) at ($(HighlightedCoord)!\YMagnifierTop!(YderivCoord)$);
-% helper coordinates for calculation of plane's corners
+% helper coordinates for calculation of plane's corners: equal to x- and y-side length of the plane
 \coordinate (Xside) at ($(Xtop) - (HighlightedCoord)$);
 \coordinate (Yside) at ($(Ytop) - (HighlightedCoord)$);
-% manual adjustments for plane
+% manually adjust coordinates (to make more visually intuitive)
 \pgfmathsetmacro{\CosAngle}{cos(\AngleAxis) }
 \pgfmathsetmacro{\SinAngle}{sin(\AngleAxis) }
 \coordinate (YsideTop) at ($(Yside) + 0.1*(\CosAngle, \SinAngle)$);
@@ -195,8 +205,7 @@ arrowstyle/.style={->, >=stealth}}
 \coordinate (LowerRight) at ($ (MidRight) - (YsideBottom) $);
 \coordinate (LowerLeft) at ($ (LowerMid) - (XsideBottom) $);
 \coordinate (UpperLeft) at ($ (MidLeft) + (YsideTop) $);
-% draw the tangent plane
-\draw[thick, red, postaction={fill=red, opacity=.4}] (LowerLeft) -- (UpperLeft) -- (UpperRight) -- (LowerRight) -- cycle;
+
 % define intersection for tangents
 % for y tangent
 \path[name path=UpperSide] (UpperLeft) -- (UpperRight); 
@@ -206,6 +215,12 @@ arrowstyle/.style={->, >=stealth}}
 \path[name path=RightSide] (UpperRight) -- (LowerRight); 
 \path[name path=XTangentPath] (MidLeft) -- ($(MidLeft)!5!(HighlightedCoord)$); 
 \path[name intersections={of=RightSide and XTangentPath, by=XTangentIntersect}];
+
+\begin{pgfonlayer}{foreground}
+
+% draw the tangent plane
+\draw[thick, red, postaction={fill=red, opacity=.4}] (LowerLeft) -- (UpperLeft) -- (UpperRight) -- (LowerRight) -- cycle;
+
 % draw the tangent lines
 \draw[thick, black, postaction={decorate}, decoration={
     markings,
@@ -214,11 +229,13 @@ arrowstyle/.style={->, >=stealth}}
     markings,
     mark=at position 1.0 with {\node[left] {$t_y$};}}] (XTangentIntersect) -- (MidLeft);
 
-% Symbol of tangent plane
-\node at ($ (UpperLeft) + (-0.15, 0.15) $) {\scriptsize $\alpha$};
+% draw labels
+\node at ($ (UpperLeft) + (-0.15, 0.15) $) {\scriptsize $\alpha$};      % Symbol of tangent plane
+\node [CircleNodeStyle] at (HighlightedCoord) {};                       % highlight tangent point
+\node at ($ (HighlightedCoord) + (-0.45, 0.20) $) {$f(x_{0}, y_{0})$}; 
 
-% Position of the point
-\node [CircleNodeStyle] at (HighlightedCoord) {};
+\end{pgfonlayer}
+
 
 % Function for extracting x and y coordinates
 \newcommand{\ExtractCoordXY}[3]{%
@@ -231,7 +248,7 @@ arrowstyle/.style={->, >=stealth}}
     \pgfmathsetmacro#3{\YCoordPt * \PtToCm}%
 }
 
-% Define projection height
+% manually define projection height
 \pgfmathsetmacro{\ProjectionZ}{-1.0}
 
 \begin{scope}[scale=\ScopeScale, xshift=\ScaledXOrig * \CmToPt, yshift=\ScaledYOrig * \CmToPt, draw=gray]
@@ -264,6 +281,9 @@ arrowstyle/.style={->, >=stealth}}
 \node [CircleNodeStyle] at (SurfaceLeft) {};
 \node [CircleNodeStyle] at (SurfaceUpper) {};
 
+% begin a pgf layer for background objects
+\begin{pgfonlayer}{background}
+
 % draw the projected coordinates
 \node [CircleNodeStyle] at (HighlightedCoordProjected) {};
 \node [CircleNodeStyle] at (SurfaceUpperProjected) {};
@@ -278,13 +298,14 @@ arrowstyle/.style={->, >=stealth}}
 \draw [semithick, densely dashed] (SurfaceLowerProjected) -- (SurfaceLower);
 \draw [semithick, densely dashed] (SurfaceLeftProjected) -- (SurfaceLeft);
 
-%
+% calculate and draw the projections of the x- and y-tangents
+% define the extensions of the projected tangents
 \path[name path=YAxisProjection] (SurfaceLowerProjected) -- ($(SurfaceLowerProjected)!5!(SurfaceUpperProjected)$);
 \path[name path=XAxisProjection] (SurfaceRightProjected) -- ($(SurfaceRightProjected)!5!(SurfaceLeftProjected)$);
-
-% Calculate and draw intersections wiht X-axis
+% calculate the intersections with the X- and Y-axis
 \path[name intersections={of=YAxisProjection and YAxis, by=YPointProjection}];
 \path[name intersections={of=XAxisProjection and XAxis, by=XPointProjection}];
+% draw the projections of the x- and y-tangents
 \draw [semithick, densely dashed, postaction={decorate}, decoration={
     markings,
     mark=at position 1.0 with {\node[above] {$y_{0}$};}}] (SurfaceLowerProjected) -- (YPointProjection);
@@ -292,12 +313,11 @@ arrowstyle/.style={->, >=stealth}}
     markings,
     mark=at position 1.0 with {\node[left] {$x_{0}$};}}] (SurfaceRightProjected) -- (XPointProjection);
 
-
-
 % Labels
-\node at ($ (FunctionCoord) + (-0.075, -0.15) $) {\scriptsize $g(x,y)$};
-\node at ($ (HighlightedCoord) + (-0.45, 0.20) $) {$f(x_{0}, y_{0})$};
+\node[draw=white, ellipse, inner sep=0, fill=white] at ($ (FunctionCoord) + (-0.075, -0.15) $) {\scriptsize $g(x,y)$};
 \node at ($ (HighlightedCoordProjected) + (0.35, -0.25) $) {$(x_{0}, y_{0})$};
+
+\end{pgfonlayer}
 
 
 \end{tikzpicture}
