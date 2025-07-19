@@ -20,6 +20,7 @@
 \centering
 
 \begin{tikzpicture}[scale=1.0, xshift=1.347cm]  % set scale same as picturescale!
+\pgfmathsetmacro{\PtToCm}{0.0352777778}
 \pgfmathsetmacro{\PictureScale}{1.0}
 \pgfmathsetmacro{\CircleSize}{0.03}     % radius of coordinate circles/dots
 % conversion from cm to pt and vice versa
@@ -33,16 +34,17 @@ arrowstyle/.style={->, >=stealth}}
 
 % second axis
 \pgfmathsetmacro{\OvershootAxis}{0.5}
-% x and z-axes
-\draw[arrowstyle, thick] (-\OvershootAxis,0) -- (3.5,0) node[pos=1, right] {$y$};
+% y and z-axes
+\draw[arrowstyle, thick, name path=YAxis] (-\OvershootAxis,0) -- (3.8,0) node[pos=1, right] {$y$};
 \draw[arrowstyle, thick] (0,-\OvershootAxis) -- (0,3.0) node[pos=1, above] {$z$};
-% y-axis (angled)
+% x-axis (angled)
+\pgfmathsetmacro{\XAxisLength}{2.0}
 \pgfmathsetmacro{\AngleAxis}{45}
 \pgfmathsetmacro{\ZAxisBeginX}{cos(\AngleAxis) * \OvershootAxis * 0.7}
 \pgfmathsetmacro{\ZAxisBeginY}{ sin(\AngleAxis) * \OvershootAxis * 0.7}
-\pgfmathsetmacro{\ZAxisEndX}{- cos(\AngleAxis)*1.0}
-\pgfmathsetmacro{\ZAxisEndY}{ - sin(\AngleAxis) * 1.0}
-\draw[arrowstyle, thick] (\ZAxisBeginX, \ZAxisBeginY) -- (\ZAxisEndX, \ZAxisEndY) node[pos=1, below left] {$x$};
+\pgfmathsetmacro{\ZAxisEndX}{- cos(\AngleAxis)*\XAxisLength}
+\pgfmathsetmacro{\ZAxisEndY}{ - sin(\AngleAxis) * \XAxisLength}
+\draw[arrowstyle, thick, name path=XAxis] (\ZAxisBeginX, \ZAxisBeginY) -- (\ZAxisEndX, \ZAxisEndY) node[pos=1, below left] {$x$};
 
 % surface D (u and v)
 \pgfmathsetmacro{\Startuv}{0.5}
@@ -136,8 +138,8 @@ arrowstyle/.style={->, >=stealth}}
 \pgfmathsetmacro{\RefY}{\HighlightedY + \vstepsize * \epsderiv}
 
 % define offsets for the surface (in pt)
-\pgfmathsetmacro{\XOffsetSurface}{15.0}
-\pgfmathsetmacro{\YOffsetSurface}{12.0}
+\pgfmathsetmacro{\XOffsetSurface}{6.0}
+\pgfmathsetmacro{\YOffsetSurface}{10.0}
 
 
 % draw surface D and apply non linear transformation -> surface S
@@ -165,8 +167,7 @@ arrowstyle/.style={->, >=stealth}}
     \coordinate (XderivCoord) at (\RefX, \HighlightedY);
     \coordinate (YderivCoord) at (\HighlightedX, \RefY);
 \end{scope}     
-% place label for the surface S
-\node at ($ (FunctionCoord) + (-0.075, -0.15) $) {\scriptsize $g(x,y)$};
+
 
 % draw plane based on derivatives (as definition tangent plane)
 \pgfmathsetmacro{\XMagnifierTop}{\segmentseps * (\usegments - \HiglightedIndexU)}
@@ -208,16 +209,95 @@ arrowstyle/.style={->, >=stealth}}
 % draw the tangent lines
 \draw[thick, black, postaction={decorate}, decoration={
     markings,
-    mark=at position 1.0 with {\node[above] {$t_y$};}}] (LowerMid) -- (YTangentIntersect);
+    mark=at position 1.0 with {\node[above] {$t_x$};}}] (LowerMid) -- (YTangentIntersect);
 \draw[thick, black, postaction={decorate}, decoration={
     markings,
-    mark=at position 1.0 with {\node[left] {$t_x$};}}] (XTangentIntersect) -- (MidLeft);
+    mark=at position 1.0 with {\node[left] {$t_y$};}}] (XTangentIntersect) -- (MidLeft);
 
 % Symbol of tangent plane
 \node at ($ (UpperLeft) + (-0.15, 0.15) $) {\scriptsize $\alpha$};
 
 % Position of the point
 \node [CircleNodeStyle] at (HighlightedCoord) {};
+
+% Function for extracting x and y coordinates
+\newcommand{\ExtractCoordXY}[3]{%
+    \newdimen\XCoordPt
+    \newdimen\YCoordPt 
+    \pgfextractx{\XCoordPt}{\pgfpointanchor{#1}{center}}%
+    \pgfextracty{\YCoordPt}{\pgfpointanchor{#1}{center}}%
+    % convert from Pt to cm
+    \pgfmathsetmacro#2{\XCoordPt * \PtToCm}%
+    \pgfmathsetmacro#3{\YCoordPt * \PtToCm}%
+}
+
+% Define projection height
+\pgfmathsetmacro{\ProjectionZ}{-1.0}
+
+\begin{scope}[scale=\ScopeScale, xshift=\ScaledXOrig * \CmToPt, yshift=\ScaledYOrig * \CmToPt, draw=gray]
+    \pgftransformnonlinear{\CustomNonlinearTransformation{\xshiftTot *  \PictureScale + \XOffsetSurface}{\yshiftTot * \PictureScale + \YOffsetSurface}{\ScaleInScope}}
+    \coordinate (SurfaceUpper) at (\HighlightedX, \vstepsize * \vsegments);
+    \coordinate (SurfaceRight) at (0.0, \HighlightedY);
+    \coordinate (SurfaceLower) at (\HighlightedX, 0.0);
+    \coordinate (SurfaceLeft) at ( - \ustepsize * \usegments, \HighlightedY);
+\end{scope}
+
+% calculate height of parallellogram to help with construction projection
+\ExtractCoordXY{Yside}{\DumpVariable}{\YsideHeight}
+
+
+% project coordinates to a certain Z-projection height
+\ExtractCoordXY{HighlightedCoord}{\XCoord}{\YCoord}
+\coordinate (HighlightedCoordProjected) at (\XCoord, \ProjectionZ); 
+\ExtractCoordXY{SurfaceUpper}{\XCoord}{\YCoord}       % Call function to retrieve x position
+\coordinate (SurfaceUpperProjected) at (\XCoord, \ProjectionZ + 0.57*\YsideHeight); 
+\ExtractCoordXY{SurfaceRight}{\XCoord}{\YCoord}
+\coordinate (SurfaceRightProjected) at (\XCoord, \ProjectionZ); 
+\ExtractCoordXY{SurfaceLower}{\XCoord}{\YCoord}
+\coordinate (SurfaceLowerProjected) at (\XCoord, \ProjectionZ - 0.38*\YsideHeight); 
+\ExtractCoordXY{SurfaceLeft}{\XCoord}{\YCoord}
+\coordinate (SurfaceLeftProjected) at (\XCoord, \ProjectionZ); 
+
+% draw the coordinates on the curved surface
+\node [CircleNodeStyle] at (SurfaceLower) {};
+\node [CircleNodeStyle] at (SurfaceRight) {};
+\node [CircleNodeStyle] at (SurfaceLeft) {};
+\node [CircleNodeStyle] at (SurfaceUpper) {};
+
+% draw the projected coordinates
+\node [CircleNodeStyle] at (HighlightedCoordProjected) {};
+\node [CircleNodeStyle] at (SurfaceUpperProjected) {};
+\node [CircleNodeStyle] at (SurfaceRightProjected) {};
+\node [CircleNodeStyle] at (SurfaceLowerProjected) {};
+\node [CircleNodeStyle] at (SurfaceLeftProjected) {};
+
+% draw the projection lines
+\draw [semithick, densely dashed] (HighlightedCoord) -- (HighlightedCoordProjected);
+\draw [semithick, densely dashed] (SurfaceUpper) -- (SurfaceUpperProjected);
+\draw [semithick, densely dashed] (SurfaceRightProjected) -- (SurfaceRight);
+\draw [semithick, densely dashed] (SurfaceLowerProjected) -- (SurfaceLower);
+\draw [semithick, densely dashed] (SurfaceLeftProjected) -- (SurfaceLeft);
+
+%
+\path[name path=YAxisProjection] (SurfaceLowerProjected) -- ($(SurfaceLowerProjected)!5!(SurfaceUpperProjected)$);
+\path[name path=XAxisProjection] (SurfaceRightProjected) -- ($(SurfaceRightProjected)!5!(SurfaceLeftProjected)$);
+
+% Calculate and draw intersections wiht X-axis
+\path[name intersections={of=YAxisProjection and YAxis, by=YPointProjection}];
+\path[name intersections={of=XAxisProjection and XAxis, by=XPointProjection}];
+\draw [semithick, densely dashed, postaction={decorate}, decoration={
+    markings,
+    mark=at position 1.0 with {\node[above] {$y_{0}$};}}] (SurfaceLowerProjected) -- (YPointProjection);
+\draw [semithick, densely dashed, postaction={decorate}, decoration={
+    markings,
+    mark=at position 1.0 with {\node[left] {$x_{0}$};}}] (SurfaceRightProjected) -- (XPointProjection);
+
+
+
+% Labels
+\node at ($ (FunctionCoord) + (-0.075, -0.15) $) {\scriptsize $g(x,y)$};
+\node at ($ (HighlightedCoord) + (-0.45, 0.20) $) {$f(x_{0}, y_{0})$};
+\node at ($ (HighlightedCoordProjected) + (0.35, -0.25) $) {$(x_{0}, y_{0})$};
 
 
 \end{tikzpicture}
