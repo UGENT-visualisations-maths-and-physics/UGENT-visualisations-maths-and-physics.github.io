@@ -208,12 +208,13 @@ arrowstyle/.style={->, >=stealth}}
 
 % define intersection for tangents
 % for y tangent
+% calculate the intersection between the upper side of the plane and the extension of the tangent4114
 \path[name path=UpperSide] (UpperLeft) -- (UpperRight); 
-\path[name path=YTangentPath] (LowerMid) -- ($(LowerMid)!5!(HighlightedCoord)$); 
+\path[name path=YTangentPath] (LowerMid) -- ($(LowerMid)!3!(HighlightedCoord)$); 
 \path[name intersections={of=UpperSide and YTangentPath, by=YTangentIntersect}];
 % for x tangent
 \path[name path=RightSide] (UpperRight) -- (LowerRight); 
-\path[name path=XTangentPath] (MidLeft) -- ($(MidLeft)!5!(HighlightedCoord)$); 
+\path[name path=XTangentPath] (MidLeft) -- ($(MidLeft)!3!(HighlightedCoord)$); 
 \path[name intersections={of=RightSide and XTangentPath, by=XTangentIntersect}];
 
 \begin{pgfonlayer}{foreground}
@@ -300,8 +301,8 @@ arrowstyle/.style={->, >=stealth}}
 
 % calculate and draw the projections of the x- and y-tangents
 % define the extensions of the projected tangents
-\path[name path=YAxisProjection] (SurfaceLowerProjected) -- ($(SurfaceLowerProjected)!5!(SurfaceUpperProjected)$);
-\path[name path=XAxisProjection] (SurfaceRightProjected) -- ($(SurfaceRightProjected)!5!(SurfaceLeftProjected)$);
+\path[name path=YAxisProjection] (SurfaceLowerProjected) -- ($(SurfaceLowerProjected)!3!(SurfaceUpperProjected)$);
+\path[name path=XAxisProjection] (SurfaceRightProjected) -- ($(SurfaceRightProjected)!2!(SurfaceLeftProjected)$);
 % calculate the intersections with the X- and Y-axis
 \path[name intersections={of=YAxisProjection and YAxis, by=YPointProjection}];
 \path[name intersections={of=XAxisProjection and XAxis, by=XPointProjection}];
