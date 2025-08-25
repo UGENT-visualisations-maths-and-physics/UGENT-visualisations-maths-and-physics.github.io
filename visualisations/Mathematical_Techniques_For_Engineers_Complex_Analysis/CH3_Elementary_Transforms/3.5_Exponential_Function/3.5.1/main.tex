@@ -25,9 +25,13 @@ CircleNodeStyle/.style={draw=black, shape=circle, fill=black, minimum size=\Circ
 every path/.style={very thick},
 arrowstyle/.style={->, >=stealth}}
 
+\colorlet{BlueBackground}{blue!5}
+% Background for entire canvas
+\fill[BlueBackground] (-4.0,-4.0) rectangle (14.0,4.0);
+
 % custom colors
 \definecolor{ContourHighlight}{rgb}{255,0,0}        % color to highlight contours of the function
-\definecolor{BlueBackground}{rgb}{0, 0, 128}
+\definecolor{BlueDomain}{rgb}{0, 0, 128}
 
 % control dimensions of filled area in domain of function
 \pgfmathsetmacro{\AreaWidth}{3.0}
@@ -51,10 +55,10 @@ arrowstyle/.style={->, >=stealth}}
 
   % Foreground labels
   \begin{pgfonlayer}{foreground}
-    \node[ellipse, fill=white, right, inner sep=0pt, font=\scriptsize] 
-      at (\AxisSizeX/2, 0) {$\Re(z)$};
-    \node[ellipse, fill=white, above, inner sep=0pt, font=\scriptsize] 
-      at (0, \AxisSizeY/2) {$\Im(z)$};
+    \node[ellipse, fill=BlueBackground, right, inner sep=0pt, font=\scriptsize] 
+      at (\AxisSizeX/2, 0) {$\mathrm{Re}(z)$};
+    \node[ellipse, fill=BlueBackground, above, inner sep=0pt, font=\scriptsize] 
+      at (0, \AxisSizeY/2) {$\mathrm{Im}(z)$};
   \end{pgfonlayer}
 }
 
@@ -67,9 +71,9 @@ arrowstyle/.style={->, >=stealth}}
 
 % draw the filled area and its borders
 \pgfmathsetmacro{\FilledAreaHeight}{\YTickscaling}
-\fill[color=BlueBackground, opacity=0.2] (-\AreaWidth, -\FilledAreaHeight) -- (\AreaWidth, -\FilledAreaHeight) -- (\AreaWidth, \FilledAreaHeight) -- (-\AreaWidth, \FilledAreaHeight) -- cycle;
-\draw[color=BlueBackground, densely dashed] (-\AreaWidth, -\FilledAreaHeight) -- (\AreaWidth, -\FilledAreaHeight);
-\draw[color=BlueBackground] (\AreaWidth, \FilledAreaHeight) -- (-\AreaWidth, \FilledAreaHeight);
+\fill[color=BlueDomain, opacity=0.2] (-\AreaWidth, -\FilledAreaHeight) -- (\AreaWidth, -\FilledAreaHeight) -- (\AreaWidth, \FilledAreaHeight) -- (-\AreaWidth, \FilledAreaHeight) -- cycle;
+\draw[color=BlueDomain, densely dashed] (-\AreaWidth, -\FilledAreaHeight) -- (\AreaWidth, -\FilledAreaHeight);
+\draw[color=BlueDomain] (\AreaWidth, \FilledAreaHeight) -- (-\AreaWidth, \FilledAreaHeight);
 
 % draw y-ticks
 \node[above left] at (0, 1*\YTickscaling) {$\pi$};
@@ -106,7 +110,7 @@ arrowstyle/.style={->, >=stealth}}
 \begin{scope}[xshift = \AreaWidth * 3 * \CmToPt]
 % background for subcanvas 
   \pgfmathsetmacro{\BackgroundSize}{\AreaWidth*1.0}
-  \fill[color=BlueBackground, opacity=0.2] (-\BackgroundSize, -\BackgroundSize) rectangle (\BackgroundSize, \BackgroundSize);
+  \fill[color=BlueDomain, opacity=0.2] (-\BackgroundSize, -\BackgroundSize) rectangle (\BackgroundSize, \BackgroundSize);
 
   % draw axes
   \DrawComplexAxes{\AreaWidth * 2}{\AreaWidth * 2}
@@ -118,7 +122,7 @@ arrowstyle/.style={->, >=stealth}}
   \node[CircleNodeStyle, label=right:{$z$}] (ValuePointNode) at (ValuePoint) {};
 
   % draw small circle to indicate that 0 is not part of the range of the function
-  \draw[fill=white, draw=black, thick] (0,0) circle [radius=0.08];
+  \draw[fill=BlueBackground, draw=black, thick] (0,0) circle [radius=0.08];
 \end{scope}
 
 \tikzset{
@@ -144,7 +148,7 @@ arrowstyle/.style={->, >=stealth}}
 
 % arrow for the function
 \draw[arrowstyle, color=gray, postaction={decorate}, 
-    decoration={markings, mark=at position 0.5 with {\node[above, ellipse, fill=white, inner sep=1.5pt] {$w = e^{z}$};}}]
+    decoration={markings, mark=at position 0.5 with {\node[above, ellipse, fill=BlueBackground, inner sep=1.5pt] {$w = e^{z}$};}}]
      (\AreaWidth + 1.2, 0.0) -- (2*\AreaWidth - 0.5, 0.0);
 
 \end{tikzpicture}

@@ -22,26 +22,31 @@ every node/.style={font=\footnotesize,text=black},  % Small text font
 every path/.style={very thick},
 arrowstyle/.style={->, >=stealth}}
 
+
+\colorlet{BlueBackground}{blue!5}
+% Background for entire canvas
+\fill[BlueBackground] (-4.0,-4.0) rectangle (14.0,4.0);
+
 % custom colors
 \definecolor{ContourHighlight}{rgb}{255,0,0}        % color to highlight contours of the function
-\definecolor{BlueBackground}{rgb}{0, 0, 128}
+\definecolor{BlueDomain}{rgb}{0, 0, 128}
 
 % control dimensions of filled area in domain of function
 \pgfmathsetmacro{\AreaHeight}{1.0}
 \pgfmathsetmacro{\AreaWidth}{3.0}
 
 % draw the filled area and its borders
-\fill[color=BlueBackground, opacity=0.2] (-\AreaWidth, -\AreaHeight) -- (\AreaWidth, -\AreaHeight) -- (\AreaWidth, \AreaHeight) -- (-\AreaWidth, \AreaHeight) -- cycle;
-\draw[color=BlueBackground, densely dashed] (-\AreaWidth, -\AreaHeight) -- (\AreaWidth, -\AreaHeight);
-\draw[color=BlueBackground] (\AreaWidth, \AreaHeight) -- (-\AreaWidth, \AreaHeight);
+\fill[color=BlueDomain, opacity=0.2] (-\AreaWidth, -\AreaHeight) -- (\AreaWidth, -\AreaHeight) -- (\AreaWidth, \AreaHeight) -- (-\AreaWidth, \AreaHeight) -- cycle;
+\draw[color=BlueDomain, densely dashed] (-\AreaWidth, -\AreaHeight) -- (\AreaWidth, -\AreaHeight);
+\draw[color=BlueDomain] (\AreaWidth, \AreaHeight) -- (-\AreaWidth, \AreaHeight);
 
 %% AXES
 % function for drawing axes complex plane
 \newcommand{\DrawComplexAxes}[2]{%
   \pgfmathsetmacro{\AxisSizeX}{#1}
   \pgfmathsetmacro{\AxisSizeY}{#2}
-  \draw[arrowstyle, thick]  (-\AxisSizeX/2, 0) -- (\AxisSizeX/2, 0) node[pos=1, right, BigTextFont] {$\Re(z)$};
-  \draw[arrowstyle, thick] (0, -\AxisSizeY/2) -- (0, \AxisSizeY/2) node[pos=1, above, BigTextFont] {$\Im(z)$};
+  \draw[arrowstyle, thick]  (-\AxisSizeX/2, 0) -- (\AxisSizeX/2, 0) node[pos=1, right, BigTextFont] {$\mathrm{Re}(z)$};
+  \draw[arrowstyle, thick] (0, -\AxisSizeY/2) -- (0, \AxisSizeY/2) node[pos=1, above, BigTextFont] {$\mathrm{Im}(z)$};
 }
 
 \DrawComplexAxes{\AreaWidth * 2}{\AreaHeight * 5.0}
@@ -96,7 +101,7 @@ arrowstyle/.style={->, >=stealth}}
 \begin{scope}[xshift = \AreaWidth * 3 * \CmToPt]
   % background for subcanvas 
   \pgfmathsetmacro{\BackgroundSize}{\AreaWidth*1.0}
-  \fill[color=BlueBackground, opacity=0.2] (-\BackgroundSize, -\BackgroundSize) rectangle (\BackgroundSize, \BackgroundSize);
+  \fill[color=BlueDomain, opacity=0.2] (-\BackgroundSize, -\BackgroundSize) rectangle (\BackgroundSize, \BackgroundSize);
   % draw axes
   \DrawComplexAxes{\AreaWidth * 2}{\AreaWidth * 2}
   % contour from the function
@@ -113,7 +118,7 @@ arrowstyle/.style={->, >=stealth}}
   }
 
   % draw small circle to indicate that 0 is not part of the range of the function
-  \draw[fill=white, draw=black, thick] (0,0) circle [radius=0.08];
+  \draw[fill=BlueBackground, draw=black, thick] (0,0) circle [radius=0.08];
 \end{scope}
 
 % arrow for the function

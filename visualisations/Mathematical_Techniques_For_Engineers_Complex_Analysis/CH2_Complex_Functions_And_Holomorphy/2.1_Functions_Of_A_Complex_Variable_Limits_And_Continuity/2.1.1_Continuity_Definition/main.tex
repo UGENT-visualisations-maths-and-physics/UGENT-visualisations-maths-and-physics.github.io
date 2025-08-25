@@ -23,14 +23,18 @@ every node/.style={font=\small, text=black},
 CircleNodeStyle/.style={draw=black, shape=circle, fill=black, minimum size=\CircleSize*1.8 cm, inner sep=0pt},
 arrowstyle/.style={->, >=stealth}}
 
+\colorlet{BlueBackground}{blue!5}
+% Background for entire canvas
+\fill[BlueBackground] (-3.5,-4.5) rectangle (15,5.5);
+
 % Define function to draw axis of complex plane
 \newcommand{\DrawAxes}[4]{%
   \pgfmathsetmacro{\OvershootAxis}{#1}%
   \pgfmathsetmacro{\AxisSize}{#2}%
   \pgfmathsetmacro{\XOriginAxis}{#3}%
   \pgfmathsetmacro{\YOriginAxis}{#4}%
-  \draw[arrowstyle, very thick] (\XOriginAxis-\OvershootAxis,\YOriginAxis) -- (\XOriginAxis + \AxisSize,\YOriginAxis) node[pos=1, font=\normalsize, right] {$\Re(z)$};
-  \draw[arrowstyle, very thick] (\XOriginAxis,\YOriginAxis-\OvershootAxis) -- (\XOriginAxis,\YOriginAxis + \AxisSize) node[pos=1, font=\normalsize, above] {$\Im(z)$};
+  \draw[arrowstyle, very thick] (\XOriginAxis-\OvershootAxis,\YOriginAxis) -- (\XOriginAxis + \AxisSize,\YOriginAxis) node[pos=1, font=\normalsize, right] {$\mathrm{Re}(z)$};
+  \draw[arrowstyle, very thick] (\XOriginAxis,\YOriginAxis-\OvershootAxis) -- (\XOriginAxis,\YOriginAxis + \AxisSize) node[pos=1, font=\normalsize, above] {$\mathrm{Im}(z)$};
 }
 
 %%% First subfigure: domain of the function with delta
@@ -79,7 +83,7 @@ arrowstyle/.style={->, >=stealth}}
 
 % domain symbol
 \coordinate (DomainSymbolLoc) at (1.7,2.7);   
-\node[draw=white, ellipse, inner sep=0, fill=white, name=EndVectorNode, BigTextFont] at (DomainSymbolLoc) {$S$};
+\node[ ellipse, inner sep=0, fill=BlueBackground, name=EndVectorNode, BigTextFont] at (DomainSymbolLoc) {$S$};
 
 %%% second subfigure: range of the function with delta
 

@@ -22,10 +22,14 @@ BigTextFont/.style={font=\large},
 every node/.style={font=\normalsize, text=black},
 CircleNodeStyle/.style={draw=black, shape=circle, fill=black, minimum size=\CircleSize*2 cm, inner sep=0pt},
 arrowstyle/.style={->, >=stealth}}
-% Background for entire canvas
-    \fill[blue!5] (-3,-3) rectangle (7,7);
 
-% waypoint coordinates (in degrees, as seen from origin)
+\colorlet{GrayBackground}{gray!15}
+\colorlet{BlueBackground}{blue!5}
+% Background for entire canvas
+\fill[BlueBackground] (-3,-3) rectangle (7,7);
+
+% waypoint coordinates for the different areas (in degrees, as seen from origin)
+% area 1
 \begin{scope}[xshift = -3.0cm, yshift= -2.9cm, scale=1.8]
        \coordinate (OD) at (4.3,1);
        \coordinate (20D) at (5.2,2.5);
@@ -37,21 +41,7 @@ arrowstyle/.style={->, >=stealth}}
        \coordinate (330D) at (2.5,0.2);
 \end{scope}
 
-% drawing area ("hobby" package)
-\draw[postaction={decorate}, decoration={
-       markings,
-       mark=at position 0.17 with {\node[above right, BigTextFont] {$\Omega$};}}]
-[thick] (OD) to[closed, curve through =
-{(20D) (40D) (55D) (80D) (110D) (300D) }] (330D);
-
-% CHECK
-%plotting the waypoints
-%\foreach \c in {(OD), (20D), (40D), (55D), (80D), (110D), (300D), (330D)} {
-%       \fill[red] \c circle (1.0mm);
-%       \node[above right] at \c {\c};
-%}
-
-% waypoint coordinates (in degrees, as seen from origin)
+% area 2
 \begin{scope}[scale=1.4]
 \coordinate (Odegrees) at (2.5,0);
 \coordinate (20degrees) at (3,1);
@@ -66,33 +56,39 @@ arrowstyle/.style={->, >=stealth}}
 \coordinate (330degrees) at (2.0,-1.0);
 \end{scope}
 
+% center of epsilon area
+\coordinate (aLocation) at (1.5,0.7);   
+\node [CircleNodeStyle, label=above:$z_0$] at (aLocation) {};
+
+% fill the different areas (area must be copied here!), apply a clip for epsilon area
+\begin{scope}
+       \clip[overlay] (aLocation) circle [radius=1.0]
+       (-20,-20) rectangle (30,20);
+       \fill[white] (OD) to[closed, curve through ={(20D) (40D) (55D) (80D) (110D) (300D) }] (330D);
+       \fill[GrayBackground] (Odegrees) to[closed, curve through ={(20degrees) (40degrees) (55degrees) (80degrees) (95degrees) (110degrees)  (180degrees) (260degrees) (300degrees) }] (330degrees);
+\end{scope}
+
+% drawing areas ("hobby" package)
+\draw[postaction={decorate}, decoration={
+       markings,
+       mark=at position 0.17 with {\node[above right, BigTextFont] {$\Omega$};}}]
+[thick] (OD) to[closed, curve through =
+{(20D) (40D) (55D) (80D) (110D) (300D) }] (330D);
+
+
 \draw[postaction={decorate}, decoration={
        markings,
        mark=at position 0.17 with {\node[above right, BigTextFont] {$\gamma$};}}]
 [very thick] (Odegrees) to[closed, curve through =
 {(20degrees) (40degrees) (55degrees) (80degrees) (95degrees) (110degrees)  (180degrees) (260degrees) (300degrees) }] (330degrees);
 
-% CHECK
-%plotting the waypoints
-%\foreach \c in {(Odegrees),(20degrees),(40degrees),(55degrees),(80degrees),
-%(95degrees),(110degrees),(180degrees),(260degrees),(300degrees),(330degrees)} \fill[red] \c circle (1.0mm);
 
-% center of epsilon area
-\coordinate (aLocation) at (1.5,0.7);   
-\node [CircleNodeStyle, label=above:$z_0$] at (aLocation) {};
-
-% fill the area (area must be copied here!), apply a clip for epsilon area
-\begin{scope}
-       \clip[overlay] (aLocation) circle [radius=1.0]
-       (-20,-20) rectangle (30,20);
-       \fill[gray!5] (Odegrees) to[closed, curve through ={(20degrees) (40degrees) (55degrees) (80degrees) (95degrees) (110degrees)  (180degrees) (260degrees) (300degrees) }] (330degrees);
-       \end{scope}
 
 % create epsilon area
 \draw[thick] 
 [postaction={decorate}, decoration={
        markings,
-       mark=at position 0.25 with {\node[ fill=gray!5, name=EndVectorNode, above] {$\partial B(z_0,\epsilon)$};},    % ensure node has a white background
+       mark=at position 0.25 with {\node[ fill=GrayBackground, name=EndVectorNode, above] {$\partial B(z_0,\varepsilon)$};},    % ensure node has a white background
        mark=at position 0.95 with {\node[name=EndVectorNode] {};}}]
 (aLocation) circle [radius=1.0];
 
@@ -100,7 +96,7 @@ arrowstyle/.style={->, >=stealth}}
 \draw[thick, arrowstyle]
 [postaction={decorate}, decoration={
        markings,
-       mark=at position 0.5 with {\node[name=EndVectorNode, below] {$\epsilon$};}}] 
+       mark=at position 0.5 with {\node[name=EndVectorNode, below] {$\varepsilon$};}}] 
 (aLocation) -- (EndVectorNode.center);
 
 

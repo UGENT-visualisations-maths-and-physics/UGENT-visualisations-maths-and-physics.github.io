@@ -36,6 +36,12 @@ arrowstyle/.style={->, >=stealth}}
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
+\colorlet{BlueBackground}{blue!5}
+ % Background for entire canvas
+\begin{pgfonlayer}{background}
+    \fill[BlueBackground] (-2.44,-2.44) rectangle (4.8,4.0);
+\end{pgfonlayer}
+
 %% AXES
 \pgfmathsetmacro{\OvershootAxis}{0.5}
 % x-axis variables
@@ -315,7 +321,7 @@ arrowstyle/.style={->, >=stealth}}
     mark=at position 1.0 with {\node[left] {$x_{0}$};}}] (SurfaceRightProjected) -- (XPointProjection);
 
 % Labels
-\node[draw=white, ellipse, inner sep=0, fill=white] at ($ (FunctionCoord) + (-0.075, -0.15) $) {\scriptsize $g(x,y)$};
+\node[ellipse, inner sep=0, fill=BlueBackground] at ($ (FunctionCoord) + (-0.075, -0.15) $) {\scriptsize $g(x,y)$};
 \node at ($ (HighlightedCoordProjected) + (0.35, -0.25) $) {$(x_{0}, y_{0})$};
 
 \end{pgfonlayer}

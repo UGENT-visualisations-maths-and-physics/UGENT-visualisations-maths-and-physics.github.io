@@ -6,11 +6,12 @@
 \tikzset{
     every node/.style={font=\normalsize, text=black},
     arrowstyle/.style={->, >=stealth}}
+\colorlet{BlueBackground}{blue!5}
 % Background for entire canvas
-\fill[blue!5] (-9,-4) rectangle (5,4);
+\fill[BlueBackground] (-9,-4) rectangle (5,4);
 %Assen
-\draw [arrowstyle, semithick](0,-3) -- (0,3) node[above left]{$\Im(z)$};
-\draw [arrowstyle, semithick](-3,0) -- (3,0) node[below right]{$\Re(z)$};
+\draw [arrowstyle, semithick](0,-3) -- (0,3) node[above]{$\mathrm{Im}(z)$};
+\draw [arrowstyle, semithick](-3,0) -- (3,0) node[right]{$\mathrm{Re}(z)$};
 \draw [arrowstyle, semithick](-8,0) -- (-4,0) node[below right]{$t$};
 \foreach \x in {-7,-6.2,-5} {
     \draw (\x,-0.25) -- (\x,0.25);
