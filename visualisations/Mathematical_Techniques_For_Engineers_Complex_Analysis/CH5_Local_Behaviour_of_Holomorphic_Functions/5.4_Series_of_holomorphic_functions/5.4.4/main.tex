@@ -17,6 +17,8 @@
 \centering
 
 \begin{tikzpicture}
+    \tikzset{arrowstyle/.style={->, >=stealth}}
+
     % Background for entire canvas
     \fill[blue!5] (-8,-4) rectangle (8,4);
 
@@ -34,8 +36,8 @@
     % First Figure
     \begin{scope}[shift={(-4.5,0)}]
     % Assen
-    \draw[thick, ->] ($(-3,0)$) -- ($(3,0)$);
-    \draw[thick, ->] ($(0,-3)$) -- ($(0,3)$);
+    \draw[thick, arrowstyle] ($(-3,0)$) -- ($(3,0)$);
+    \draw[thick, arrowstyle] ($(0,-3)$) -- ($(0,3)$);
     \coordinate (x) at (3,0);
     \draw (x) node[below right] {$x$};
     \coordinate (y) at (0,3);
@@ -66,8 +68,8 @@
     
     \begin{scope}[shift={(4.5,0)}]
     % Assen
-    \draw[thick, ->] ($(-3,0)$) -- ($(3,0)$);
-    \draw[thick, ->] ($(0,-3)$) -- ($(0,3)$);
+    \draw[thick, arrowstyle] ($(-3,0)$) -- ($(3,0)$);
+    \draw[thick, arrowstyle] ($(0,-3)$) -- ($(0,3)$);
     \coordinate (u) at (3,0);
     \draw (u) node[below right] {$u$};
     \coordinate (v) at (0,3);
