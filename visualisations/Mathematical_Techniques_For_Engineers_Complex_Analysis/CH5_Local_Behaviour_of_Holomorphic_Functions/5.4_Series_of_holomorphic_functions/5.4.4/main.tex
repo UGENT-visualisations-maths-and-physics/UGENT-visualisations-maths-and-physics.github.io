@@ -17,22 +17,66 @@
 \centering
 
 \begin{tikzpicture}
-    \tikzset{arrowstyle/.style={->, >=stealth}}
+    \tikzset{arrowstyle/.style={->, >=stealth},
+            Pole/.style={solid, cross out,draw=black}}
 
+    % define sizes of the circles
+    \pgfmathsetmacro{\DomainCircleRadius}{2.0}    % Radius of the circle in the domain
+    % artificially increases second circle size for clarity
+     \pgfmathsetmacro{\CircleRadiusScale}{3.0}
+     \pgfmathsetmacro{\RangeCircleRadius}{(1/\DomainCircleRadius)*\CircleRadiusScale}
+
+    %% MACRO'S
+
+    \newcommand{\DrawPole}[2]{%
+    %function for drawing poles
+    % #Inputs
+    % #1 = coordinate (can be polar like 71.6:1.58)
+    % #2 = label (e.g., $z_1$)
+    \node[Pole] at (#1) {};
+    \node[below right] at (#1) {#2};
+    }
+
+    \newcommand{\InverseCoord}[2]{%
+    % Inverse a coordinate w=1/z
+    % Parse inputs
+    \pgfmathsetmacro{\Angle}{#1}
+    \pgfmathsetmacro{\Radius}{#2}
+    % perform inversion
+    \pgfmathsetmacro{\InverseAngle}{-(\Angle)}%
+    \pgfmathsetmacro{\InverseRadius}{1/(\Radius) * \CircleRadiusScale}%
+    }
+
+    \colorlet{BlueBackground}{blue!5}
     % Background for entire canvas
-    \fill[blue!5] (-8,-4) rectangle (8,4);
+    \fill[BlueBackground!5] (-8,-4) rectangle (8,4);
 
     % === Figure positions ===
     % We'll define each figure in its own scope with a shift
 
-    %gladde kromme er tussen
+    % arrow between the curves
 
     \draw[thick,postaction={decorate}, decoration={markings,mark=at position 0.5 with {\arrow{stealth}}}][black] (-1.5,0.4)
     .. controls (-1,0.9) and (1,0.9) .. (1.5,0.4);
-    \node[above] at (0,1.2) {$z=\frac{1}{w} $};
+    \node[above] at (0,1.2) {$w=\frac{1}{z} $};
 
     
     % ----------------------
+   
+    % define the POLES
+    % pole 1
+    \pgfmathsetmacro{\PoleRadiusA}{1.58}
+    \pgfmathsetmacro{\PoleAngleA}{71.6}
+     % pole 2
+    \pgfmathsetmacro{\PoleRadiusB}{1.48}
+    \pgfmathsetmacro{\PoleAngleB}{28.8}
+    % pole 3
+    \pgfmathsetmacro{\PoleRadiusC}{1.13}
+    \pgfmathsetmacro{\PoleAngleC}{-45}
+    % pole 4
+    \pgfmathsetmacro{\PoleRadiusD}{1.08}
+    \pgfmathsetmacro{\PoleAngleD}{146.3}
+
     % First Figure
     \begin{scope}[shift={(-4.5,0)}]
     % Assen
@@ -43,23 +87,20 @@
     \coordinate (y) at (0,3);
     \draw (y) node[below right] {$y$};
     % Cirkel
-    \draw[postaction={decorate}, decoration={markings,mark=at position 0.125 with {\arrow{stealth}},mark=at position 0.375 with {\arrow{stealth}},mark=at position 0.625 with {\arrow{stealth}},mark=at position 0.875 with {\arrow{stealth}}}](2,0) arc[start angle=0, end angle=360, radius=2];
+    
+    \draw[semithick, postaction={decorate}, decoration={markings,mark=at position 0.125 with {\arrow{stealth}},mark=at position 0.375 with {\arrow{stealth}},mark=at position 0.625 with {\arrow{stealth}},mark=at position 0.875 with {\arrow{stealth}}}] (\DomainCircleRadius,0) arc[start angle=0, end angle=360, radius=\DomainCircleRadius];
     \coordinate (G) at (1.6,1.6);
     \draw (G) node[below right] {$\gamma$};
-    \coordinate (inf) at (2.4,3.2);
-    \draw (inf) node[below right] {$\infty$};
-    %draw poles
-    \node[solid, cross out,draw=black] at (2.2,2.8) {};
 
     %draw poles
-    \node[solid, cross out,draw=black] at (0.5,1.5) {};
-    \node at (0.8,1.2) {\textcolor{black}{$z_1$}};
-    \node[solid, cross out,draw=black] at (1.3,0.7) {};
-    \node at (1.6,0.4) {\textcolor{black}{$z_2$}};
-    \node[solid, cross out,draw=black] at (0.8,-0.8) {};
-    \node at (1.1,-1.1) {\textcolor{black}{$z_3$}};
-    \node[solid, cross out,draw=black] at (-0.9,0.6) {};
-    \node at (-0.6,0.3) {\textcolor{black}{$z_4$}};
+    \DrawPole{51.9:3.562}{$\infty$};
+
+    % draw the poles inside the circle
+    \DrawPole{\PoleAngleA:\PoleRadiusA}{$z_1$};
+    \DrawPole{\PoleAngleB:\PoleRadiusB}{$z_2$};
+    \DrawPole{\PoleAngleC:\PoleRadiusC}{$z_3$};
+    \DrawPole{\PoleAngleD:\PoleRadiusD}{$z_4$};
+
 
     \end{scope}
 
@@ -75,20 +116,24 @@
     \coordinate (v) at (0,3);
     \draw (v) node[below right] {$v$};
     % Cirkel
-    \draw[postaction={decorate}, decoration={markings,mark=at position 0.125 with {\arrow{stealth}},mark=at position 0.375 with {\arrow{stealth}},mark=at position 0.625 with {\arrow{stealth}},mark=at position 0.875 with {\arrow{stealth}}}](1,0) arc[start angle=0, end angle=-360, radius=1];
-    \coordinate (W) at (-0.9,-0.9);
+
+    \draw[semithick, postaction={decorate}, decoration={markings,mark=at position 0.125 with {\arrow{stealth}},mark=at position 0.375 with {\arrow{stealth}},mark=at position 0.625 with {\arrow{stealth}},mark=at position 0.875 with {\arrow{stealth}}}] (0,0) circle[start angle=0, end angle=-360, radius=\RangeCircleRadius];
+    \coordinate (W) at (-135:\RangeCircleRadius*1.15);
     \draw (W) node[below right] {$\gamma^-$};
-    %draw poles
-    \node[solid, cross out,draw=black] at (0.5,1.5) {};
-    \node at (0.8,1.2) {\textcolor{black}{$w_1$}};
-    \node[solid, cross out,draw=black] at (1.3,0.7) {};
-    \node at (1.6,0.4) {\textcolor{black}{$w_2$}};
-    \node[solid, cross out,draw=black] at (1.3,-1.3) {};
-    \node at (1.6,-1.6) {\textcolor{black}{$w_3$}};
-    \node[solid, cross out,draw=black] at (-1.8,1.2) {};
-    \node at (-1.5,0.9) {\textcolor{black}{$w_4$}};
-    \node[solid, cross out,draw=black] at (0,0) {};
-    \node at (0.3,-0.3) {\textcolor{black}{$w_{\infty}$}};
+
+
+    %draw poles: first calculate inverse point via the macro \InverseCoord
+    \InverseCoord{\PoleAngleA}{\PoleRadiusA}
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_1$};
+    \InverseCoord{\PoleAngleB}{\PoleRadiusB}
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_2$};
+    \InverseCoord{\PoleAngleC}{\PoleRadiusC}
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_3$};
+    \InverseCoord{\PoleAngleD}{\PoleRadiusD}
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_4$};
+
+    % pole at infinity now ot origin
+    \DrawPole{0:0}{$w_{\infty}$};
     \end{scope}
 \end{tikzpicture}
 \end{document}
