@@ -17,8 +17,9 @@
 \centering
 
 \begin{tikzpicture}
+    \colorlet{BlueBackground}{blue!5}
     % Background for entire canvas
-    \fill[blue!5] (-6,-6) rectangle (6,6);
+    \fill[BlueBackground] (-6,-6) rectangle (6,6);
     \tikzset{
       cross/.style={cross out, draw=red, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt,line width = 0.8pt}, cross/.default={2.8pt},
     % style to apply some styles to each segment of a path

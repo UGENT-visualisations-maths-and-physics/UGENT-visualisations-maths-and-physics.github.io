@@ -17,11 +17,14 @@
 \centering
 
 \begin{tikzpicture}
+    \tikzset{arrowstyle/.style={->, >=stealth}}
+
+    \colorlet{BlueBackground}{blue!5}
     % Background for entire canvas
-    \fill[blue!5] (-6,-6) rectangle (6,6);
+    \fill[BlueBackground] (-6,-6) rectangle (6,6);
     % Assen
-    \draw[thick, ->] ($(-5,0)$) -- ($(5,0)$);
-    \draw[thick, ->] ($(-2.5,-5)$) -- ($(-2.5,5)$);
+    \draw[thick, arrowstyle] ($(-5,0)$) -- ($(5,0)$);
+    \draw[thick, arrowstyle] ($(-2.5,-5)$) -- ($(-2.5,5)$);
     \coordinate (x) at (5,0);
     \draw (x) node[below right] {$u$};
     \coordinate (y) at (-2.5,5);
