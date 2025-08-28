@@ -1,5 +1,7 @@
 "Functions for extracting Tikz code from a directory of Tex files and writing to summary Tex files"
 
+# Make sure to install "poppler" for export to website.
+
 import os, re, subprocess, glob
 import shutil
 import pdf2image
