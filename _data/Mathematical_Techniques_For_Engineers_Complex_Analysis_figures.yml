@@ -1,0 +1,56 @@
+- title: 2.1.1 Continuity Definition
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.1_Functions_Of_A_Complex_Variable_Limits_And_Continuity/2.1.1_Continuity_Definition/standalone.PNG
+  properties:
+    format: PNG
+- title: 2.4 Geometrical Interpretation Of The Complex Derivative
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.4_Geometrical_Interpretation_Of_The_Complex_Derivative/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.2 Bilinear transforms
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.5.1
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.1/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.5.2
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.2/standalone.PNG
+  properties:
+    format: PNG
+- title: 3.5.3
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.3/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.1.1
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.1_Line_integral_of_a_complex_function/5.1.1/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.2.3
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.2_Cauchy_Goursat_theorem/5.2.3/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.3 Cauchy integral formulas and consequences
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.3_Cauchy_integral_formulas_and_consequences/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.4.4
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.4_Series_of_holomorphic_functions/5.4.4/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.5.2 Uniqueness of holomorphic functions
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.5_Zeros_and_poles_of_holomorphic_functions/5.5.2_Uniqueness_of_holomorphic_functions/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.6.2
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.2/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.6.3 Argument Principle
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.3_Argument_Principle/standalone.PNG
+  properties:
+    format: PNG
+- title: 5.6.3 Rouches theorem
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.3_Rouches_theorem/standalone.PNG
+  properties:
+    format: PNG
