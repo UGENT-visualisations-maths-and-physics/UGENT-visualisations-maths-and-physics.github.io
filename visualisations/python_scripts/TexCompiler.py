@@ -418,7 +418,7 @@ class tex_compiler:
 
         # Step 5: Add, commit, and push changes
         subprocess.run(['git', 'add', '.'])
-        subprocess.run(['git', 'commit', '-m', 'Automatic update: %s assets and YAML for gh-pages'] % (self.project_name))
+        subprocess.run(['git', 'commit', '-m', f'Automatic update: {self.project_name} assets and YAML for gh-pages'])
         subprocess.run(['git', 'push', 'origin', 'gh-pages'])
 
         print("Files of %s successfully pushed to gh-pages branch!" % (self.project_name))
