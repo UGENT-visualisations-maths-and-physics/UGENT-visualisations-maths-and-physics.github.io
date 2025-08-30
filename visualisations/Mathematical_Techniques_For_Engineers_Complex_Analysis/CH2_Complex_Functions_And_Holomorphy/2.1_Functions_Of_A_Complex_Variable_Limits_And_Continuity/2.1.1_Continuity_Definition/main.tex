@@ -78,12 +78,17 @@ arrowstyle/.style={->, >=stealth}}
 \draw[thick, arrowstyle]
 [postaction={decorate}, decoration={
        markings,
-       mark=at position 0.5 with {\node[name=EndVectorNode, below] {$\delta$};}}] 
+       mark=at position 0.5 with {\node[name=EndVectorNode, below] {$\delta_{\varepsilon}$};}}] 
 (aLocation) -- (EndVectorNode.center);
 
 % domain symbol
 \coordinate (DomainSymbolLoc) at (1.7,2.7);   
 \node[ ellipse, inner sep=0, fill=BlueBackground, name=EndVectorNode, BigTextFont] at (DomainSymbolLoc) {$S$};
+
+% transformation arrow
+\draw[postaction={decorate}, decoration={markings,
+mark=at position 0.5 with {\node[above] {$f(z)$};}}]
+[arrowstyle, thick] (3.8, 2.0)  to[out=30,in=180-30] (7.2, 2.0);
 
 %%% second subfigure: range of the function with delta
 

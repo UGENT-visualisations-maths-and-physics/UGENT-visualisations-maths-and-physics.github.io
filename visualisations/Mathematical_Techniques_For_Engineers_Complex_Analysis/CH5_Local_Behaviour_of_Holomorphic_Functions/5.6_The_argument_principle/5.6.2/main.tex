@@ -17,13 +17,23 @@
 \centering
 
 \begin{tikzpicture}
+
+    % define the colors
+    \colorlet{GrayBackground}{gray!15}
     \colorlet{BlueBackground}{blue!5}
+    % Background for entire canvas
+    \colorlet{BlueBackground}{blue!5}
+
     % Background for entire canvas
     \fill[BlueBackground] (-6,-6) rectangle (6,6);
     \tikzset{
-      cross/.style={cross out, draw=red, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt,line width = 0.8pt}, cross/.default={2.8pt},
+      BigTextFont/.style={font=\large},
+      Pole/.style={solid, cross out, minimum size=4pt, inner sep=0pt, draw=black},   % define style for poles=cross
+      Zero/.style={solid, circle, minimum size=5pt, inner sep=0pt, draw=black}      % define style for zeroes=cross
+    }
+
     % style to apply some styles to each segment of a path
-    on each segment/.style={
+    \tikzset{on each segment/.style={
       decorate,
       decoration={
         show path construction,
@@ -51,34 +61,79 @@
           mark=at position .5 with {\arrow[#1]{stealth}}
         }}},
   }
+
+    %% Macros for drawing poles and zeros
+
+    \newcommand{\DrawPole}[2]{%
+    %function for drawing poles
+    % #Inputs
+    % #1 = coordinate (can be polar like 71.6:1.58)
+    % #2 = label (e.g., $z_1$)
+    \node[Pole] at (#1) {};
+    \node[above right] at (#1) {#2};
+    }
+
+    \newcommand{\DrawZero}[2]{%
+    %function for drawing poles
+    % #Inputs
+    % #1 = coordinate (can be polar like 71.6:1.58)
+    % #2 = label (e.g., $z_1$)
+    \node[Zero] at (#1) {};
+    \node[above right] at (#1) {#2};
+    }
+
+    %% DEFINE DIFFERENT AREAS
+    % define omega space
+    \coordinate (OmegaA) at (2.5,-3);
+    \coordinate (OmegaB) at (-3.5,-4.5);
+    \coordinate (OmegaC) at (-5,-3);
+    \coordinate (OmegaD) at (-5,0);
+    \coordinate (OmegaE) at (-3.5,4.5);
+    \coordinate (OmegaF) at (1,3);
+    \coordinate (OmegaG) at (4,3);
+
+    % define contour around poles
+    \coordinate (ContourA) at (3,1.5);
+    \coordinate (ContourB) at (0,1.95);
+    \coordinate (ContourC) at (-1,2.8);
+    \coordinate (ContourD) at (-1.9,3.55);
+    \coordinate (ContourE) at (-3,0);
+    \coordinate (ContourF) at (-3.3,-1.5);
+    \coordinate (ContourG) at (-1.5,-3);
+    \coordinate (ContourH) at (1.95,-1.5);
+
+
+    %% FILL AND DRAW THE AREAS
+
     % draw omega space
-    \path [draw=black,thick]
-    (2.5,-3) to[closed, curve through =
-    { (-3.5,-4.5) (-5,-3) (-5,0) (-3.5,4.5) (1,3) }] (4,3);
-    \draw[color=black] (3.5,3.5) node[above] {$\Omega$};
+    \path [draw=black,thick, fill=white] (OmegaA) to[closed, curve through =
+    { (OmegaB) (OmegaC) (OmegaD) (OmegaE) (OmegaF) }] (OmegaG);
+    \draw[color=black] (3.5,3.5) node[above, BigTextFont] {$\Omega$};
 
     % draw contour around poles
-    \path [draw=black,thick,postaction={on each segment={mid arrow=black}}]
-    (3,1.5) to[closed, curve through =
-    { (0,1.95) (-1,2.8) (-1.9,3.55) (-3,0) (-3.3,-1.5) (-1.5,-3) }] (1.95,-1.5);
-    \node at (3,2) {\textcolor{black}{$\mathcal{\gamma}$}};
+    \path [draw=black,thick,postaction={on each segment={mid arrow=black}}, fill=GrayBackground]
+    (ContourA) to[closed, curve through =
+    { (ContourB) (ContourC) (ContourD) (ContourE) (ContourF) (ContourG) }] (ContourH);
+    \node[BigTextFont] at (3,2) {$\mathcal{\gamma}$};
 
+    %% DRAW ZEROES AND POLES
     % draw zeros
-    \node[solid, circle,draw=black] at (-0.5,0.4) {};
-    \node at (-0.2,0.7) {\textcolor{black}{$z_{0_1}$}};
+    \coordinate (ZeroA) at (-0.5,0.4) {};
+    \DrawZero{ZeroA}{$z_{0_1}$}
 
-    \node[solid, circle,draw=black] at (1.5,0.7) {};
-    \node at (1.8,1.0) {\textcolor{black}{$z_{0_2}$}};
+    \coordinate (ZeroB) at (1.5,0.7);
+    \DrawZero{ZeroB}{$z_{0_2}$}
     
     %draw poles
-    \node[solid, cross out,draw=black] at (-2.2,2.8) {};
-    \node at (-1.9,3.1) {\textcolor{black}{$z_{p_1}$}};
+    \coordinate (PoleA) at (-2.2,2.8);
+    \DrawPole{PoleA}{$z_{p_1}$}
     
-    \node[solid, cross out,draw=black] at (-2.3,-2.0) {};
-    \node at (-2.0,-1.7) {\textcolor{black}{$z_{p_2}$}};
+    \coordinate (PoleB) at (-2.3,-2.0);
+    \DrawPole{PoleB}{$z_{p_2}$};
 
-    \node[solid, cross out,draw=black] at (0.2,-1.7) {};
-    \node at (0.5,-1.4) {\textcolor{black}{$z_{p_2}$}};
+    \coordinate (PoleC) at (0.2,-1.7);
+    \DrawPole{PoleC}{$z_{p_3}$};
+
     
 
 
