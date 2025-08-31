@@ -119,7 +119,7 @@ arrowstyle/.style={->, >=stealth}}
   \pgfmathsetmacro{\ExpRadius}{exp(\XCoord) * \YTickscaling}
   \pgfmathsetmacro{\AngleDeg}{\YCoord * 180/pi}
   \coordinate (ValuePoint) at (\AngleDeg: \ExpRadius);
-  \node[CircleNodeStyle, label=right:{$z$}] (ValuePointNode) at (ValuePoint) {};
+  \node[CircleNodeStyle, label=right:{$e^{z}$}] (ValuePointNode) at (ValuePoint) {};
 
   % draw small circle to indicate that 0 is not part of the range of the function
   \draw[fill=BlueBackground, draw=black, thick] (0,0) circle [radius=0.08];
