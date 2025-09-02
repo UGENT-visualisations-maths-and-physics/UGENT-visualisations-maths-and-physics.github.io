@@ -167,6 +167,10 @@ arrowstyle/.style={->, >=stealth}}
 \coordinate (LowerRight) at (\xmax, \ymax);
 \node at (LowerRight) [anchor=west, outer sep=0.3cm, text=Red] {$[x,y,\alpha(x,y)]$};  % parametric equation lower surface
 
+% draw the node for the volume
+\pgfmathsetmacro{\XMiddle}{(\xmin+\xmax)/2}
+\node[BigTextFont] at (\XMiddle, 2.1) {$V$};
+
 % side walls
 \draw[thick] (LowerLeft)--(UpperLeft);
 \draw[thick] (LowerRight)--(UpperRight);
