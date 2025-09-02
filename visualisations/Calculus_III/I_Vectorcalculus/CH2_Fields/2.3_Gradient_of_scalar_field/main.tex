@@ -12,6 +12,9 @@
 %\usepackage{lmodern}
 \usetikzlibrary{decorations.markings}
 
+% symbol commands
+\newcommand{\stack}{\overrightarrow{\nabla}}
+
   
 \begin{document}
 \begin{tikzpicture}[>=stealth]
@@ -41,9 +44,9 @@
         \draw[fill=black] (u2) circle(0.05);
         \draw[fill=black] (P) circle(0.02) node[left] {$P$};
         \draw [->](1,1.4142) -- (3,4.2426);
-        \node[above] at (fp) {$\vec{\nabla} f(P)=(\partial_{\vec{e_1}} f(P),\partial_{\vec{e_2}} f(P))$};
-        \draw [->](1,1.4142) -- (2,1.4142) node[above]{$\vec{e_1}$};
-        \draw [->](1,1.4142) -- (1,2.4142) node[right]{$\vec{e_2}$};
+        \node[above] at (fp) {$\overrightarrow{\nabla} f(P)=(\partial_{\overrightarrow{e_1}}f(P),\partial_{\overrightarrow{e_2}}f(P))$};
+        \draw [->](1,1.4142) -- (2,1.4142) node[above]{$\overrightarrow{e_1}$};
+        \draw [->](1,1.4142) -- (1,2.4142) node[right]{$\overrightarrow{e_2}$};
         \draw[dashed] (1,1.4142) -- (5,1.4142);
         \draw[dashed] (1,1.4142) -- (1,5);
         \draw[dotted] (1,4.2426) -- (3,4.2426);
