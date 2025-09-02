@@ -13,9 +13,9 @@
 
     % draw curves
     \def\a{1} % constant
-    \draw[red,domain=-1.6:1.6,samples=50, line width=1] plot ({\x},{\a*cosh(\x/\a)}) node[right] {$P(x)$};
+    \draw[red,domain=-1.6:1.6,samples=50, line width=1] plot ({\x},{\a*cosh(\x/\a)}) node[right] {$P(t)$};
 
-    \draw[blue,domain=-4:4,samples=50, line width=1] plot ({\x - \a*tanh(\x/\a)},{\a/cosh(\x/\a)}) node[above] {$Q(x)$};
+    \draw[blue,domain=-4:4,samples=50, line width=1] plot ({\x - \a*tanh(\x/\a)},{\a/cosh(\x/\a)}) node[above] {$Q(t)$};
 
     % draw labels
     

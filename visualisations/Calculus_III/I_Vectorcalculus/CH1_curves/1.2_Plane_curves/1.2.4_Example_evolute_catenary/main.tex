@@ -14,10 +14,10 @@
     % draw curves
     \def\a{1} % constant
     \draw[red,domain=-2.2:2.2,samples=50, line width=1] plot ({\x},{\a*cosh(\x/\a)});
-    \node[anchor=west] at (1.6,2) {\textcolor{red}{$P(x)$}};
+    \node[anchor=west] at (1.6,2) {\textcolor{red}{$P(t)$}};
 
     \draw[blue,domain=-1.4:1.4,samples=50, line width=1] plot ({\x - \a/2*sinh(2*\x/\a)},{2*\a*cosh(\x/\a)});
-    \node[anchor = south] at (-0.7,3.3) {\textcolor{blue}{$Q(x)$}};
+    \node[anchor = south] at (-0.7,3.3) {\textcolor{blue}{$Q(t)$}};
 
     % draw labels
     \node[anchor=east] at (0,2) {$2$};

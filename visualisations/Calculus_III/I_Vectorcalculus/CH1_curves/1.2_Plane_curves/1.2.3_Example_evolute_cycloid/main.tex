@@ -13,10 +13,10 @@
 
     % draw cycloid
     \def\r{1} % radiusdsf
-    \draw[red,domain=-0.8*pi:2.8*pi,samples=50, line width=1] plot ({\x - sin(\x r)},{1 - cos(\x r)}) node[right] {$P(x)$}; 
+    \draw[red,domain=-0.8*pi:2.8*pi,samples=50, line width=1] plot ({\x - sin(\x r)},{1 - cos(\x r)}) node[right] {$P(t)$}; 
     % \x r means to convert '\x' from degrees to radians
 
-    \draw[blue,domain=-0.5*pi:2.3*pi,samples=50, line width=1] plot ({\x + sin(\x r)},{-1 + cos(\x r)}) node[right] {$Q(x)$}; 
+    \draw[blue,domain=-0.5*pi:2.3*pi,samples=50, line width=1] plot ({\x + sin(\x r)},{-1 + cos(\x r)}) node[right] {$Q(t)$}; 
     
     
 
