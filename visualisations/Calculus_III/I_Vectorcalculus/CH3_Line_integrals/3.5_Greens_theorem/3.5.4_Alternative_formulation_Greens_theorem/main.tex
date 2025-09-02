@@ -41,6 +41,9 @@ arrowstyle/.style={->, >=stealth}}
 \fill[pattern={Lines[angle=30, distance=0.4cm, line width=0.6pt]}, pattern color=gray] (10degrees) to[closed, curve through =
 {(25degrees) (35degrees) (50degrees) (60degrees) (85degrees) (120degrees) (135degrees) (155degrees) (185degrees) (250degrees)}] (270degrees);
 
+% draw edge of area
+\node[BigTextFont, above, inner sep=7pt] at (120degrees) {$\partial G^+$};
+
 % drawing area
 \draw[postaction={decorate}, decoration={
        markings,
