@@ -28,28 +28,30 @@ arrowstyle/.style={->, >=stealth}}
 % create axes
 \pgfmathsetmacro{\OvershootAxis}{1.0}
 \draw[arrowstyle, very thick] (-\OvershootAxis,0) -- (6,0) node[pos=1, right, BigTextFont] {$x$};
-\draw[arrowstyle, very thick] (0,-\OvershootAxis) -- (0,6) node[pos=1, above, BigTextFont] {$y$};
+\draw[arrowstyle, very thick] (0,-\OvershootAxis) -- (0,5.5) node[pos=1, above, BigTextFont] {$y$};
 
-% defining the smooth curve (S-curve):
-\pgfmathsetmacro{\BeginSection}{2.4}    % BeginSection width
-\pgfmathsetmacro{\BeginDip}{2.4}        % BeginSection dip in height   
-\pgfmathsetmacro{\MiddleSectionWidth}{-1.8}
-\pgfmathsetmacro{\MiddleSectionHeight}{3.0}
-\pgfmathsetmacro{\EndSection}{1.5}     % EndSection width
-\pgfmathsetmacro{\EndDip}{0.6}          % EndSection dip in height 
-% define the waypoints of the smooth curve
-\coordinate (Begin) at (1.8, -1.2);
-\coordinate (BeginBend) at ($(Begin)+(\BeginSection, \BeginDip)$);
-\coordinate (EndBend) at ($(BeginBend) + (\MiddleSectionWidth, \MiddleSectionHeight)$);
-\coordinate (End) at ($(EndBend) + (\EndSection, \EndDip)$);
-% decorate the path with marks along the path
-\draw[postaction={decorate}, decoration={
-    markings,
-    mark=at position 0.80 with {\node[left, BigTextFont] {$\mathcal{C}$};},  % smooth curve symbol
-    mark=at position 0.39 with \coordinate (Ti1);,       % T_(i) on smooth curve
-    mark=at position 0.55 with \coordinate (Ti2);, }]    % T_(i+1) on smooth curve
-% draw the smooth curve
-[very thick, Blue] (Begin) to[out=45, in=180+90] (BeginBend) to[out=90, in=180+70] (EndBend) to[out=70, in=180] (End);
+\begin{scope}[xshift=-0.5cm]
+    % defining the smooth curve (S-curve):
+    \pgfmathsetmacro{\BeginSection}{2.4}    % BeginSection width
+    \pgfmathsetmacro{\BeginDip}{2.4}        % BeginSection dip in height   
+    \pgfmathsetmacro{\MiddleSectionWidth}{-1.8}
+    \pgfmathsetmacro{\MiddleSectionHeight}{3.0}
+    \pgfmathsetmacro{\EndSection}{1.5}     % EndSection width
+    \pgfmathsetmacro{\EndDip}{0.6}          % EndSection dip in height 
+    % define the waypoints of the smooth curve
+    \coordinate (Begin) at (1.8, -1.2);
+    \coordinate (BeginBend) at ($(Begin)+(\BeginSection, \BeginDip)$);
+    \coordinate (EndBend) at ($(BeginBend) + (\MiddleSectionWidth, \MiddleSectionHeight)$);
+    \coordinate (End) at ($(EndBend) + (\EndSection, \EndDip)$);
+    % decorate the path with marks along the path
+    \draw[postaction={decorate}, decoration={
+        markings,
+        mark=at position 0.80 with {\node[left, BigTextFont] {$\mathcal{C}$};},  % smooth curve symbol
+        mark=at position 0.39 with \coordinate (Ti1);,       % T_(i) on smooth curve
+        mark=at position 0.55 with \coordinate (Ti2);, }]    % T_(i+1) on smooth curve
+    % draw the smooth curve
+    [very thick, Blue] (Begin) to[out=45, in=180+90] (BeginBend) to[out=90, in=180+70] (EndBend) to[out=70, in=180] (End);
+\end{scope}
 
 % place domain range
 \coordinate (BeginDomain) at (-2,1.0);
@@ -78,7 +80,7 @@ arrowstyle/.style={->, >=stealth}}
 % vectors
 \draw[arrowstyle, thick] (0,0) -- (Ti1Node.190);
 \draw[arrowstyle, thick] (Ti1Node.120) -- (Ti2Node.300)
-    node[pos=0.5, left, rotate=25] at ($(Ti1)!0.5!(Ti2)$) {$P(t_{i+1})-P(t_{i})$};
+    node[pos=0.5, left, rotate=27.5] at ($(Ti1)!0.5!(Ti2)$) {$P(t_{i+1})-P(t_{i})$};
 \draw[arrowstyle, thick] (0,0) -- (Ti2Node.210);
 
 % draw tangent
