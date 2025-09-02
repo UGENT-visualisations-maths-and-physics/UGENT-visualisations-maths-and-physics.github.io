@@ -45,40 +45,42 @@
 \pgfplotsset{compat=1.18}
 \begin{document}
 \begin{tikzpicture}[scale=0.7]
+    \begin{scope}
+      % draw axes
+      \coordinate (O) at (0,0);
+      \draw[arrowstyle, semithick] (0,-4) -- (0,4) node[anchor=west] {$\Im(z)$};
+      \draw[arrowstyle, semithick] (-4,0) -- (4,0) node[anchor=north] {$\Re(z)$};
+
+      % draw areas
+      \draw[red, thick](2.5,0) arc[start angle=0, end angle=-360, radius=2.5];
+      \fill[pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green] (0,0) circle (2.5);
+
+      \draw (2, 2) node[below right] {\textcolor{red}{$|z| = \rho$}};
+      \node at (1,1) [draw=white, inner sep=0, fill=white] {\textcolor{black!60!green}{$B(0,\rho)$}};
+    \end{scope}
+
+    \begin{scope}[xshift=9.5cm]
     % draw axes
     \coordinate (O) at (0,0);
-    \draw[arrowstyle, semithick] (0,-4) -- (0,4) node[anchor=west] {$\Im(z)$};
-    \draw[arrowstyle, semithick] (-4,0) -- (4,0) node[anchor=north] {$\Re(z)$};
+      \draw[arrowstyle, semithick] (0,-4) -- (0,4) node[anchor=west] {$\Im(z)$};
+      \draw[arrowstyle, semithick] (-4,0) -- (4,0) node[anchor=north] {$\Re(z)$};
 
-    % draw areas
-    \draw[red, thick](2.5,0) arc[start angle=0, end angle=-360, radius=2.5];
-    \fill[pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green] (0,0) circle (2.5);
+      % draw areas (change opacity to have a gradient fade)
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green] (0,0) circle (2.5) circle (2.75);
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.9] (0,0) circle (2.75) circle (3);
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.8] (0,0) circle (3) circle (3.25);
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.7] (0,0) circle (3.25) circle (3.5);
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.55] (0,0) circle (3.5) circle (3.75);
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.4] (0,0) circle (3.75) circle (4);
+      \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.25] (0,0) circle (4) (-4,4) rectangle (4,-4);
 
-    \draw (2, 2) node[below right] {\textcolor{red}{$|z| = z_0$}};
-    \node at (1,1) [draw=white, inner sep=0, fill=white] {\textcolor{black!60!green}{$B(0,|z_0|)$}};
-\end{tikzpicture}
-
-\begin{tikzpicture}[scale=0.7]
-    % draw axes
-    \coordinate (O) at (0,0);
-    \draw[arrowstyle, semithick] (0,-4) -- (0,4) node[anchor=west] {$\Im(z)$};
-    \draw[arrowstyle, semithick] (-4,0) -- (4,0) node[anchor=north] {$\Re(z)$};
-
-    % draw areas (change opacity to have a gradient fade)
-    \draw[red, thick](2.5,0) arc[start angle=0, end angle=-360, radius=2.5];
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green] (0,0) circle (2.5) circle (2.75);
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.9] (0,0) circle (2.75) circle (3);
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.8] (0,0) circle (3) circle (3.25);
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.7] (0,0) circle (3.25) circle (3.5);
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.55] (0,0) circle (3.5) circle (3.75);
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.4] (0,0) circle (3.75) circle (4);
-    \fill[even odd rule, pattern={Lines[angle=65, distance=0.4cm]}, pattern color = black!60!green,opacity=0.25] (0,0) circle (4) (-4,4) rectangle (4,-4);
-
-    % labels
-    % \draw (2, 2) node[below right] {\textcolor{red}{$|z| = z_0$}};
-    \node at (-2.5,2.5) [draw=white, inner sep=0, fill=white] {\textcolor{black!60!green}{$co \overline{B(0,|z_0|)}$}};
-    
-    \node at (2.4,2) [draw=white, inner sep=0, fill=white] {\textcolor{red}{$|z| = z_0$}};
+      % labels
+      % \draw (2, 2) node[below right] {\textcolor{red}{$|z| = z_0$}};
+      \node at (-2.5,2.5) [draw=white, inner sep=0, fill=white] {\textcolor{black!60!green}{$\mathbb{C} \setminus \overline{B(0,\tilde \rho)}$}};
+      \node at (2.45,2.05) [draw=white, inner sep=0, fill=white, shape=ellipse] {\textcolor{red}{$|z| = \tilde \rho$}};
+      % draw outline circle
+      \draw[red, thick](2.5,0) arc[start angle=0, end angle=-360, radius=2.5];
+    \end{scope}
 \end{tikzpicture}
 
 \end{document}
