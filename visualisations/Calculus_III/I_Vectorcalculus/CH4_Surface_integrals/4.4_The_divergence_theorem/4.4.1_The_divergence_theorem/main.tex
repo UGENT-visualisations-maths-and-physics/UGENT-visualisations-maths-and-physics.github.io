@@ -40,12 +40,12 @@ arrowstyle/.style={->, >=stealth}}
 \pgfmathsetmacro{\OvershootAxis}{1.3} 
 % x and z-axes
 \draw[arrowstyle, thick] (-\OvershootAxis,0) -- (\AxisSize,0) node[pos=1, right, BigTextFont] {$y$};
-\draw[arrowstyle, thick] (0,-\OvershootAxis) -- (0,\AxisSize * 0.85) node[pos=1, above, BigTextFont] {$z$};
+\draw[arrowstyle, thick] (0,-\OvershootAxis) -- (0,\AxisSize * 0.80) node[pos=1, above, BigTextFont] {$z$};
 % y-axis (angled)
 \pgfmathsetmacro{\ZAxisBeginX}{cos(45) * \OvershootAxis * 0.7}
 \pgfmathsetmacro{\ZAxisBeginY}{ sin(45) * \OvershootAxis * 0.7}
-\pgfmathsetmacro{\ZAxisEndX}{- cos(45) * 0.5 * \AxisSize}
-\pgfmathsetmacro{\ZAxisEndY}{ - sin(45) * 0.5 * \AxisSize}
+\pgfmathsetmacro{\ZAxisEndX}{- cos(45) * 0.4 * \AxisSize}
+\pgfmathsetmacro{\ZAxisEndY}{ - sin(45) * 0.4 * \AxisSize}
 \draw[arrowstyle, thick] (\ZAxisBeginX, \ZAxisBeginY) -- (\ZAxisEndX, \ZAxisEndY) node[pos=1, below left, BigTextFont] {$x$};
 
 % Upper surface
