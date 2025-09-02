@@ -27,26 +27,28 @@ arrowstyle/.style={->, >=stealth}}
 
 % create axes
 \pgfmathsetmacro{\OvershootAxis}{1.0}
-\draw[arrowstyle, very thick] (-\OvershootAxis,0) -- (6,0) node[pos=1, right, BigTextFont] {$x$};
-\draw[arrowstyle, very thick] (0,-\OvershootAxis) -- (0,6) node[pos=1, above, BigTextFont] {$y$};
+\draw[arrowstyle, very thick] (-\OvershootAxis,0) -- (5,0) node[pos=1, right, BigTextFont] {$x$};
+\draw[arrowstyle, very thick] (0,-\OvershootAxis) -- (0,4) node[pos=1, above, BigTextFont] {$y$};
 
-% defining the smooth curve (S-curve):
-\pgfmathsetmacro{\MiddleSectionWidth}{2.0}
-\pgfmathsetmacro{\MiddleSectionHeight}{2.5}
-\pgfmathsetmacro{\EndSection}{2.0}     % EndSection width
-\pgfmathsetmacro{\EndDip}{2.0}          % EndSection dip in height 
-% define the waypoints of the smooth curve
-\coordinate (Begin) at (1.2, -1.2);
-\coordinate (Middle) at ($(Begin) + (\MiddleSectionWidth, \MiddleSectionHeight)$);
-\coordinate (End) at ($(Middle) + (\EndSection, \EndDip)$);
-% decorate the path with marks along the path
-\draw[postaction={decorate}, decoration={
-    markings,
-    mark=at position 0.80 with {\node[above left, BigTextFont] {$\mathcal{C}$};},  % smooth curve symbol
-    mark=at position 0.48 with \coordinate (Ti1);,       % T_(i) on smooth curve
-    mark=at position 0.65 with \coordinate (Ti2);, }]    % T_(i+1) on smooth curve
-% draw the smooth curve
-[very thick, Blue] (Begin) to[out=10, in=180+60] (Middle) to[out=60, in=180+20] (End);
+\begin{scope}[xshift=-0.75cm]
+    % defining the smooth curve (S-curve):
+    \pgfmathsetmacro{\MiddleSectionWidth}{2.0}
+    \pgfmathsetmacro{\MiddleSectionHeight}{2.5}
+    \pgfmathsetmacro{\EndSection}{2.0}     % EndSection width
+    \pgfmathsetmacro{\EndDip}{2.0}          % EndSection dip in height 
+    % define the waypoints of the smooth curve
+    \coordinate (Begin) at (1.2, -1.2);
+    \coordinate (Middle) at ($(Begin) + (\MiddleSectionWidth, \MiddleSectionHeight)$);
+    \coordinate (End) at ($(Middle) + (\EndSection, \EndDip)$);
+    % decorate the path with marks along the path
+    \draw[postaction={decorate}, decoration={
+        markings,
+        mark=at position 0.80 with {\node[above left, BigTextFont] {$\mathcal{C}$};},  % smooth curve symbol
+        mark=at position 0.48 with \coordinate (Ti1);,       % T_(i) on smooth curve
+        mark=at position 0.65 with \coordinate (Ti2);, }]    % T_(i+1) on smooth curve
+    % draw the smooth curve
+    [very thick, Blue] (Begin) to[out=10, in=180+60] (Middle) to[out=60, in=180+20] (End);
+\end{scope}
 
 % place domain range
 \coordinate (BeginDomain) at (-2,1.0);
