@@ -18,7 +18,8 @@
 
 \begin{tikzpicture}[scale=0.9]
     \tikzset{cross/.style={cross out, draw=red, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt,line width = 0.8pt}, cross/.default={3.5pt}}
-    \tikzset{arrowstyle/.style={->, >=stealth}}
+    \tikzset{BigTextFont/.style={font=\LARGE},   % Big text font,
+            arrowstyle/.style={->, >=stealth}}
     % draw axes
     \coordinate (O) at (0,0);
     \draw[thick, arrowstyle] (0,-6) -- (0,6) node[anchor=west] {$y$};
@@ -64,10 +65,14 @@
     \draw (p5) node[below right] {$1$};
     \draw (p6) node[below right] {$2$};
     \draw (p7) node[below left] {$N$};
+
+    % label for the square and its edge
+    \node[BigTextFont] at (1.75,1.75) {$V_N$};
+    \node[BigTextFont, above, blue] at (-2.5,4.5) {$\partial V_N$};
     
 
     % draw rectangle
-    \draw[semithick, densely dashed] (-4.5,4.5) rectangle (4.5,-4.5);
+    \draw[ultra thick, densely dashed, blue] (-4.5,4.5) rectangle (4.5,-4.5);
     
 \end{tikzpicture}
 \end{document}
