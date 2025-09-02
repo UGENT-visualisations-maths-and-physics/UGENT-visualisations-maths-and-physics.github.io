@@ -9,6 +9,7 @@
 \pgfmathsetmacro{\CircleSize}{0.06}     % radius of coordinate circles/dots
 \tikzset{
     every node/.style={font=\normalsize, text=black},
+    BigTextFont/.style=={font=\large},
     CircleNodeStyle/.style={draw=black, shape=circle, fill=black, minimum size=\CircleSize*2 cm, inner sep=0pt},
     arrowstyle/.style={->, >=stealth}}
 %Assen
@@ -34,10 +35,13 @@ node[pos=0, CircleNodeStyle, label=below:$b$] {};
 \draw[fill=black] (fb) circle(0.05) node[above right] {$\gamma(b)$};
 \draw[fill=black] (fc) circle(0.05) node[below right] {$\gamma(t)$};
 %smooth curve
-\draw[postaction={decorate}, decoration={markings,mark=at position 0.75 with {\arrow{stealth}}}]
+\draw[postaction={decorate}, decoration={markings,mark=at position 0.75 with {\arrow{stealth}}, 
+                                mark=at position 0.80 with {\node[above left, BigTextFont] {$\mathcal{C}$};}}]
 [blue, very thick] (fa)
 .. controls (-0.5,-2) and (0.5,-2) .. (fc)
 .. controls (1.8,-0.7) and (0.5,0.5) .. (2.5,1.5);
+% curve symbol 
+
 \draw [thick, arrowstyle](fc) -- (1.8,-0.7) node[below right]{$\gamma'(t)\neq0$};
 \draw[thick,postaction={decorate}, decoration={markings,mark=at position 0.5 with {\arrow{stealth}}}][black] (-6,0.4)
 .. controls (-5,1.4) and (-1.5,1.2) .. (-0.5,0.4);
