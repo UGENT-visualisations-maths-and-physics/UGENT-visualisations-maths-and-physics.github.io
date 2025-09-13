@@ -10,16 +10,16 @@
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/standalone.PNG
   properties:
     format: PNG
-- title: 3.5.1
-  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.1/standalone.PNG
+- title: 3.5.1 Exponential function periodicity
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.1_Exponential_function_periodicity/standalone.PNG
   properties:
     format: PNG
-- title: 3.5.2
-  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.2/standalone.PNG
+- title: 3.5.2 Exponential function image vertical lines
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.2_Exponential_function_image_vertical_lines/standalone.PNG
   properties:
     format: PNG
-- title: 3.5.3
-  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.3/standalone.PNG
+- title: 3.5.3 Exponential function image horizontal lines
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.3_Exponential_function_image_horizontal_lines/standalone.PNG
   properties:
     format: PNG
 - title: 5.1.1

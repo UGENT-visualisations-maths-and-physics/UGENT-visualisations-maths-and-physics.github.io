@@ -42,14 +42,14 @@ arrowstyle/.style={->, >=stealth}}
 
 %% AXES
 % function for drawing axes complex plane
-\newcommand{\DrawComplexAxes}[2]{%
+\newcommand{\DrawComplexAxes}[4]{%
   \pgfmathsetmacro{\AxisSizeX}{#1}
   \pgfmathsetmacro{\AxisSizeY}{#2}
-  \draw[arrowstyle, thick]  (-\AxisSizeX/2, 0) -- (\AxisSizeX/2, 0) node[pos=1, right, BigTextFont] {$\mathrm{Re}(z)$};
-  \draw[arrowstyle, thick] (0, -\AxisSizeY/2) -- (0, \AxisSizeY/2) node[pos=1, above, BigTextFont] {$\mathrm{Im}(z)$};
+  \draw[arrowstyle, thick]  (-\AxisSizeX/2, 0) -- (\AxisSizeX/2, 0) node[pos=1, right, BigTextFont] {#3};
+  \draw[arrowstyle, thick] (0, -\AxisSizeY/2) -- (0, \AxisSizeY/2) node[pos=1, above, BigTextFont] {#4};
 }
 
-\DrawComplexAxes{\AreaWidth * 2}{\AreaHeight * 5.0}
+\DrawComplexAxes{\AreaWidth * 2}{\AreaHeight * 5.0}{$\mathrm{Re}(z)$}{$\mathrm{Im}(z)$}
 
 % ticks on x-axis
 \pgfmathsetmacro{\Ticksize}{0.1}
@@ -103,7 +103,7 @@ arrowstyle/.style={->, >=stealth}}
   \pgfmathsetmacro{\BackgroundSize}{\AreaWidth*1.0}
   \fill[color=BlueDomain, opacity=0.2] (-\BackgroundSize, -\BackgroundSize) rectangle (\BackgroundSize, \BackgroundSize);
   % draw axes
-  \DrawComplexAxes{\AreaWidth * 2}{\AreaWidth * 2}
+  \DrawComplexAxes{\AreaWidth * 2}{\AreaWidth * 2}{$u$}{$v$}
   % contour from the function
   \DrawCircleFromX{\XTwo}{0.3}
   \DrawCircleFromX{\XOne}{0.6}

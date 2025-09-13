@@ -43,7 +43,7 @@ arrowstyle/.style={->, >=stealth}}
 
 %% AXES
 % function for drawing axes complex plane
-\newcommand{\DrawComplexAxes}[2]{%
+\newcommand{\DrawComplexAxes}[4]{%
   \pgfmathsetmacro{\AxisSizeX}{#1}
   \pgfmathsetmacro{\AxisSizeY}{#2}
 
@@ -56,13 +56,13 @@ arrowstyle/.style={->, >=stealth}}
   % Foreground labels
   \begin{pgfonlayer}{foreground}
     \node[ellipse, fill=BlueBackground, right, inner sep=0pt, font=\scriptsize] 
-      at (\AxisSizeX/2, 0) {$\mathrm{Re}(z)$};
+      at (\AxisSizeX/2, 0) {#3};
     \node[ellipse, fill=BlueBackground, above, inner sep=0pt, font=\scriptsize] 
-      at (0, \AxisSizeY/2) {$\mathrm{Im}(z)$};
+      at (0, \AxisSizeY/2) {#4};
   \end{pgfonlayer}
 }
 
-\DrawComplexAxes{\AreaWidth * 2}{\AreaHeight * 2}
+\DrawComplexAxes{\AreaWidth * 2}{\AreaHeight * 2}{$\mathrm{Re}(z)$}{$\mathrm{Im}(z)$}
 
 % variables for spacing in the complex grid
 \pgfmathsetmacro{\YTickscaling}{\AreaHeight * 0.2}
@@ -113,13 +113,13 @@ arrowstyle/.style={->, >=stealth}}
   \fill[color=BlueDomain, opacity=0.2] (-\BackgroundSize, -\BackgroundSize) rectangle (\BackgroundSize, \BackgroundSize);
 
   % draw axes
-  \DrawComplexAxes{\AreaWidth * 2}{\AreaWidth * 2}
+  \DrawComplexAxes{\AreaWidth * 2}{\AreaWidth * 2}{\normalsize $u$}{\normalsize $v$}
 
   % draw point in the range of the function
   \pgfmathsetmacro{\ExpRadius}{exp(\XCoord) * \YTickscaling}
   \pgfmathsetmacro{\AngleDeg}{\YCoord * 180/pi}
   \coordinate (ValuePoint) at (\AngleDeg: \ExpRadius);
-  \node[CircleNodeStyle, label=right:{$z$}] (ValuePointNode) at (ValuePoint) {};
+  \node[CircleNodeStyle, label=right:{$e^{z}$}] (ValuePointNode) at (ValuePoint) {};
 
   % draw small circle to indicate that 0 is not part of the range of the function
   \draw[fill=BlueBackground, draw=black, thick] (0,0) circle [radius=0.08];

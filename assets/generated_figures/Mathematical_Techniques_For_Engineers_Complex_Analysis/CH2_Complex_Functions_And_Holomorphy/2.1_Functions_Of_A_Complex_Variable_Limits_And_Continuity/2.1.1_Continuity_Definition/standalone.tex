@@ -28,18 +28,18 @@ arrowstyle/.style={->, >=stealth}}
 \fill[BlueBackground] (-3.5,-4.5) rectangle (15,5.5);
 
 % Define function to draw axis of complex plane
-\newcommand{\DrawAxes}[4]{%
+\newcommand{\DrawAxes}[6]{%
   \pgfmathsetmacro{\OvershootAxis}{#1}%
   \pgfmathsetmacro{\AxisSize}{#2}%
   \pgfmathsetmacro{\XOriginAxis}{#3}%
   \pgfmathsetmacro{\YOriginAxis}{#4}%
-  \draw[arrowstyle, very thick] (\XOriginAxis-\OvershootAxis,\YOriginAxis) -- (\XOriginAxis + \AxisSize,\YOriginAxis) node[pos=1, font=\normalsize, right] {$\mathrm{Re}(z)$};
-  \draw[arrowstyle, very thick] (\XOriginAxis,\YOriginAxis-\OvershootAxis) -- (\XOriginAxis,\YOriginAxis + \AxisSize) node[pos=1, font=\normalsize, above] {$\mathrm{Im}(z)$};
+  \draw[arrowstyle, very thick] (\XOriginAxis-\OvershootAxis,\YOriginAxis) -- (\XOriginAxis + \AxisSize,\YOriginAxis) node[pos=1, font=\normalsize, right] {#5};
+  \draw[arrowstyle, very thick] (\XOriginAxis,\YOriginAxis-\OvershootAxis) -- (\XOriginAxis,\YOriginAxis + \AxisSize) node[pos=1, font=\normalsize, above] {#6};
 }
 
 %%% First subfigure: domain of the function with delta
 
-\DrawAxes{1.0}{5.5}{-1.5}{-2.0}
+\DrawAxes{1.0}{5.5}{-1.5}{-2.0}{$\mathrm{Re}(z)$}{$\mathrm{Im}(z)$}
 
 % waypoint coordinates (in degrees, as seen from origin)
 \begin{scope}[scale=1.0]
@@ -78,19 +78,24 @@ arrowstyle/.style={->, >=stealth}}
 \draw[thick, arrowstyle]
 [postaction={decorate}, decoration={
        markings,
-       mark=at position 0.5 with {\node[name=EndVectorNode, below] {$\delta$};}}] 
+       mark=at position 0.5 with {\node[name=EndVectorNode, below] {$\delta_{\varepsilon}$};}}] 
 (aLocation) -- (EndVectorNode.center);
 
 % domain symbol
 \coordinate (DomainSymbolLoc) at (1.7,2.7);   
 \node[ ellipse, inner sep=0, fill=BlueBackground, name=EndVectorNode, BigTextFont] at (DomainSymbolLoc) {$S$};
 
+% transformation arrow
+\draw[postaction={decorate}, decoration={markings,
+mark=at position 0.5 with {\node[above] {$f(z)$};}}]
+[arrowstyle, thick] (3.8, 2.0)  to[out=30,in=180-30] (7.2, 2.0);
+
 %%% second subfigure: range of the function with delta
 
 \begin{scope}[xshift=10.0cm]       % shift this whole subfigure to the right
 
 % Call draw axes function
-\DrawAxes{1.0}{5.5}{-2.5}{-2.0}
+\DrawAxes{1.0}{5.5}{-2.5}{-2.0}{$u$}{$v$}
 
 
 % waypoint coordinates (in degrees, as seen from origin)

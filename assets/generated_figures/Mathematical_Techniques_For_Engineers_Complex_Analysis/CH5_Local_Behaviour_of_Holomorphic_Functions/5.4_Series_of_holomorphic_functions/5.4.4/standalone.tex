@@ -18,7 +18,8 @@
 
 \begin{tikzpicture}
     \tikzset{arrowstyle/.style={->, >=stealth},
-            Pole/.style={solid, cross out,draw=black}}
+            Pole/.style={solid, cross out, minimum size=4pt, inner sep=0pt,draw=black}  % define style for poles=cross
+            }
 
     % define sizes of the circles
     \pgfmathsetmacro{\DomainCircleRadius}{2.0}    % Radius of the circle in the domain
@@ -96,15 +97,12 @@
     \DrawPole{51.9:3.562}{$\infty$};
 
     % draw the poles inside the circle
-    \DrawPole{\PoleAngleA:\PoleRadiusA}{$z_1$};
-    \DrawPole{\PoleAngleB:\PoleRadiusB}{$z_2$};
-    \DrawPole{\PoleAngleC:\PoleRadiusC}{$z_3$};
-    \DrawPole{\PoleAngleD:\PoleRadiusD}{$z_4$};
-
+    \DrawPole{\PoleAngleA:\PoleRadiusA}{$z_1$}
+    \DrawPole{\PoleAngleB:\PoleRadiusB}{$z_2$}
+    \DrawPole{\PoleAngleC:\PoleRadiusC}{$z_3$}
+    \DrawPole{\PoleAngleD:\PoleRadiusD}{$z_4$}
 
     \end{scope}
-
-
 
     
     \begin{scope}[shift={(4.5,0)}]
@@ -124,13 +122,13 @@
 
     %draw poles: first calculate inverse point via the macro \InverseCoord
     \InverseCoord{\PoleAngleA}{\PoleRadiusA}
-    \DrawPole{\InverseAngle:\InverseRadius}{$w_1$};
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_1$}
     \InverseCoord{\PoleAngleB}{\PoleRadiusB}
-    \DrawPole{\InverseAngle:\InverseRadius}{$w_2$};
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_2$}
     \InverseCoord{\PoleAngleC}{\PoleRadiusC}
-    \DrawPole{\InverseAngle:\InverseRadius}{$w_3$};
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_3$}
     \InverseCoord{\PoleAngleD}{\PoleRadiusD}
-    \DrawPole{\InverseAngle:\InverseRadius}{$w_4$};
+    \DrawPole{\InverseAngle:\InverseRadius}{$w_4$}
 
     % pole at infinity now ot origin
     \DrawPole{0:0}{$w_{\infty}$};
