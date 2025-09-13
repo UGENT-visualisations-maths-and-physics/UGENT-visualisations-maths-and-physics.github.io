@@ -99,18 +99,18 @@
   properties:
     format: PNG
 - title: 8.2.1 Proof theorem Laurent series
-  image: assets/generated_figures/Calculus_III/II_Complex_analysis/H8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
   properties:
     format: PNG
 - title: 8.5.6 Residue theorem for region with multiple singularities
-  image: assets/generated_figures/Calculus_III/II_Complex_analysis/H8_Local_behavior_of_holomorphic_functions/8.5.6_Residue_theorem_for_region_with_multiple_singularities/standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.5.6_Residue_theorem_for_region_with_multiple_singularities/standalone.PNG
   properties:
     format: PNG
 - title: 9.3 Estimation lemmas
-  image: assets/generated_figures/Calculus_III/II_Complex_analysis/H9_Applications/9.3_Estimation_lemmas/standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.3_Estimation_lemmas/standalone.PNG
   properties:
     format: PNG
 - title: 9.5 Summation of series
-  image: assets/generated_figures/Calculus_III/II_Complex_analysis/H9_Applications/9.5_Summation_of_series/standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.5_Summation_of_series/standalone.PNG
   properties:
     format: PNG
