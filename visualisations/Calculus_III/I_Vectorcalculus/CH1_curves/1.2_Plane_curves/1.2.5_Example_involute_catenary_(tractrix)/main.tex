@@ -69,9 +69,9 @@
 
     % DRAW THE CURVES: CATNEARY AND TRACTRIX
     
-    \draw[red,domain=-1.6:1.6,samples=50, line width=1] plot ({\x},catenaryY{\x}) node[right] {$P(x)$};
+    \draw[red,domain=-1.6:1.6,samples=200, line width=1, smooth] plot ({\x},catenaryY{\x}) node[right] {$P(x)$};
 
-    \draw[blue,domain=-4:4,samples=50, line width=1] plot (tractrixX{\x},tractrixY{\x}) node[above] {$Q(x)$};
+    \draw[blue,domain=-4:4,samples=200, line width=1, smooth] plot (tractrixX{\x},tractrixY{\x}) node[above] {$Q(x)$};
 
     % draw labels
     \node[anchor=east] at (0,1) {$1$};
