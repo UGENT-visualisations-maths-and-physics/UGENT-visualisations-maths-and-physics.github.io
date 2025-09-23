@@ -10,7 +10,7 @@ permalink: /about/
 <a href="https://users.ugent.be/~slazendi/">Dr. Srđan Lazendić</a> <br>
 
 <h2>Team members (2025-2027):</h2>
-<a href="www.linkedin.com/in/jorrit-vander-bracht-4987b9364">Jorrit Vander Bracht:</a> <br>
+<a href="www.linkedin.com/in/jorrit-vander-bracht-4987b9364/">Jorrit Vander Bracht</a> <br>
 
 <h2>Team members (2024-2026):</h2>
 <a href="https://www.linkedin.com/in/felix-claeys-7b4047279/">Felix Claeys</a> <br>
