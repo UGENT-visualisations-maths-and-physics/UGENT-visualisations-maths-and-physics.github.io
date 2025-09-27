@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+\centering
+
+\begin{tikzpicture}[>=stealth]
+    % Teken de buitencontour en maak grijs
+    \draw[thick] (0,0) circle(3);
+    \begin{scope}
+        \clip (0,0) circle(3); % Knip gebied binnen de buitencontour
+        \fill[gray!30] (0,0) circle(3); % Kleur het gebied tussen de cirkels
+    \end{scope}
+    
+    % Teken de binnencontour (kleinere cirkel)
+    \draw[thick] (1,0) circle(1);
+    \begin{scope}
+        \clip (1,0) circle(1); % Knip gebied binnen de buitencontour
+        \fill[white] (1,0) circle(1); % Kleur het gebied tussen de cirkels
+    \end{scope}
+    % Teken C1 (kleine gesloten contour in het grijze gebied, niet rond de binnencontour)
+    \draw[thick,blue] (-1.3,0) ellipse (1 and 2.3) node[above] {$C$};
+    \node[above right] at (0.7,1.7) {$\Omega$};
+\end{tikzpicture}
+\end{document}
