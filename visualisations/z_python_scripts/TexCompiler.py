@@ -40,7 +40,7 @@ def chapter_and_number(path):
 
     return chapter_digits, chapter_proper_name
 
-def sorting_key(path):
+def chapter_sorting_key(path):
     """creates a key that allows sorting per ascending chapter digits"""
     chapter_digits, chapter = chapter_and_number(path)
     return tuple(chapter_digits)
@@ -62,28 +62,6 @@ def get_section(chapter_digits, chapter_parts):
     elif len(chapter_parts)==3:
         section = "\\subsection*"
     return section + "{" + chapter_digits + "}\n"
-
-def find_pattern(pattern, string_unseparated, without_begin_and_end=1):
-    """Find text between a pattern (begin and end statement) in a string
-    Args:
-        pattern (str): Substring which we are looking for in unseparated string.
-        string_unseparated (str): The input string where we will look for the pattern.
-        without_begin_and_end (binary, optional): Specifies if we exclude the begin and end (pattern) of the separated string. Defaults to 1 (exclude).
-    
-    Returns:
-        str: string between pattern
-    """
-    string_pattern = re.search(pattern, string_unseparated, re.DOTALL)  # search for the pattern using "re"
-    if string_pattern:
-        string_pattern = string_pattern.group(without_begin_and_end)    # exclude or include the pattern from the result (depending on "without_begin_and_end")
-    else:
-        print("Error section %s not found." % (pattern))
-    return string_pattern
-
-# relevant patterns (for re.search)
-package_pattern = r"{(.*?)}"                        # for finding used packages
-documentclass_pattern = r"\\documentclass{(.*?)}"   # for finding the used documentclass
-
 
 #%% Compiler class
 
@@ -117,13 +95,7 @@ class figure:
         prefix_path = "assets/generated_figures/"
         """Returns the YAML front matter used for displaying figures on a website"""
         image_abs_path = os.path.join(prefix_path, self.destination_PNG_rel)
-        self.YAML_data = {
-            "title": self.chapter,
-            "image": image_abs_path,
-            "properties": {
-                "format" : "PNG"
-            }
-        }
+        self.YAML_data = {"title": self.chapter, "image": image_abs_path, "properties": {"format" : "PNG"}}
     
 #%% Compiler class
 
@@ -138,7 +110,7 @@ class tex_compiler:
 
         self.project_name = self.script_dir.split("/")[-1]                      # name of the project
         self.standalone_tex_files_abs, self.standalone_tex_files_rel = find_files(self.script_dir, filename="standalone.tex")   # find the relevant tex files     
-        self.sorted_standalone_tex_files_abs = sorted(self.standalone_tex_files_abs, key=sorting_key)                           # sort files according to ascending chapter
+        self.sorted_standalone_tex_files_abs = sorted(self.standalone_tex_files_abs, key=chapter_sorting_key)                           # sort files according to ascending chapter
         
         self.figure_dict = self.create_figure_dict()
 
