@@ -17,6 +17,8 @@ layout: home
   {% endfor %}
 </div>
 
+<p>MathJax test: $E = mc^2$</p>
+
 {% assign setup_page = site.pages | where: "title", "Setup support" | first %}
 
 <h2><a href="{{ site.baseurl }}{{ setup_page.url }}">Setup support</a></h2>
