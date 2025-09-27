@@ -84,42 +84,13 @@ def find_pattern(pattern, string_unseparated, without_begin_and_end=1):
 package_pattern = r"{(.*?)}"                        # for finding used packages
 documentclass_pattern = r"\\documentclass{(.*?)}"   # for finding the used documentclass
 
-def find_packages(latex_packages, resulting_packages_list=[]):
-    """find a set of necessary packages for all the figures"""
-    lines = latex_packages.split("\n")    # splits the first section of the document (with packages) into lines
-    relevant_parts_list = ["\\usepackage", "\\usetikzlibrary", "\\usepgfmodule"]    # different types of packages/libraries... we need to check for
-
-    # checks if a string starts with a certain start string
-    def starts_with(start_string, checked_string):
-        assert isinstance(start_string, str)
-        assert isinstance(checked_string, str)
-        if checked_string[:len(start_string)]==start_string:
-            return True
-        return False
-    
-    # iterate over the lines and extract packages
-    for part in lines:
-        for relevant_part in relevant_parts_list:
-            if starts_with(relevant_part, part):
-                part_packages_string = find_pattern(package_pattern, part)  # string of included packages (between '{}')
-                if part_packages_string is None:
-                    print("Error: no package found")
-                part_packages_list = part_packages_string.split(',')        # list of included packages
-                # add necessary packages to tex output
-                for part_package in part_packages_list:
-                    stripped_part_package = part_package.strip()
-                    full_part_package = relevant_part + "{" + stripped_part_package + "}"   # tex line that includes the package
-                    if full_part_package not in resulting_packages_list:
-                        resulting_packages_list.append(full_part_package)
-                break
-    return resulting_packages_list
 
 #%% Compiler class
 
 class figure:
-    def __init__(self, standalone_directory_path, standalone_pdf_path, standalone_tex_path, standalone_pdf_rel_path, export_directory_rel_path):
+    def __init__(self, parent_directory_path, standalone_pdf_path, standalone_tex_path, standalone_pdf_rel_path, export_directory_rel_path):
 
-        self.standalone_directory_path = standalone_directory_path
+        self.parent_directory_path = parent_directory_path
         self.standalone_pdf_path = standalone_pdf_path
         self.standalone_tex_path = standalone_tex_path
         self.standalone_pdf_rel_path = standalone_pdf_rel_path
@@ -156,7 +127,7 @@ class figure:
     
 #%% Compiler class
 
-# get the paths of the relevant main.tex files
+# compiler class which uses the figure class
 class tex_compiler:
     def __init__(self, folder):
         
@@ -166,41 +137,45 @@ class tex_compiler:
         self.script_dir = script_dir
 
         self.project_name = self.script_dir.split("/")[-1]                      # name of the project
-        self.main_tex_files_abs, self.main_tex_files_rel = find_files(self.script_dir, filename="main.tex") # find the relevant tex files     
-        self.sorted_main_tex_files_abs = sorted(self.main_tex_files_abs, key=sorting_key)                   # sort files according to ascending chapter
+        self.standalone_tex_files_abs, self.standalone_tex_files_rel = find_files(self.script_dir, filename="standalone.tex")   # find the relevant tex files     
+        self.sorted_standalone_tex_files_abs = sorted(self.standalone_tex_files_abs, key=sorting_key)                           # sort files according to ascending chapter
         
         self.figure_dict = self.create_figure_dict()
 
+        # initialise variables for certain methods
         self.summary_pdf_path = None    # path for the summary pdf
         # variables for web export
         self.asset_directory = None
         self.yml_path = None
 
+        #Get the local directory where files are supposed to be stored. By default this the parent folder of the repository
+        self.repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')     # retrieve repository root directory
+        self.local_export_directory = os.path.join(self.repo_dir, "export")   # local export folder: parent folder of repo
+
+
     def create_figure_dict(self):
         """create dictionary containing path to tex files as keys and the corresponding figure objects as values"""
         figure_dict = {}
-        for i, main_tex_path in enumerate(self.sorted_main_tex_files_abs):
+        for i, standalone_tex_path in enumerate(self.sorted_standalone_tex_files_abs):
             # get the relevant paths
-            parent_directory_path = os.path.dirname(main_tex_path)
-            standalone_pdf_path = os.path.join(parent_directory_path, 'standalone/standalone.pdf')
-            standalone_directory_path = os.path.join(parent_directory_path, 'standalone')                              
-            standalone_tex_path = os.path.join(parent_directory_path, 'standalone/standalone.tex')
+            parent_directory_path = os.path.dirname(standalone_tex_path)
+            standalone_pdf_path = standalone_tex_path.replace(".tex", ".pdf")
             standalone_pdf_rel_path = os.path.relpath(standalone_pdf_path, self.script_dir)
 
             # relative path of standalone pdf directory, for export to syllabus or website
             export_directory_rel_path = os.path.join(self.project_name, os.path.relpath(parent_directory_path, self.script_dir)).replace(".tex", "")
 
-            figure_object = figure(standalone_directory_path=standalone_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, export_directory_rel_path=export_directory_rel_path)
-            figure_dict[main_tex_path] = figure_object
+            figure_object = figure(parent_directory_path = parent_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, export_directory_rel_path=export_directory_rel_path)
+            figure_dict[standalone_tex_path] = figure_object
         return figure_dict
     
     def update_figures_section(self):
         """Update the sections for every figure object"""
-        for main_tex_path in self.figure_dict:
-            figure_object = self.figure_dict[main_tex_path]
-            if os.path.exists(main_tex_path):
+        for standalone_tex_path in self.figure_dict:
+            figure_object = self.figure_dict[standalone_tex_path]
+            if os.path.exists(standalone_tex_path):
                 # extract the section number and actual section code
-                chapter_parts, chapter = chapter_and_number(main_tex_path)                  
+                chapter_parts, chapter = chapter_and_number(standalone_tex_path)                  
                 tex_section = get_section(chapter, chapter_parts)
                 
                 figure_object.update_figure_section(chapter_parts=chapter_parts, chapter=chapter, tex_section=tex_section)
@@ -208,43 +183,17 @@ class tex_compiler:
                 print("File: %s doesn't exist" % (figure_object.standalone_pdf_path))
                 break
 
-    def create_standalone_tex_files(self, reset=False):
-        """create standalone.tex (with packages) files for integration into syllabus"""
-        for main_tex_path in self.figure_dict:
-            figure_object = self.figure_dict[main_tex_path]
+    def run_standalone_tex_files(self, reset):
+        """checks for pdf output of standalone.tex files for integration into syllabus"""
+        for standalone_tex_path in self.figure_dict:
+            figure_object = self.figure_dict[standalone_tex_path]
 
-            # check if a new edit has occcured 
-            Edit = False
-            if os.path.exists(figure_object.standalone_tex_path):
-                main_tex_mtime, standalone_mtime = os.path.getmtime(main_tex_path), os.path.getmtime(figure_object.standalone_tex_path)           # last modification of main.tex and standalone.tex file
-                if main_tex_mtime > standalone_mtime:                                                                               # main.tex file has been updated since last standalone.tex file update
-                    Edit = True
-            else:
-                Edit = True
-            
-            if Edit == True or reset==True:
-                standalone_input = None 
-                with open(main_tex_path, 'r') as latex_file:
-                    latex_content = latex_file.read()
-
-                # convert documentclass to standalone
-                documentclass_standalone_input = r"\\documentclass{standalone}"
-                standalone_input = re.sub(documentclass_pattern, documentclass_standalone_input, latex_content, flags=re.DOTALL)
-
-                print(main_tex_path)
-                # check if standalone directory exists, else make it
-                if not os.path.exists(figure_object.standalone_directory_path):
-                    os.makedirs(figure_object.standalone_directory_path)
-                
-                # write standalone.tex file
-                if standalone_input is not None:        # safety check (don't write empty files)
-                    with open(figure_object.standalone_tex_path, 'w') as tex_file:
-                        tex_file.write(standalone_input)
-                    subprocess.run(['pdflatex', '-output-directory', figure_object.standalone_directory_path, figure_object.standalone_tex_path])   # compile standalone.tex file
-                else:
-                    print("Error, no content found")
-        # now update the figure sections
-        self.update_figures_section()
+            # check if pdf output exists
+            pdf_exists = os.path.exists(figure_object.standalone_pdf_path)
+            # compile pdf if it doesn't exist
+            if pdf_exists is False or reset is True:
+                subprocess.run(['pdflatex', '-output-directory', figure_object.parent_directory_path, figure_object.standalone_tex_path])
+        
 
     def get_tex_begin(self, resulting_packages_list, title, authors):
         """create the beginning of the tex document"""
@@ -273,19 +222,29 @@ class tex_compiler:
         string += "\n" + r"\end{figure}" + "\n" + "\n"
         return string
 
-    def create_summary_file(self, title, authors):
-        """Create summary tex file containing all figures"""
+    def create_summary_file(self, title, authors, reset=False):
+        """Create summary tex file containing all figures
+        
+        Args: 
+        Reset: compiles all standalone .tex, even if the pdf output already exists
+        """
         tex_middle = ""     # middle part of the tex file
-        for main_tex_path in self.figure_dict:
-            figure_object = self.figure_dict[main_tex_path]
+
+        # check all pdf outputs and update the figure sections
+        self.run_standalone_tex_files(reset=reset)
+        self.update_figures_section()
+
+        for standalone_tex_path in self.figure_dict:
+            figure_object = self.figure_dict[standalone_tex_path]
                                    
             print(os.path.relpath(figure_object.standalone_pdf_path, self.script_dir))
 
-            # create the includgraphics part
+            # create the includegraphics part
             tex_middle_sub = self.create_include_fig(figure_object.standalone_pdf_rel_path)
-            tex_middle = tex_middle + figure_object.tex_section + tex_middle_sub
+            # append to body
+            tex_middle += figure_object.tex_section + tex_middle_sub
 
-        packages_list=[r"\usepackage{float}", r"\usepackage{graphicx}"]     # list of used packages
+        packages_list=[r"\usepackage{float}", r"\usepackage{graphicx}"]     # used pacakges for summary file
 
         # combine all into a tex file
         tex_begin = self.get_tex_begin(packages_list, title = "Figures " + title.replace("_", " "), authors=authors)  
@@ -312,20 +271,13 @@ class tex_compiler:
         for dir_to_create in reversed(missing_dirs):
             os.makedirs(dir_to_create)
 
-    def get_local_export_directory_path(self):
-        """Get the local directory where files are supposed to be stored. By default this the parent folder of the repository"""
-        repo_dir = subprocess.check_output(['git', 'rev-parse', '--show-toplevel']).strip().decode('utf-8')     # retrieve repository root directory
-        local_export_folder = os.path.dirname(repo_dir)   # local export folder: parent folder of repo
-        return repo_dir, local_export_folder
-
     def export_for_syllabus(self):
         """Export all standalone.tex files in a structured folder for integration into syllabus"""
-        for main_tex_path in self.figure_dict:
-            figure_object = self.figure_dict[main_tex_path]
+        for standalone_tex_path in self.figure_dict:
+            figure_object = self.figure_dict[standalone_tex_path]
             # define the absolute paths of the destination directory and PNG
-            _, local_export_directory = self.get_local_export_directory_path()
-            destination_tex = os.path.join(local_export_directory, figure_object.destination_tex_rel)  
-            destination_directory = os.path.join(local_export_directory, figure_object.export_directory_rel_path)
+            destination_tex = os.path.join(self.local_export_directory, figure_object.destination_tex_rel)  
+            destination_directory = os.path.join(self.local_export_directory, figure_object.export_directory_rel_path)
            
             self.ensure_directories_exist(destination_directory)        # ensure all parent directories exists
             
@@ -342,25 +294,25 @@ class tex_compiler:
                 if not (file.endswith(".pdf") or file.endswith(".tex")): 
                     os.remove(file)
 
-        print("Exported all figures to %s" % (local_export_directory))
+        print("Exported all figures to %s" % (self.local_export_directory))
 
-    def convert_to_PNG_and_export(self, local_export_folder, dpi_used=200):
+    def convert_to_PNG_and_export(self, export_directory, dpi_used=200):
         """Convert all figures to PNG (websites have bad support for pdf viewing) and export"""
-        for main_tex_path in self.figure_dict:
-            figure_object = self.figure_dict[main_tex_path]
+        for standalone_tex_path in self.figure_dict:
+            figure_object = self.figure_dict[standalone_tex_path]
             # define the absolute paths of the destination directory and PNG
-            destination_PNG = os.path.join(local_export_folder, figure_object.destination_PNG_rel)        # file path of the copied file
-            destination_directory = os.path.join(local_export_folder, figure_object.export_directory_rel_path)
+            destination_PNG = os.path.join(export_directory, figure_object.destination_PNG_rel)        # file path of the copied file
+            destination_directory = os.path.join(export_directory, figure_object.export_directory_rel_path)
 
             self.ensure_directories_exist(destination_directory)         # ensure all parent directories exists
 
             # Convert PDF to image (first page only)
-            image = pdf2image.convert_from_path(figure_object.standalone_pdf_path , dpi=dpi_used)     # dpi=Dots per inch, determines quality
-            image[0].save(destination_PNG, 'PNG')       # Save the first page as PNG
+            image = pdf2image.convert_from_path(figure_object.standalone_pdf_path , dpi=dpi_used)   # dpi=Dots per inch, determines quality
+            image[0].save(destination_PNG, 'PNG')                                                   # Save the first page as PNG
         # also copy the summary pdf
         shutil.copy(self.summary_pdf_path, self.asset_directory)
         
-    def make_figures_yml(self, local_export_folder):
+    def make_figures_yml(self):
         figures_yml_data = []   # list containing all figure data
         for main_tex_path in self.figure_dict:
             figure_object = self.figure_dict[main_tex_path]
@@ -372,19 +324,17 @@ class tex_compiler:
             yaml.dump(figures_yml_data, file, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     def push_content_to_gh_pages(self):
-        repo_dir, local_export_directory = self.get_local_export_directory_path()
-
         # define names of the asset directory and .yml file
         asset_directory_name = self.project_name
         yml_file_name =  self.project_name + "_figures.yml"
 
         # define paths for temporary storage
-        self.asset_directory = os.path.join(local_export_directory, asset_directory_name)
-        self.yml_path = os.path.join(local_export_directory, yml_file_name) 
+        self.asset_directory = os.path.join(self.local_export_directory, asset_directory_name)
+        self.yml_path = os.path.join(self.local_export_directory, yml_file_name) 
 
         # paths in the gh-pages branch of parent directories
-        gh_pages_asset_parent_path = os.path.join(repo_dir, 'assets', 'generated_figures')
-        gh_pages_yml_parent_path = os.path.join(repo_dir, '_data')
+        gh_pages_asset_parent_path = os.path.join(self.repo_dir, 'assets', 'generated_figures')
+        gh_pages_yml_parent_path = os.path.join(self.repo_dir, '_data')
         # ensure parent directories exist
         self.ensure_directories_exist(gh_pages_asset_parent_path)
         self.ensure_directories_exist(gh_pages_yml_parent_path)
@@ -394,11 +344,11 @@ class tex_compiler:
         gh_pages_yml_path = os.path.join(gh_pages_yml_parent_path, yml_file_name)
 
         # export figures and .yml file to temporary location
-        self.convert_to_PNG_and_export(local_export_directory, dpi_used=200)
-        self.make_figures_yml(local_export_directory)
+        self.convert_to_PNG_and_export(self.local_export_directory, dpi_used=200)
+        self.make_figures_yml(self.local_export_directory)
         
         # navigate to repo_dir:
-        os.chdir(repo_dir)
+        os.chdir(self.repo_dir)
         
         # Step 2: Checkout gh-pages branch (this assumes you already have it)
         subprocess.run(['git', 'checkout', 'gh-pages'])
