@@ -9,4 +9,3 @@ Analyse_compiler.export_for_syllabus()      # export standalone files for syllab
 #%%
 "Ensure all changes are committed!"
 Analyse_compiler.push_content_to_gh_pages()
-# %%
