@@ -8,6 +8,6 @@ Analyse_compiler.create_summary_file(title="Calculus_III", authors="Felix Claeys
 #Analyse_compiler.export_for_syllabus()      # export standalone files for syllabus integration
 #%%
 "Ensure all changes are committed!"
+# pushing to the website, only available for people with access to push to the website branch (gh-pages)
 Analyse_compiler.push_content_to_gh_pages()
 
-# %%
