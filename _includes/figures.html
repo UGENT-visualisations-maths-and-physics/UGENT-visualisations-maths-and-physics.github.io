@@ -6,8 +6,8 @@
     <figure class="figure-item">
         <h3>{{ figure.title }}:</h3>
         <center>
-          <img src="{{ figure.caption }}" style="max-width: 70%; height: auto;"/>
-          <figcaption>{% raw %}{{ figure.caption }}{% endraw %}</figcaption>                  
+          <img src="{{ site.baseurl }}/{{ figure.image }}" style="max-width: 70%; height: auto;"/>
+          <figcaption>{{ figure.caption | markdownify }}</figcaption>                  
         </center>    
     </figure>
     <br>
