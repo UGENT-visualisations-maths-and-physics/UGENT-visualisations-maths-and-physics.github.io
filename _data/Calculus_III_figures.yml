@@ -1,6 +1,6 @@
 - title: 1.2.3 Example evolute cycloid
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.3_Example_evolute_cycloid/standalone.PNG
-  caption: MathJax test $E = mc^2$
+  caption: 'The cycloid $P(t)= \left[ R(t-\sin t), R(1-\cos t) \right]$ and its evolute $Q(t)= \left[ R(t+\sin t), R(\cos t - 1) \right]$, which is a translation of $P(t)$.'
   properties:
     format: PNG
 - title: 1.2.4 Example evolute catenary
