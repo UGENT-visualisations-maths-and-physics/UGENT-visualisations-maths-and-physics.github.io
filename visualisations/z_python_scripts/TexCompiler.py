@@ -111,7 +111,8 @@ class figure:
         """Returns the YAML front matter used for displaying figures on a website"""
         image_abs_path = os.path.join(prefix_path, self.destination_PNG_rel)
         self.YAML_data = {"title": self.chapter, "image": image_abs_path, 
-                          "properties": {"format" : "PNG", "caption": SingleQuoted(self.caption)},
+                          "caption": SingleQuoted(self.caption),
+                          "properties": {"format" : "PNG"},
                         }
     
 # YAML representer for single quotes ' '
