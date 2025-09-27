@@ -329,7 +329,7 @@ class tex_compiler:
 
         # define paths for temporary storage
         website_local_export_dir = os.path.join(self.local_export_directory, "website_assets")
-        self.asset_directory = website_local_export_dir
+        self.asset_directory = os.path.join(website_local_export_dir, asset_directory_name)
         self.yml_path = os.path.join(website_local_export_dir, yml_file_name) 
 
         # paths in the gh-pages branch of parent directories
