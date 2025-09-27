@@ -347,6 +347,30 @@ class tex_compiler:
         self.convert_to_PNG_and_export(export_directory=website_local_export_dir, dpi_used=200)
         self.make_figures_yml(export_directory=self.yml_path)
 
+         # navigate to repo_dir:
+        os.chdir(self.repo_dir)
         
+        # Step 2: Checkout gh-pages branch (this assumes you already have it)
+        subprocess.run(['git', 'checkout', 'gh-pages'])
+
+        if os.path.exists(gh_pages_asset_path):
+            shutil.rmtree(gh_pages_asset_path)  # removes the directory and its contents
+
+        if os.path.exists(gh_pages_yml_path):
+            os.remove(gh_pages_yml_path) # removes the file
+
+        # Step 4: Move the generated files into place (provide full path -> will overwrite if already exists)
+        shutil.move(self.yml_path, gh_pages_yml_path)  # Move the .yml file
+        shutil.move(self.asset_directory, gh_pages_asset_parent_path)  # Move the asset file
+
+        current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip().decode('utf-8')
+        assert current_branch=='gh-pages', "in wrong branch: %s (make sure all changes are comitted)" % (current_branch)
+
+        # Step 5: Add, commit, and push changes
+        subprocess.run(['git', 'add', '.'])
+        subprocess.run(['git', 'commit', '-m', f'Automatic update: {self.project_name} assets and YAML for gh-pages'])
+        subprocess.run(['git', 'push', 'origin', 'gh-pages'])
+
+        print("Files of %s successfully pushed to gh-pages branch!" % (self.project_name))
         
        
