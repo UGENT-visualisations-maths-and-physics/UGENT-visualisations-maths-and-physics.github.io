@@ -1,11 +1,10 @@
 <!-- Code that displays all figures of a project -->
 
-{% assign figures = site.data[page.figures_data] %}                                                               <!-- load in the figure yml data -->
+{% assign figures = site.data[page.figures_data] %}
 <div class="figures-gallery">
   {% for figure in figures %}
     <figure class="figure-item">
         <h3>{{ figure.title }}:</h3>
-        <!-- place the figure and its caption -->
         <center>
           <img src="{{ site.baseurl }}/{{ figure.image }}" style="max-width: 70%; height: auto;"/>
           <figcaption>{{ figure.caption }}</figcaption>                  
