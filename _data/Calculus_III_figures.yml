@@ -1,147 +1,146 @@
 - title: 1.2.3 Example evolute cycloid
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.3_Example_evolute_cycloid/standalone.PNG
+  caption: 'The cycloid $P(t)= \left[ R(t-\sin t), R(1-\cos t) \right]$ and its evolute
+    $Q(t)= \left[ R(t+\sin t), R(\cos t - 1) \right]$, which is a translation of $P(t)$.'
   properties:
     format: PNG
-    caption: 'The cycloid $P(t)= \left[ R(t-\sin t), R(1-\cos t) \right]$ and its
-      evolute $Q(t)= \left[ R(t+\sin t), R(\cos t - 1) \right]$, which is a translation
-      of $P(t)$.'
 - title: 1.2.4 Example evolute catenary
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.4_Example_evolute_catenary/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 1.2.5 Example involute catenary (tractrix)
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.5_Example_involute_catenary_(tractrix)/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 1.2.8 Example envelope family of straight lines
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.8_Example_envelope_family_of_straight_lines/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 2.3 Gradient of scalar field
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH2_Fields/2.3_Gradient_of_scalar_field/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.1 Line integral of a scalar field
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.1_Line_integral_of_a_scalar_field/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.2 Line integral of a vector field
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.2_Line_integral_of_a_vector_field/3.2_Line_integral_of_a_vector_field/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.4.2 Conservative field along a curve
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.4_Line_integral_of_a_conservative_field/3.4.2_Conservative_field_along_a_curve/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.4.3 Proof conservative field
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.4_Line_integral_of_a_conservative_field/3.4.3_Proof_conservative_field/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.5.1 Proof Greens theorem
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.5_Greens_theorem/3.5.1_Proof_Greens_theorem/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.5.2 Union of normal spaces
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.5_Greens_theorem/3.5.2_Union_of_normal_spaces/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 3.5.4 Alternative formulation Greens theorem
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.5_Greens_theorem/3.5.4_Alternative_formulation_Greens_theorem/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 4.1 Surface integral of a scalar field
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.1_Surface_integral_of_a_scalar_field/4.1_Surface_integral_of_a_scalar_field/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 4.4.1 The divergence theorem
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.4_The_divergence_theorem/4.4.1_The_divergence_theorem/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 4.6.0 The corkscrew rule
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.6_Stokes_theorem/4.6.0_The_corkscrew_rule/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 4.6.1 Stokes theorem
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.6_Stokes_theorem/4.6.1_Stokes_theorem/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 5.1 Inverse function
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH5_Line_integral_of_a_complex_function/5.1_Inverse_function/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 5.1 Complex function
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH5_Line_integral_of_a_complex_function/5.1_Complex_function/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 5.2 Complex line integral
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH5_Line_integral_of_a_complex_function/5.2_Complex_line_integral/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 6.2.1 Complex derivative
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.2_Complex_derivative/6.2.1_Complex_derivative/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 6.3 Cauchy Goursat theorem for multiply connected domains
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3_Cauchy_Goursat_theorem_for_multiply_connected_domains/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 6.3 Contour non simply connected
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3_Contour_non_simply_connected/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 6.3 Contour simply connected
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3_Contour_simply_connected/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 6.3.3 Proof integral formula Cauchy
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3.3_Proof_integral_formula_Cauchy/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 7.2.4 Theorem convergence regions positive and negative power series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH7_Sequences_and_series_of_holomorphic_functions/7.2.4_Theorem_convergence_regions_positive_and_negative_power_series/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 8.2.1 Proof theorem Laurent series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 8.5.6 Residue theorem for region with multiple singularities
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.5.6_Residue_theorem_for_region_with_multiple_singularities/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 9.3 Estimation lemmas
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.3_Estimation_lemmas/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
 - title: 9.5 Summation of series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.5_Summation_of_series/standalone.PNG
+  caption: ''
   properties:
     format: PNG
-    caption: ''
