@@ -13,3 +13,5 @@ excerpt: "<strong>Complex analysis</strong>: Holomorphic functions, Cauchy's the
 <h2>PDF of all the figures:</h2>
 
 {% include figures_PDF.html %}
+
+<p>MathJax test: $E = mc^2$</p>
