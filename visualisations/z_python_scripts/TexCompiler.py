@@ -329,7 +329,7 @@ class tex_compiler:
 
         # define paths for temporary storage
         website_local_export_dir = os.path.join(self.local_export_directory, "website_assets")
-        self.asset_directory = os.path.join(website_local_export_dir, asset_directory_name)
+        self.asset_directory = website_local_export_dir
         self.yml_path = os.path.join(website_local_export_dir, yml_file_name) 
 
         # paths in the gh-pages branch of parent directories
@@ -346,8 +346,8 @@ class tex_compiler:
         # export figures and .yml file to temporary location
         self.convert_to_PNG_and_export(export_directory=self.asset_directory, dpi_used=200)
         self.make_figures_yml(export_directory=self.yml_path)
-        
-        # navigate to repo_dir:
+
+         # navigate to repo_dir:
         os.chdir(self.repo_dir)
         
         # Step 2: Checkout gh-pages branch (this assumes you already have it)
@@ -372,3 +372,5 @@ class tex_compiler:
         subprocess.run(['git', 'push', 'origin', 'gh-pages'])
 
         print("Files of %s successfully pushed to gh-pages branch!" % (self.project_name))
+        
+       
