@@ -1,0 +1,1 @@
+The cycloid $P(t)= \left[ R(t-\sin t), R(1-\cos t) \right]$ and its evolute $Q(t)= \left[ R(t+\sin t), R(\cos t - 1) \right]$, which is a translation of $P(t)$.
