@@ -2,10 +2,14 @@
 
 # Make sure to install "poppler" for export to website.
 
-import os, re, subprocess, glob
+import os, subprocess, glob
 import shutil
 import pdf2image
 import yaml
+
+#split path according to os separator
+def split_path_os(path):
+    return  path.split(os.sep) 
 
 def find_files(root_directory, filename):
     """find all the files with a certain name in a root directory"""
@@ -27,7 +31,7 @@ def find_files(root_directory, filename):
 def chapter_and_number(path):
     """extract the chapter and the chapter number from path of main.tex file"""
     assert isinstance(path, str)
-    chapter = path.split('/')[-2]                       # extract the name of parent directory(=chapter)
+    chapter = split_path_os(path)[-2]                   # extract the name of parent directory(=chapter)
     chapter_proper_name = chapter.replace('_', ' ')     # replace underscores by " " (for actual chapter name)
 
     # extract the digits:chapter number, section number, subsection number...
@@ -99,8 +103,8 @@ class figure:
         """get the section number and name of the figure"""
         self.chapter_parts, self.chapter, self.tex_section = chapter_parts, chapter, tex_section
         # extract name of the exported files (normally standalone.tex and standlone.PNG), and 
-        exported_pdf_name = self.standalone_pdf_path.split("/")[-1].replace(".pdf", ".PNG")
-        tex_file_name = self.standalone_tex_path.split("/")[-1]
+        exported_pdf_name = split_path_os(self.standalone_pdf_path)[-1].replace(".pdf", ".PNG")
+        tex_file_name = split_path_os(self.standalone_tex_path)[-1]
 
         # define relative paths of the destination (export) .PNG and .tex file
         self.destination_PNG_rel = os.path.join(self.export_directory_rel_path, exported_pdf_name)   
@@ -136,7 +140,7 @@ class tex_compiler:
         script_dir = os.path.join(parent_dir, folder)                           # Join with another folder or file
         self.script_dir = script_dir
 
-        self.project_name = self.script_dir.split("/")[-1]                      # name of the project
+        self.project_name = split_path_os(self.script_dir)[-1]                      # name of the project
         self.standalone_tex_files_abs, self.standalone_tex_files_rel = find_files(self.script_dir, filename="standalone.tex")   # find the relevant tex files     
         self.sorted_standalone_tex_files_abs = sorted(self.standalone_tex_files_abs, key=chapter_sorting_key)                           # sort files according to ascending chapter
         
