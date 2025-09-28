@@ -9,7 +9,8 @@ import yaml
 
 #split path according to os separator
 def split_path_os(path):
-    return  path.split(os.sep) 
+    path = os.path.normpath(path)   # normalize separators
+    return path.split(os.sep) 
 
 def find_files(root_directory, filename):
     """find all the files with a certain name in a root directory"""
