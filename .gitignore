@@ -34,3 +34,6 @@ env/
 *.synctex.gz
 *.toc
 *.out
+
+# ignore other branch files
+export
