@@ -35,3 +35,6 @@ env/
 *.pdf
 *.toc
 *.out
+
+# ignore files from other branch
+setup_support
