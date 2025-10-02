@@ -7,8 +7,9 @@ import shutil
 import pdf2image
 import yaml
 
-#split path according to os separator
+
 def split_path_os(path):
+    "split path according to os separator"
     path = os.path.normpath(path)   # normalize separators
     return path.split(os.sep) 
 
@@ -71,12 +72,13 @@ def get_section(chapter_digits, chapter_parts):
 #%% Compiler class
 
 class figure:
-    def __init__(self, parent_directory_path, standalone_pdf_path, standalone_tex_path, standalone_pdf_rel_path, caption_path, export_directory_rel_path):
+    def __init__(self, parent_directory_path, standalone_pdf_path, standalone_tex_path, standalone_pdf_rel_path, standalone_pdf_rel_latex_path, caption_path, export_directory_rel_path):
 
         self.parent_directory_path = parent_directory_path
         self.standalone_pdf_path = standalone_pdf_path
         self.standalone_tex_path = standalone_tex_path
         self.standalone_pdf_rel_path = standalone_pdf_rel_path
+        self.standalone_pdf_rel_latex_path = standalone_pdf_rel_latex_path
         self.caption_path = caption_path
         self.export_directory_rel_path = export_directory_rel_path
         self.chapter_parts, self.chapter, self.tex_section = None, None, None
@@ -166,12 +168,14 @@ class tex_compiler:
             parent_directory_path = os.path.dirname(standalone_tex_path)
             standalone_pdf_path = standalone_tex_path.replace(".tex", ".pdf")
             standalone_pdf_rel_path = os.path.relpath(standalone_pdf_path, self.script_dir)
+            # get the latex path ("/" for every operating system!)
+            standalone_pdf_rel_latex_path = os.path.normpath(standalone_pdf_rel_path).replace(os.sep, "/")
             caption_path = os.path.join(parent_directory_path, "caption.txt")
 
             # relative path of standalone pdf directory, for export to syllabus or website
             export_directory_rel_path = os.path.join(self.project_name, os.path.relpath(parent_directory_path, self.script_dir)).replace(".tex", "")
 
-            figure_object = figure(parent_directory_path = parent_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, caption_path=caption_path, export_directory_rel_path=export_directory_rel_path)
+            figure_object = figure(parent_directory_path = parent_directory_path, standalone_pdf_path=standalone_pdf_path, standalone_tex_path=standalone_tex_path, standalone_pdf_rel_path=standalone_pdf_rel_path, standalone_pdf_rel_latex_path=standalone_pdf_rel_latex_path, caption_path=caption_path, export_directory_rel_path=export_directory_rel_path)
             figure_dict[standalone_tex_path] = figure_object
         return figure_dict
     
@@ -256,7 +260,7 @@ class tex_compiler:
             print(os.path.relpath(figure_object.standalone_pdf_path, self.script_dir))
 
             # create the includegraphics part
-            tex_middle_sub = self.create_include_fig(relative_path = figure_object.standalone_pdf_rel_path, caption = figure_object.caption)
+            tex_middle_sub = self.create_include_fig(relative_path = figure_object.standalone_pdf_rel_latex_path, caption = figure_object.caption)
             # append to body
             tex_middle += figure_object.tex_section + tex_middle_sub
 
