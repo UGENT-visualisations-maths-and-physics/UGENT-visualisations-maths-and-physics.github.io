@@ -1,9 +1,9 @@
 <!-- Setup MathJax: allows for LateX rendering -->
 
 <script>
-MathJax = {
+window.MathJax = {
   tex: {
-    inlineMath: [ ['$', '$'], ['\(', '\)'] ],
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
     displayMath: [['$$', '$$'], ['\\[', '\\]']],
     processEscapes: true,
     packages: {'[+]': ['base', 'ams', 'newcommand']}, // adds core, AMS, and macro support
