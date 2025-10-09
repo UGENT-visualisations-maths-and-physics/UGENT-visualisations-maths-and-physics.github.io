@@ -1,0 +1,3 @@
+The line integral of a scalar field $\phi$ over a smooth curve $P(t)$ is given by:
+$\int_{\mathcal{C}} \phi ~ds := \int^b_a \phi \left(P(t)\right) \left\lVert \frac{\overrightarrow{dP}}{dt} \right\rVert dt.$
+In the figure, the displacement between different points along the curve, $P(t_{i+1})-P(t_i)$, is shown. This relates to the infinitesimal displacement $\left\lVert \frac{\overrightarrow{dP}}{dt} \right\rVert dt$.

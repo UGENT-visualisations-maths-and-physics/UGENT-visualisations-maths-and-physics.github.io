@@ -35,3 +35,6 @@ env/
 *.pdf
 *.toc
 *.out
+
+# ignore site build artifacts (github pages)
+_site

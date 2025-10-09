@@ -1,0 +1,2 @@
+The points $A$ and $B$ lie on a closed curve $\mathcal{C}$. We can choose two arbitrary paths, $\mathcal{C}_1$ and $\mathcal{C}_2$, from $A$ to $B$. 
+If we evaluate the line integral of a conservative field $\phi$ along both paths, the result will be the same, since the line integral of a conservative field is independent of the travelled path.

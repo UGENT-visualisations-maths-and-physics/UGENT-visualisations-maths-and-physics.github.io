@@ -1,0 +1,3 @@
+The line integral of a vector field $\overrightarrow{F}$ over a smooth curve $P(t)$ is given by:
+$\int_{\mathcal{C}}  \overrightarrow{F} \cdot \overrightarrow{dP} := \int^b_a  \overrightarrow{F} \left(P(t)\right) \cdot \frac{\overrightarrow{dP}}{dt} ~dt. $
+In the figure, the displacement between different points along the curve, $P(t_{i+1})-P(t_i)$, is shown. This relates to the infinitesimal displacement vector $\frac{\overrightarrow{dP}}{dt}  dt$.
