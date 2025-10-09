@@ -134,7 +134,7 @@
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
   caption: 'The region of convergence of the Laurent series is the annular region
     $ B(0, R) \setminus \overline{B(0, r)} $. For every point $ z $, it is possible
-    to find $ R $ and $ r $ such that $ 0 < r < r < |z| < R < R. $'
+    to find $ R $ and $ r $ such that $ 0 < r < r < \| z \| < R < R. $'
   properties:
     format: PNG
 - title: 8.5.6 Residue theorem for region with multiple singularities
