@@ -133,8 +133,8 @@
 - title: 8.2.1 Proof theorem Laurent series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
   caption: 'The region of convergence of the Laurent series is the annular region
-    \( B(0, R) \setminus \overline{B(0, r)} \). For every point \( z \), it is possible
-    to find \( R'' \) and \( r'' \) such that \( 0 < r < r'' < |z| < R'' < R. \)'
+    $ B(0, R) \setminus \overline{B(0, r)} $. For every point $ z $, it is possible
+    to find $ R'' $ and $ r'' $ such that $ 0 < r < r'' < |z| < R'' < R. $'
   properties:
     format: PNG
 - title: 8.5.6 Residue theorem for region with multiple singularities
@@ -155,9 +155,9 @@
     format: PNG
 - title: 9.5 Summation of series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.5_Summation_of_series/standalone.PNG
-  caption: 'The function \( g(z) = \cot(\pi z) \) has simple poles at \( z = 0, \pm
-    1, \pm 2, \ldots \). If we consider the square \( V_N \) with center at the origin
-    and side length \( 2N + 1 \), where \( N \in \mathbb{N} \), then we can compute
-    the contour integral over \( \partial V_N^+ \) using the residue theorem.'
+  caption: 'The function $ g(z) = \cot(\pi z) $ has simple poles at $ z = 0, \pm 1,
+    \pm 2, \ldots $. If we consider the square $ V_N $ with center at the origin and
+    side length $ 2N + 1 $, where $ N \in \mathbb{N} $, then we can compute the contour
+    integral over $ \partial V_N^+ $ using the residue theorem.'
   properties:
     format: PNG
