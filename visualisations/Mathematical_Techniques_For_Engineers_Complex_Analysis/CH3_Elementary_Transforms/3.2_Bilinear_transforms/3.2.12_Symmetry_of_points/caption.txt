@@ -1,0 +1,1 @@
+The points $z_1$ and $z_2$ are symmetrical with respect to the circle $\mathcal{K} = S(C,R)$.

@@ -1,0 +1,1 @@
+Let $f$ be holomorphic in the space $\Omega \subseteq \mathbb{C}$. If $z_0 \in \Omega$ is an accumulation point of zeros of $f$, then $f\equiv 0$ over the entire space $\Omega$. 
