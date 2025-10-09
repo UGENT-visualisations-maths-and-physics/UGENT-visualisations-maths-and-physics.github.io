@@ -1,0 +1,4 @@
+The complex derivative in a point $z_0 = x_0 + i y_0$ for a complex function is:
+$f'(z_0) = \lim\limits_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}$.
+For $f'(z_0)$ to exist, this limit must be the same regardless of the direction in which $h \to 0$.
+In the figure, the limit is approached along the real and imaginary axes; equating the results of both approaches yields the Cauchy–Riemann conditions.
