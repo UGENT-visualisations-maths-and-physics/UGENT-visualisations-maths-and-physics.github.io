@@ -1,0 +1,1 @@
+The contour \( \mathcal{C} \) passes through none of the singularities \( a_i \) of the complex function \( f \) and encloses a compact set that lies entirely within \( \Omega \). \( \mathcal{C} \) contains a finite number of singularities of \( f \).

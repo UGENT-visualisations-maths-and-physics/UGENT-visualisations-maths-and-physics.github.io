@@ -1,1 +1,1 @@
-The function $f$ is continuous in $z_0$ if \[( \forall \varepsilon > 0)(\exists \delta_\varepsilon > 0)(\forall z \in S)(|z-z_0|<\delta_\varepsilon \Longrightarrow |f(z) - f(z_0)|<\varepsilon)\, . \]
+The function $f$ is continuous in $z_0$ if $( \forall \varepsilon > 0)(\exists \delta_\varepsilon > 0)(\forall z \in S)(|z-z_0|<\delta_\varepsilon \Longrightarrow |f(z) - f(z_0)|<\varepsilon)\, . $

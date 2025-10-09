@@ -1,0 +1,1 @@
+The catenary $P(x) = [x, a \cosh(x/a)]$ and its involute: the tractrix $Q(x) = \left[ x-a \tanh(x/a), \frac{a}{\cosh(x/a)}\right] $. For a point $Q$ on the tractrix, the intersection of the tangent to $Q$ with the $X$-axis coincides with the orthogonal projection of the corresponding point on the catenary $P$.
