@@ -1,8 +1,8 @@
 - title: 2.1.1 Continuity Definition
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.1_Functions_Of_A_Complex_Variable_Limits_And_Continuity/2.1.1_Continuity_Definition/standalone.PNG
   caption: 'The function $f$ is continuous in $z_0$ if $( \forall \varepsilon > 0)(\exists
-    \delta_\varepsilon > 0)(\forall z \in S)(|z-z_0|<\delta_\varepsilon \Longrightarrow
-    |f(z) - f(z_0)|<\varepsilon)\, . $'
+    \delta_\varepsilon > 0)(\forall z \in S)(\lvert z-z_0\rvert<\delta_\varepsilon
+    \Longrightarrow \lvert f(z) - f(z_0) \rvert<\varepsilon)\, . $'
   properties:
     format: PNG
 - title: 2.4 Geometrical Interpretation Of The Complex Derivative
@@ -36,9 +36,9 @@
     format: PNG
 - title: 3.8.4 Exercise
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/3.8.4_Exercise/standalone.PNG
-  caption: 'Image of domain $\mathcal{D} = \{z\in \mathbb{C} | \mathrm{Re}(z) + \mathrm{Im}(z)
-    \ge 1, \, |z-2| \le 1, \, \mathrm{Re}(z) \le 2 \}$ through the function $f(z)
-    = \frac{z+i}{z-i}$.'
+  caption: 'Image of domain $\mathcal{D} = \{z\in \mathbb{C} \vert \mathrm{Re}(z)
+    + \mathrm{Im}(z) \ge 1, \, \vert z-2 \vert \le 1, \, \mathrm{Re}(z) \le 2 \}$
+    through the function $f(z) = \frac{z+i}{z-i}$.'
   properties:
     format: PNG
 - title: 5.1.1
