@@ -4,7 +4,8 @@
 MathJax = {
   tex: {
     inlineMath: [ ['$', '$'], ['\(', '\)'] ],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    packages: {'[+]': ['base', 'ams', 'newcommand']}, // adds core, AMS, and macro support
   },
   svg: {
     fontCache: 'global'
