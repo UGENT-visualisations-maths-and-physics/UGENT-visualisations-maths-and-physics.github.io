@@ -1,6 +1,8 @@
 - title: 2.1.1 Continuity Definition
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.1_Functions_Of_A_Complex_Variable_Limits_And_Continuity/2.1.1_Continuity_Definition/standalone.PNG
-  caption: ''
+  caption: 'The function $f$ is continuous in $z_0$ if $( \forall \varepsilon > 0)(\exists
+    \delta_\varepsilon > 0)(\forall z \in S)(|z-z_0|<\delta_\varepsilon \Longrightarrow
+    |f(z) - f(z_0)|<\varepsilon)\, . $'
   properties:
     format: PNG
 - title: 2.4 Geometrical Interpretation Of The Complex Derivative
@@ -11,9 +13,10 @@
     derivatives $\frac{\partial}{\partial x}$ and $\frac{\partial}{\partial y}$, respectively.'
   properties:
     format: PNG
-- title: 3.2 Bilinear transforms
-  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/standalone.PNG
-  caption: ''
+- title: 3.2.12 Symmetry of points
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/3.2.12_Symmetry_of_points/standalone.PNG
+  caption: 'The points $z_1$ and $z_2$ are symmetrical with respect to the circle
+    $\mathcal{K} = S(C,R)$.'
   properties:
     format: PNG
 - title: 3.5.1 Exponential function periodicity
@@ -29,6 +32,13 @@
 - title: 3.5.3 Exponential function image horizontal lines
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.3_Exponential_function_image_horizontal_lines/standalone.PNG
   caption: ''
+  properties:
+    format: PNG
+- title: 3.8.4 Exercise
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/3.8.4_Exercise/standalone.PNG
+  caption: 'Image of domain $\mathcal{D} = \{z\in \mathbb{C} | \mathrm{Re}(z) + \mathrm{Im}(z)
+    \ge 1, \, |z-2| \le 1, \, \mathrm{Re}(z) \le 2 \}$ through the function $f(z)
+    = \frac{z+i}{z-i}$.'
   properties:
     format: PNG
 - title: 5.1.1
@@ -53,7 +63,9 @@
     format: PNG
 - title: 5.5.2 Uniqueness of holomorphic functions
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.5_Zeros_and_poles_of_holomorphic_functions/5.5.2_Uniqueness_of_holomorphic_functions/standalone.PNG
-  caption: ''
+  caption: 'Let $f$ be holomorphic in the space $\Omega \subseteq \mathbb{C}$. If
+    $z_0 \in \Omega$ is an accumulation point of zeros of $f$, then $f\equiv 0$ over
+    the entire space $\Omega$. '
   properties:
     format: PNG
 - title: 5.6.2
@@ -63,7 +75,10 @@
     format: PNG
 - title: 5.6.3 Argument Principle
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.3_Argument_Principle/standalone.PNG
-  caption: ''
+  caption: 'Illustration of the argument principle for \( f(z) = z^2 + z \). The images
+    of the circles \( \gamma_1, \gamma_2, \gamma_3 \) under \( f \) show how many
+    times each curve winds around the origin, corresponding to the number of zeros
+    of \( f \) inside each circle.'
   properties:
     format: PNG
 - title: 5.6.3 Rouches theorem
