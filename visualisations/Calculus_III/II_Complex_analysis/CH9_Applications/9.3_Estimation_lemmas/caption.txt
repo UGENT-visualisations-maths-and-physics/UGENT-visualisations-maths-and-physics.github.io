@@ -1,1 +1,1 @@
-Small limit theorem: The circular arc \( C^{t}_{\varepsilon} \) with center \( a \), radius \( \varepsilon > 0 \), and central angle \( \alpha \) can be described by the parametric equation $z(t) = a + \varepsilon e^{i(t + \beta)}, \, t : 0 \to \alpha. $
+Small limit theorem: The circular arc $ C^{t}_{\varepsilon} $ with center $ a $, radius $ \varepsilon > 0 $, and central angle $ \alpha $ can be described by the parametric equation $z(t) = a + \varepsilon e^{i(t + \beta)}, \, t : 0 \to \alpha. $
