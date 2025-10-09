@@ -1,0 +1,1 @@
+$\mathcal{C}$ is a bounded contour in $\Omega$ which encloses a compact set $K$ lying completely within $\Omega$. For a point $a \in \mathcal{C} \setminus K$, we parametrize the circle $\partial B(a, \epsilon)$, which lies entirely in the interior of $\mathcal{C}$.

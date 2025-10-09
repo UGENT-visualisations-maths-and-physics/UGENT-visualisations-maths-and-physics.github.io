@@ -1,0 +1,1 @@
+The unit vector along the surface normal, $\overrightarrow{n}^k$, is oriented such that its direction agrees with the orientation of $\partial S$ according to the corkscrew rule (or right-hand rule).

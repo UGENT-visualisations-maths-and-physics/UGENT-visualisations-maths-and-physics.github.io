@@ -1,0 +1,1 @@
+The normal region $G$ can be projected onto the x-axis, with its upper and lower boundaries parametrized by $y=\alpha(x)$ and $y=\beta(x)$.

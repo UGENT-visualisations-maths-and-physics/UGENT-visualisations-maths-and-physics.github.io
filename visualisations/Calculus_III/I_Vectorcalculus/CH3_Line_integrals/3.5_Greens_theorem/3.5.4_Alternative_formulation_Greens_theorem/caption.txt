@@ -1,0 +1,3 @@
+The alternative representation of Green’s theorem:
+$\int_{\partial G^+}  \overrightarrow{F} \cdot \overrightarrow{N}^u ~ds = \int_G \overrightarrow{\nabla} \cdot  \overrightarrow{F} ~dA,$
+where $\overrightarrow{T}$ is the tangent unit vector and $\overrightarrow{N}^u$ the outward normal vector. 

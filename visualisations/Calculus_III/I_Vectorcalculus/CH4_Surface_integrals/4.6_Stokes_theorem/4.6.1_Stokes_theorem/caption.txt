@@ -1,0 +1,1 @@
+Proof Stokes' theorem. $S$ is a smooth surface that can be projected onto the $XY$-plane, with projection $D$.

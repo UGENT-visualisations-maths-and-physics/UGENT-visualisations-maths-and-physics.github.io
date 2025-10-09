@@ -1,0 +1,1 @@
+(Left) The annulus $G$ is not a normal region, as it cannot be projected onto the $X$- or $Y$-axis. (Right) However, $G$ is a union of normal regions: it can be split into four regions ($D_i$) each of which can be projected onto the $X$- and $Y$-axis.

@@ -1,0 +1,1 @@
+Proof of the divergence theorem. The normal region $V$ is projected onto the $XY$-plane, with projection $V_{xy}$. The upper and lower boundaries of $V$ are represented by a parametrization.
