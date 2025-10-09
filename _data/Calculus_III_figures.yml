@@ -6,17 +6,22 @@
     format: PNG
 - title: 1.2.4 Example evolute catenary
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.4_Example_evolute_catenary/standalone.PNG
-  caption: ''
+  caption: 'The catenary $P(x) = [x, a \cosh(x/a)]$ and its evolute $Q(x) = \left[x-\frac{a}{2}\sinh(2x/a),
+    2a \cosh(x/a)\right]$.'
   properties:
     format: PNG
 - title: 1.2.5 Example involute catenary (tractrix)
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.5_Example_involute_catenary_(tractrix)/standalone.PNG
-  caption: ''
+  caption: 'The catenary $P(x) = [x, a \cosh(x/a)]$ and its involute: the tractrix
+    $Q(x) = \left[ x-a \tanh(x/a), \frac{a}{\cosh(x/a)}\right] $. For a point $Q$
+    on the tractrix, the intersection of the tangent to $Q$ with the $X$-axis coincides
+    with the orthogonal projection of the corresponding point on the catenary $P$.'
   properties:
     format: PNG
 - title: 1.2.8 Example envelope family of straight lines
   image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.8_Example_envelope_family_of_straight_lines/standalone.PNG
-  caption: ''
+  caption: 'Some examples from the family of lines $F(x,y,a) = \frac{x}{\cos(a)} +
+    \frac{y}{\sin(a)} = 1$, and the corresponding astroid: $x^{2/3} + y^{2/3} = 1$.'
   properties:
     format: PNG
 - title: 2.3 Gradient of scalar field
@@ -121,26 +126,38 @@
     format: PNG
 - title: 7.2.4 Theorem convergence regions positive and negative power series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH7_Sequences_and_series_of_holomorphic_functions/7.2.4_Theorem_convergence_regions_positive_and_negative_power_series/standalone.PNG
-  caption: ''
+  caption: '(Left) Region of convergence of a positive power series. (Right) Region
+    of convergence of a negative power series.'
   properties:
     format: PNG
 - title: 8.2.1 Proof theorem Laurent series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
-  caption: ''
+  caption: 'The region of convergence of the Laurent series is the annular region
+    \( B(0, R) \setminus \overline{B(0, r)} \). For every point \( z \), it is possible
+    to find \( R'' \) and \( r'' \) such that \( 0 < r < r'' < |z| < R'' < R. \)'
   properties:
     format: PNG
 - title: 8.5.6 Residue theorem for region with multiple singularities
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.5.6_Residue_theorem_for_region_with_multiple_singularities/standalone.PNG
-  caption: ''
+  caption: 'The contour \( \mathcal{C} \) passes through none of the singularities
+    \( a_i \) of the complex function \( f \) and encloses a compact set that lies
+    entirely within \( \Omega \). \( \mathcal{C} \) contains a finite number of singularities
+    of \( f \).'
   properties:
     format: PNG
 - title: 9.3 Estimation lemmas
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.3_Estimation_lemmas/standalone.PNG
-  caption: ''
+  caption: 'Small limit theorem: The circular arc \( C^{t}_{\varepsilon} \) with center
+    \( a \), radius \( \varepsilon > 0 \), and central angle \( \alpha \) can be described
+    by the parametric equation $z(t) = a + \varepsilon e^{i(t + \beta)}, \, t : 0
+    \to \alpha. $'
   properties:
     format: PNG
 - title: 9.5 Summation of series
   image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.5_Summation_of_series/standalone.PNG
-  caption: ''
+  caption: 'The function \( g(z) = \cot(\pi z) \) has simple poles at \( z = 0, \pm
+    1, \pm 2, \ldots \). If we consider the square \( V_N \) with center at the origin
+    and side length \( 2N + 1 \), where \( N \in \mathbb{N} \), then we can compute
+    the contour integral over \( \partial V_N^+ \) using the residue theorem.'
   properties:
     format: PNG
