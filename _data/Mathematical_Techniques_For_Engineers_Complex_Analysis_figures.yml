@@ -1,0 +1,93 @@
+- title: 2.1.1 Continuity Definition
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.1_Functions_Of_A_Complex_Variable_Limits_And_Continuity/2.1.1_Continuity_Definition/standalone.PNG
+  caption: 'The function $f$ is continuous in $z_0$ if $( \forall \varepsilon > 0)(\exists
+    \delta_\varepsilon > 0)(\forall z \in S)(|z-z_0|<\delta_\varepsilon \Longrightarrow
+    |f(z) - f(z_0)|<\varepsilon)\, . $'
+  properties:
+    format: PNG
+- title: 2.4 Geometrical Interpretation Of The Complex Derivative
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.4_Geometrical_Interpretation_Of_The_Complex_Derivative/standalone.PNG
+  caption: 'In every point  $g(x_0, y_0)$ of a surface $g(x,y)$, a tangent plane can
+    be drawn (red). The tangent lines $t_x$, $t_y$ are oriented according to the $x$-
+    and $y$-axis, respectively. They have a slope which corresponds to the partial
+    derivatives $\frac{\partial}{\partial x}$ and $\frac{\partial}{\partial y}$, respectively.'
+  properties:
+    format: PNG
+- title: 3.2.12 Symmetry of points
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/3.2.12_Symmetry_of_points/standalone.PNG
+  caption: 'The points $z_1$ and $z_2$ are symmetrical with respect to the circle
+    $\mathcal{K} = S(C,R)$.'
+  properties:
+    format: PNG
+- title: 3.5.1 Exponential function periodicity
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.1_Exponential_function_periodicity/standalone.PNG
+  caption: 'The exponential function $f(z) =e^z$ is periodic with period $2 \pi i$.'
+  properties:
+    format: PNG
+- title: 3.5.2 Exponential function image vertical lines
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.2_Exponential_function_image_vertical_lines/standalone.PNG
+  caption: 'The exponential function $f(z) = e^z$ maps vertical lines onto circles
+    centered at the origin.'
+  properties:
+    format: PNG
+- title: 3.5.3 Exponential function image horizontal lines
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.5_Exponential_Function/3.5.3_Exponential_function_image_horizontal_lines/standalone.PNG
+  caption: 'The exponential function $f(z) = e^z$ maps horizontal lines onto half-lines
+    originating from the origin.'
+  properties:
+    format: PNG
+- title: 3.8.4 Exercise
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/3.8.4_Exercise/standalone.PNG
+  caption: 'Image of domain $\mathcal{D} = \{z\in \mathbb{C} | \mathrm{Re}(z) + \mathrm{Im}(z)
+    \ge 1, \, |z-2| \le 1, \, \mathrm{Re}(z) \le 2 \}$ through the function $f(z)
+    = \frac{z+i}{z-i}$.'
+  properties:
+    format: PNG
+- title: 5.1.1
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.1_Line_integral_of_a_complex_function/5.1.1/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 5.2.3
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.2_Cauchy_Goursat_theorem/5.2.3/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 5.3 Cauchy integral formulas and consequences
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.3_Cauchy_integral_formulas_and_consequences/standalone.PNG
+  caption: '$\mathcal{C}$ is a bounded contour in $\Omega$ which encloses a compact
+    set $K$ lying completely within $\Omega$. For a point $a \in \mathcal{C} \setminus
+    K$, we parametrize the circle $\partial B(a, \epsilon)$, which lies entirely in
+    the interior of $\mathcal{C}$.'
+  properties:
+    format: PNG
+- title: 5.4.4
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.4_Series_of_holomorphic_functions/5.4.4/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 5.5.2 Uniqueness of holomorphic functions
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.5_Zeros_and_poles_of_holomorphic_functions/5.5.2_Uniqueness_of_holomorphic_functions/standalone.PNG
+  caption: 'Let $f$ be holomorphic in the space $\Omega \subseteq \mathbb{C}$. If
+    $z_0 \in \Omega$ is an accumulation point of zeros of $f$, then $f\equiv 0$ over
+    the entire space $\Omega$. '
+  properties:
+    format: PNG
+- title: 5.6.2
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.2/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 5.6.3 Argument Principle
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.3_Argument_Principle/standalone.PNG
+  caption: 'Illustration of the argument principle for $ f(z) = z^2 + z $. The images
+    of the circles $ \gamma_1, \gamma_2, \gamma_3 $ under $ f $ show how many times
+    each curve winds around the origin, corresponding to the number of zeros of $
+    f $ inside each circle.'
+  properties:
+    format: PNG
+- title: 5.6.3 Rouches theorem
+  image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.3_Rouches_theorem/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
