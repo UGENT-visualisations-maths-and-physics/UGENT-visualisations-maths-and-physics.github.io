@@ -5,8 +5,22 @@ permalink: /about/
 ---
 
 <h2>Promotors:</h2>
-<a href="https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege">Prof. Dr. Geert Verdoolaeghe</a> <br>
-<a href="https://users.ugent.be/~slazendi">Dr. Srđan Lazendić</a> <br>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+
+  <div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/geert.jpg" alt="Geert Verdoolaeghe" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <br>
+    <a href="https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege">Prof. Dr. Geert Verdoolaeghe</a>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/srdan.jpg" alt="Srđan Lazendić" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <br>
+    <a href="https://users.ugent.be/~slazendi">Dr. Srđan Lazendić</a>
+  </div>
+
+</div>
+
 
 <h2>Team members (2025–2027):</h2>
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
@@ -29,7 +43,7 @@ permalink: /about/
   </div>
 
   <div style="text-align: center;">
-    <img src="{{ site.baseurl }}/assets/WebsitePics/Anonymous.jpg" alt="Brecht" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/Brecht.jpg" alt="Brecht" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
     <br>
     <a href="https://www.linkedin.com/in/brecht-verbeken-837b4b352/">Brecht Verbeken</a>
   </div>
