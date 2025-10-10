@@ -8,13 +8,13 @@ permalink: /about/
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
 
   <div style="text-align: center;">
-    <img src="{{ site.baseurl }}/assets/WebsitePics/geert.jpg" alt="Geert Verdoolaeghe" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/Geert.jpg" alt="Geert Verdoolaeghe" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
     <br>
     <a href="https://nuclearfusion.ugent.be/prof-dr-geert-verdoolaege">Prof. Dr. Geert Verdoolaeghe</a>
   </div>
 
   <div style="text-align: center;">
-    <img src="{{ site.baseurl }}/assets/WebsitePics/srdan.jpg" alt="Srđan Lazendić" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/Srdan.jpg" alt="Srđan Lazendić" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
     <br>
     <a href="https://users.ugent.be/~slazendi">Dr. Srđan Lazendić</a>
   </div>
