@@ -14,7 +14,7 @@ permalink: /about/
   </div>
 
   <div style="text-align: center;">
-    <img src="{{ site.baseurl }}/assets/WebsitePics/Srdan.jpg" alt="Srđan Lazendić" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/Srdan.jpg" alt="Srđan Lazendić" style="width:100px; height:100px; border-radius:50%; object-fit:cover; object-position:center 40%; margin-bottom:8px;">
     <br>
     <a href="https://users.ugent.be/~slazendi">Dr. Srđan Lazendić</a>
   </div>
@@ -43,7 +43,7 @@ permalink: /about/
   </div>
 
   <div style="text-align: center;">
-    <img src="{{ site.baseurl }}/assets/WebsitePics/Brecht.jpg" alt="Brecht" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/Brecht.jpg" alt="Brecht" style="width:100px; height:100px; border-radius:50%; object-fit:cover; object-position:center 40%; margin-bottom:8px;">
     <br>
     <a href="https://www.linkedin.com/in/brecht-verbeken-837b4b352/">Brecht Verbeken</a>
   </div>
