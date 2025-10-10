@@ -4,6 +4,20 @@ title: About
 permalink: /about/
 ---
 
+<h2>Motivation</h2>
+
+<p>
+During the early years of university, engineering students encounter a wide range of mathematical techniques that enable them to study complex physical phenomena. However, these often come in the form of long, intricate calculations, sometimes making it difficult to develop a deep conceptual understanding.
+</p>
+
+<p>
+The Honours Program Education aims to bridge this gap by creating visual learning materials for key mathematical concepts in (multi)linear algebra, vector calculus, and complex analysis: all fundamental to both classical and modern physics! These visualizations provide students with insight into the logical necessity of mathematical constructions and proofs (why is it logical to do it this way, why must something be as it is?).
+</p>
+
+<p>
+We hope these materials will help students and educators alike in making abstract mathematical concepts more intuitive and engaging. If you're interested in visualizing mathematics or have ideas for collaboration, feel free to connect with us!
+</p>
+
 <h2>Promotors:</h2>
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
 
