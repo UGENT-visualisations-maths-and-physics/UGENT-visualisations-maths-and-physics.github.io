@@ -26,7 +26,7 @@ permalink: /about/
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
 
   <div style="text-align: center;">
-    <img src="{{ site.baseurl }}/assets/WebsitePics/Anonymous.jpg" alt="Jorrit" style="width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:8px;">
+    <img src="{{ site.baseurl }}/assets/WebsitePics/Jorrit.jpg" alt="Jorrit" style="width:100px; height:100px; border-radius:50%; object-fit:cover; object-position:center 35%; margin-bottom:8px;">
     <br>
     <a href="https://www.linkedin.com/in/jorrit-vander-bracht-4987b9364/">Jorrit Vander Bracht</a>
   </div>
