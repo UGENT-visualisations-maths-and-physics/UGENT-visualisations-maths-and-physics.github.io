@@ -1,1 +1,1 @@
-The region of convergence of the Laurent series is the annular region $ B(0, R) \setminus \overline{B(0, r)} $. For every point $ z $, it is possible to find $ R' $ and $ r' $ such that $ 0 < r < r' < \lvert z \rvert < R' < R. $
+The region of convergence of the Laurent series is the annular region $ B(0, R) \setminus \overline{B(0, r)} $. For every point $ z $, it is possible to find $ R' $ and $ r' $ such that $ 0 < r < r' < \lvert z \rvert < R' < R. $ 
