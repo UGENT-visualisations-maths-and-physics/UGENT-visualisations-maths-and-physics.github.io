@@ -1,0 +1,2 @@
+The reciprocal function $f(z)=\frac{1}{z}$ maps points outside of the unit circle inside the unit circle and vice versa.
+The ray with an angle $\theta$ will be mapped to a ray with angle $-\theta$.
