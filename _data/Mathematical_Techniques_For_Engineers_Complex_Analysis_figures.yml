@@ -1,8 +1,8 @@
 - title: 2.1.1 Continuity Definition
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH2_Complex_Functions_And_Holomorphy/2.1_Functions_Of_A_Complex_Variable_Limits_And_Continuity/2.1.1_Continuity_Definition/standalone.PNG
   caption: 'The function $f$ is continuous in $z_0$ if $( \forall \varepsilon > 0)(\exists
-    \delta_\varepsilon > 0)(\forall z \in S)(|z-z_0|<\delta_\varepsilon \Longrightarrow
-    |f(z) - f(z_0)|<\varepsilon)\, . $'
+    \delta_\varepsilon > 0)(\forall z \in S)(\lvert z-z_0 \rvert<\delta_\varepsilon
+    \Longrightarrow \lvert f(z) - f(z_0) \rvert<\varepsilon)\, . $'
   properties:
     format: PNG
 - title: 2.4 Geometrical Interpretation Of The Complex Derivative
@@ -38,19 +38,25 @@
     format: PNG
 - title: 3.8.4 Exercise
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH3_Elementary_Transforms/3.2_Bilinear_transforms/3.8.4_Exercise/standalone.PNG
-  caption: 'Image of domain $\mathcal{D} = \{z\in \mathbb{C} | \mathrm{Re}(z) + \mathrm{Im}(z)
-    \ge 1, \, |z-2| \le 1, \, \mathrm{Re}(z) \le 2 \}$ through the function $f(z)
-    = \frac{z+i}{z-i}$.'
+  caption: 'Image of domain $\mathcal{D} = \{z\in \mathbb{C} \vert \mathrm{Re}(z)
+    + \mathrm{Im}(z) \ge 1,  \lvert z-2 \rvert \le 1, \mathrm{Re}(z) \le 2 \}$ through
+    the function $f(z) = \frac{z+i}{z-i}$.'
   properties:
     format: PNG
 - title: 5.1.1
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.1_Line_integral_of_a_complex_function/5.1.1/standalone.PNG
-  caption: ''
+  caption: 'The complex line integral $\int_C f(z)\,dz$ for $z=\gamma(t)$, $t \in
+    [a,b]$, with $\gamma(t)$ a smooth curve, can also be seen as an integral over
+    $t$ with the equation
+
+    $\int_C f(z)\,dz = \int_a^b f(\gamma(t))\,\gamma''(t)\,dt$.'
   properties:
     format: PNG
 - title: 5.2.3
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.2_Cauchy_Goursat_theorem/5.2.3/standalone.PNG
-  caption: ''
+  caption: 'The integral over a contour $C$ in $\Omega$ with an interior with a finite
+    amount of singular poles is the sum of the integrals over the circles around these
+    interior poles.'
   properties:
     format: PNG
 - title: 5.3 Cauchy integral formulas and consequences
@@ -63,7 +69,11 @@
     format: PNG
 - title: 5.4.4
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.4_Series_of_holomorphic_functions/5.4.4/standalone.PNG
-  caption: ''
+  caption: 'To define the residue of a isolated singular pole at $z=\infty$, we can
+    evaluate the integral of a contour in which all other poles lie. By taking the
+    reciprolal equation $w=\frac{1}{z}$ we get an integral around the origin that
+    only contains the pole $w=0$. Which proves $\operatorname{Res}(f(z), \infty) :=
+    -\frac{1}{2\pi i} \oint_{\gamma} f(z)\,dz$.'
   properties:
     format: PNG
 - title: 5.5.2 Uniqueness of holomorphic functions
@@ -75,7 +85,13 @@
     format: PNG
 - title: 5.6.2
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.2/standalone.PNG
-  caption: ''
+  caption: 'The argument principle gives for a closed, smooth Jordan curve $\gamma$,
+    entirely within the domain $\Omega \subseteq \mathbb{C}$, and $f$ a meromorphic
+    function in $\Omega$ whose poles all lie inside $\gamma$, and such that $f(z)
+    \neq 0$ for $z \in \gamma$. $\frac{1}{2\pi i} \oint_{\gamma} \frac{f''(z)}{f(z)}\,dz=
+    N_{\gamma}(f) - P_{\gamma}(f)$,where $N_{\gamma}(f)$ and $P_{\gamma}(f)$ denote,
+    respectively, the number of zeros and poles of $f$ inside $\gamma$, each counted
+    with multiplicity.'
   properties:
     format: PNG
 - title: 5.6.3 Argument Principle
@@ -88,6 +104,13 @@
     format: PNG
 - title: 5.6.3 Rouches theorem
   image: assets/generated_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/CH5_Local_Behaviour_of_Holomorphic_Functions/5.6_The_argument_principle/5.6.3_Rouches_theorem/standalone.PNG
-  caption: ''
+  caption: 'To prove the theorem of Rouché: For $f$ and $g$, holomorphic functions
+    on and inside a closed, smooth Jordan curve $\gamma$ in $\mathbb{C}$.
+
+    If $|g(z)| < |f(z)| \quad$ for every $z\in \gamma$, then $N_{\gamma}(f) = N_{\gamma}(f
+    + g)$.
+
+    We use that $F(z)=\frac{f(z)+g(z)}{f(z)}=1+\frac{g(z)}{f(z)}$ and $\lvert\frac{g(z)}{f(z)}\rvert<1$.
+    We get a contour inside the unit circle around $1$.'
   properties:
     format: PNG
