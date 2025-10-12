@@ -32,7 +32,7 @@ env/
 *.toc
 *.out
 
-# ignore other branch files
+# ignore main branch files
 export
 visualisations
 
