@@ -1,0 +1,2 @@
+$C$ encloses a compact set that lies entirely within $\Omega$. 
+In this case, the integral over the contour will be zero.

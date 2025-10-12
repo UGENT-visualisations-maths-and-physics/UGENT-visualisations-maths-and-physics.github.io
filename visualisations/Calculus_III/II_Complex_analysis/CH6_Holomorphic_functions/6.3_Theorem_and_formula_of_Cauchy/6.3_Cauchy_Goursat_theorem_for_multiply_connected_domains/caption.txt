@@ -1,0 +1,1 @@
+The integral over a contour $C$ in $\Omega$ with an interior with a finite amount of singular poles is the sum of the integrals over the circles around these interior poles.

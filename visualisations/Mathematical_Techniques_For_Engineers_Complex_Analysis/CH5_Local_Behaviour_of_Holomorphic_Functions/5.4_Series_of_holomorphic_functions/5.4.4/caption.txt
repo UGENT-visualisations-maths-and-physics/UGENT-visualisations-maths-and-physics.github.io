@@ -1,0 +1,1 @@
+To define the residue of a isolated singular pole at $z=\infty$, we can evaluate the integral of a contour in which all other poles lie. By taking the reciprolal equation $w=\frac{1}{z}$ we get an integral around the origin that only contains the pole $w=0$. Which proves $\operatorname{Res}(f(z), \infty) := -\frac{1}{2\pi i} \oint_{\gamma} f(z)\,dz$.

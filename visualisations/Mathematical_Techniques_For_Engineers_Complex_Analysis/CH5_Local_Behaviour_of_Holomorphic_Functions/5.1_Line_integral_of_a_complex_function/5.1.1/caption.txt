@@ -1,0 +1,2 @@
+The complex line integral $\int_C f(z)\,dz$ for $z=\gamma(t)$, $t \in [a,b]$, with $\gamma(t)$ a smooth curve, can also be seen as an integral over $t$ with the equation
+$\int_C f(z)\,dz = \int_a^b f(\gamma(t))\,\gamma'(t)\,dt$.

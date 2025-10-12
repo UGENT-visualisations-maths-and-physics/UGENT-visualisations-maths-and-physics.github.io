@@ -1,0 +1,3 @@
+To prove the theorem of Rouché: For $f$ and $g$, holomorphic functions on and inside a closed, smooth Jordan curve $\gamma$ in $\mathbb{C}$.
+If $|g(z)| < |f(z)| \quad$ for every $z\in \gamma$, then $N_{\gamma}(f) = N_{\gamma}(f + g)$.
+We use that $F(z)=\frac{f(z)+g(z)}{f(z)}=1+\frac{g(z)}{f(z)}$ and $\lvert\frac{g(z)}{f(z)}\rvert<1$. We get a contour inside the unit circle around $1$.
