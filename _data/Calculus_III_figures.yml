@@ -1,17 +1,17 @@
 - title: 1.2.3 Example evolute cycloid
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH1_curves\1.2_Plane_curves\1.2.3_Example_evolute_cycloid\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.3_Example_evolute_cycloid/standalone.PNG
   caption: 'The cycloid $P(t)= \left[ R(t-\sin t), R(1-\cos t) \right]$ and its evolute
     $Q(t)= \left[ R(t+\sin t), R(\cos t - 1) \right]$, which is a translation of $P(t)$.'
   properties:
     format: PNG
 - title: 1.2.4 Example evolute catenary
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH1_curves\1.2_Plane_curves\1.2.4_Example_evolute_catenary\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.4_Example_evolute_catenary/standalone.PNG
   caption: 'The catenary $P(x) = [x, a \cosh(x/a)]$ and its evolute $Q(x) = \left[x-\frac{a}{2}\sinh(2x/a),
     2a \cosh(x/a)\right]$.'
   properties:
     format: PNG
 - title: 1.2.5 Example involute catenary (tractrix)
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH1_curves\1.2_Plane_curves\1.2.5_Example_involute_catenary_(tractrix)\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.5_Example_involute_catenary_(tractrix)/standalone.PNG
   caption: 'The catenary $P(x) = [x, a \cosh(x/a)]$ and its involute: the tractrix
     $Q(x) = \left[ x-a \tanh(x/a), \frac{a}{\cosh(x/a)}\right] $. For a point $Q$
     on the tractrix, the intersection of the tangent to $Q$ with the $X$-axis coincides
@@ -19,18 +19,22 @@
   properties:
     format: PNG
 - title: 1.2.8 Example envelope family of straight lines
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH1_curves\1.2_Plane_curves\1.2.8_Example_envelope_family_of_straight_lines\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH1_curves/1.2_Plane_curves/1.2.8_Example_envelope_family_of_straight_lines/standalone.PNG
   caption: 'Some examples from the family of lines $F(x,y,a) = \frac{x}{\cos(a)} +
     \frac{y}{\sin(a)} = 1$, and the corresponding astroid: $x^{2/3} + y^{2/3} = 1$.'
   properties:
     format: PNG
 - title: 2.3 Gradient of scalar field
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH2_Fields\2.3_Gradient_of_scalar_field\standalone.PNG
-  caption: ''
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH2_Fields/2.3_Gradient_of_scalar_field/standalone.PNG
+  caption: 'The scalar field $f(x,y)=x^2+y^2$ visualized by the planes $f(x,y)=n$
+    for $n\in \{1,2,3,4,5,6\}$.
+
+    The gradient $\vec{\nabla} f(P)$ in a point P is given with its directional derivatives
+    $\partial_i f(P) = \partial_{\vec{e}_i} f(P)$.'
   properties:
     format: PNG
 - title: 3.1 Line integral of a scalar field
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.1_Line_integral_of_a_scalar_field\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.1_Line_integral_of_a_scalar_field/standalone.PNG
   caption: 'The line integral of a scalar field $\phi$ over a smooth curve $P(t)$
     is given by:
 
@@ -43,7 +47,7 @@
   properties:
     format: PNG
 - title: 3.2 Line integral of a vector field
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.2_Line_integral_of_a_vector_field\3.2_Line_integral_of_a_vector_field\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.2_Line_integral_of_a_vector_field/3.2_Line_integral_of_a_vector_field/standalone.PNG
   caption: 'The line integral of a vector field $\overrightarrow{F}$ over a smooth
     curve $P(t)$ is given by:
 
@@ -55,7 +59,7 @@
   properties:
     format: PNG
 - title: 3.4.2 Conservative field along a curve
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.4_Line_integral_of_a_conservative_field\3.4.2_Conservative_field_along_a_curve\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.4_Line_integral_of_a_conservative_field/3.4.2_Conservative_field_along_a_curve/standalone.PNG
   caption: "The points $A$ and $B$ lie on a closed curve $\\mathcal{C}$. We can choose\
     \ two arbitrary paths, $\\mathcal{C}_1$ and $\\mathcal{C}_2$, from $A$ to $B$.\
     \ \nIf we evaluate the line integral of a conservative field $\\phi$ along both\
@@ -64,7 +68,7 @@
   properties:
     format: PNG
 - title: 3.4.3 Proof conservative field
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.4_Line_integral_of_a_conservative_field\3.4.3_Proof_conservative_field\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.4_Line_integral_of_a_conservative_field/3.4.3_Proof_conservative_field/standalone.PNG
   caption: "Proof that path-independence implies conservativeness in fields.\nConsider\
     \ a path-independent vector field $\\overrightarrow{F}$ in an open, connected\
     \ region $\\Omega$. \nA potential function $\\phi(P_0)$ is constructed by integrating\
@@ -74,13 +78,13 @@
   properties:
     format: PNG
 - title: 3.5.1 Proof Greens theorem
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.5_Greens_theorem\3.5.1_Proof_Greens_theorem\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.5_Greens_theorem/3.5.1_Proof_Greens_theorem/standalone.PNG
   caption: 'The normal region $G$ can be projected onto the x-axis, with its upper
     and lower boundaries parametrized by $y=\alpha(x)$ and $y=\beta(x)$.'
   properties:
     format: PNG
 - title: 3.5.2 Union of normal spaces
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.5_Greens_theorem\3.5.2_Union_of_normal_spaces\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.5_Greens_theorem/3.5.2_Union_of_normal_spaces/standalone.PNG
   caption: '(Left) The annulus $G$ is not a normal region, as it cannot be projected
     onto the $X$- or $Y$-axis. (Right) However, $G$ is a union of normal regions:
     it can be split into four regions ($D_i$) each of which can be projected onto
@@ -88,8 +92,8 @@
   properties:
     format: PNG
 - title: 3.5.4 Alternative formulation Greens theorem
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH3_Line_integrals\3.5_Greens_theorem\3.5.4_Alternative_formulation_Greens_theorem\standalone.PNG
-  caption: 'The alternative representation of Green’s theorem:
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH3_Line_integrals/3.5_Greens_theorem/3.5.4_Alternative_formulation_Greens_theorem/standalone.PNG
+  caption: 'The alternative representation of Greenâ€™s theorem:
 
     $\int_{\partial G^+}  \overrightarrow{F} \cdot \overrightarrow{N}^u ~ds = \int_G
     \overrightarrow{\nabla} \cdot  \overrightarrow{F} ~dA,$
@@ -99,7 +103,7 @@
   properties:
     format: PNG
 - title: 4.1 Surface integral of a scalar field
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH4_Surface_integrals\4.1_Surface_integral_of_a_scalar_field\4.1_Surface_integral_of_a_scalar_field\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.1_Surface_integral_of_a_scalar_field/4.1_Surface_integral_of_a_scalar_field/standalone.PNG
   caption: 'Construction of the surface integral of a scalar field $\phi$ over a smooth
     surface $S= P(u,v)$:
 
@@ -122,42 +126,50 @@
   properties:
     format: PNG
 - title: 4.4.1 The divergence theorem
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH4_Surface_integrals\4.4_The_divergence_theorem\4.4.1_The_divergence_theorem\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.4_The_divergence_theorem/4.4.1_The_divergence_theorem/standalone.PNG
   caption: 'Proof of the divergence theorem. The normal region $V$ is projected onto
     the $XY$-plane, with projection $V_{xy}$. The upper and lower boundaries of $V$
     are represented by a parametrization.'
   properties:
     format: PNG
 - title: 4.6.0 The corkscrew rule
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH4_Surface_integrals\4.6_Stokes_theorem\4.6.0_The_corkscrew_rule\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.6_Stokes_theorem/4.6.0_The_corkscrew_rule/standalone.PNG
   caption: 'The unit vector along the surface normal, $\overrightarrow{n}^k$, is oriented
     such that its direction agrees with the orientation of $\partial S$ according
     to the corkscrew rule (or right-hand rule).'
   properties:
     format: PNG
 - title: 4.6.1 Stokes theorem
-  image: assets/generated_figures/Calculus_III\I_Vectorcalculus\CH4_Surface_integrals\4.6_Stokes_theorem\4.6.1_Stokes_theorem\standalone.PNG
+  image: assets/generated_figures/Calculus_III/I_Vectorcalculus/CH4_Surface_integrals/4.6_Stokes_theorem/4.6.1_Stokes_theorem/standalone.PNG
   caption: 'Proof Stokes'' theorem. $S$ is a smooth surface that can be projected
     onto the $XY$-plane, with projection $D$.'
   properties:
     format: PNG
-- title: 5.1 Complex function
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH5_Line_integral_of_a_complex_function\5.1_Complex_function\standalone.PNG
-  caption: ''
+- title: 5.1 Inverse function
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH5_Line_integral_of_a_complex_function/5.1_Inverse_function/standalone.PNG
+  caption: 'The reciprocal function $f(z)=\frac{1}{z}$ maps points outside of the
+    unit circle inside the unit circle and vice versa.
+
+    The ray with an angle $\theta$ will be mapped to a ray with angle $-\theta$.'
   properties:
     format: PNG
-- title: 5.1 Inverse function
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH5_Line_integral_of_a_complex_function\5.1_Inverse_function\standalone.PNG
-  caption: ''
+- title: 5.1 Complex function
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH5_Line_integral_of_a_complex_function/5.1_Complex_function/standalone.PNG
+  caption: 'The complex function $f : \Omega \to \mathbb{C}$ which maps points from
+    $\Omega \subseteq \mathbb{C}$.'
   properties:
     format: PNG
 - title: 5.2 Complex line integral
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH5_Line_integral_of_a_complex_function\5.2_Complex_line_integral\standalone.PNG
-  caption: ''
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH5_Line_integral_of_a_complex_function/5.2_Complex_line_integral/standalone.PNG
+  caption: 'The complex line integral $\int_C f(z)\,dz$ for $z=\gamma(t)$, $t \in
+    [a,b]$, with $\gamma(t)$ a smooth curve, can also be seen as an integral over
+    $t$ with the equation
+
+    $\int_C f(z)\,dz = \int_a^b f(\gamma(t))\,\gamma''(t)\,dt$'
   properties:
     format: PNG
 - title: 6.2.1 Complex derivative
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH6_Holomorphic_functions\6.2_Complex_derivative\6.2.1_Complex_derivative\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.2_Complex_derivative/6.2.1_Complex_derivative/standalone.PNG
   caption: 'The complex derivative in a point $z_0 = x_0 + i y_0$ for a complex function
     is:
 
@@ -167,26 +179,30 @@
     in which $h \to 0$.
 
     In the figure, the limit is approached along the real and imaginary axes; equating
-    the results of both approaches yields the Cauchy–Riemann conditions.'
+    the results of both approaches yields the Cauchyâ€“Riemann conditions.'
   properties:
     format: PNG
 - title: 6.3 Cauchy Goursat theorem for multiply connected domains
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH6_Holomorphic_functions\6.3_Theorem_and_formula_of_Cauchy\6.3_Cauchy_Goursat_theorem_for_multiply_connected_domains\standalone.PNG
-  caption: ''
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3_Cauchy_Goursat_theorem_for_multiply_connected_domains/standalone.PNG
+  caption: 'The integral over a contour $C$ in $\Omega$ with an interior with a finite
+    amount of singular poles is the sum of the integrals over the circles around these
+    interior poles.'
   properties:
     format: PNG
 - title: 6.3 Contour non simply connected
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH6_Holomorphic_functions\6.3_Theorem_and_formula_of_Cauchy\6.3_Contour_non_simply_connected\standalone.PNG
-  caption: ''
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3_Contour_non_simply_connected/standalone.PNG
+  caption: 'The interior region of $C$ does not lie entirely within $\Omega$. Wherefore
+    we need information about the set of points not in $\Omega$.'
   properties:
     format: PNG
 - title: 6.3 Contour simply connected
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH6_Holomorphic_functions\6.3_Theorem_and_formula_of_Cauchy\6.3_Contour_simply_connected\standalone.PNG
-  caption: ''
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3_Contour_simply_connected/standalone.PNG
+  caption: "$C$ encloses a compact set that lies entirely within $\\Omega$. \nIn this\
+    \ case, the integral over the contour will be zero."
   properties:
     format: PNG
 - title: 6.3.3 Proof integral formula Cauchy
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH6_Holomorphic_functions\6.3_Theorem_and_formula_of_Cauchy\6.3.3_Proof_integral_formula_Cauchy\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH6_Holomorphic_functions/6.3_Theorem_and_formula_of_Cauchy/6.3.3_Proof_integral_formula_Cauchy/standalone.PNG
   caption: '$\mathcal{C}$ is a bounded contour in $\Omega$ which encloses a compact
     set $K$ lying completely within $\Omega$. For a point $a \in \mathcal{C} \setminus
     K$, we parametrize the circle $\partial B(a, \epsilon)$, which lies entirely in
@@ -194,13 +210,13 @@
   properties:
     format: PNG
 - title: 7.2.4 Theorem convergence regions positive and negative power series
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH7_Sequences_and_series_of_holomorphic_functions\7.2.4_Theorem_convergence_regions_positive_and_negative_power_series\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH7_Sequences_and_series_of_holomorphic_functions/7.2.4_Theorem_convergence_regions_positive_and_negative_power_series/standalone.PNG
   caption: '(Left) Region of convergence of a positive power series. (Right) Region
     of convergence of a negative power series.'
   properties:
     format: PNG
 - title: 8.2.1 Proof theorem Laurent series
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH8_Local_behavior_of_holomorphic_functions\8.2.1_Proof_theorem_Laurent_series\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.2.1_Proof_theorem_Laurent_series/standalone.PNG
   caption: 'The region of convergence of the Laurent series is the annular region
     $ B(0, R) \setminus \overline{B(0, r)} $. For every point $ z $, it is possible
     to find $ R'' $ and $ r'' $ such that $ 0 < r < r'' < \lvert z \rvert < R'' <
@@ -208,7 +224,7 @@
   properties:
     format: PNG
 - title: 8.5.6 Residue theorem for region with multiple singularities
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH8_Local_behavior_of_holomorphic_functions\8.5.6_Residue_theorem_for_region_with_multiple_singularities\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH8_Local_behavior_of_holomorphic_functions/8.5.6_Residue_theorem_for_region_with_multiple_singularities/standalone.PNG
   caption: 'The contour $ \mathcal{C} $ passes through none of the singularities $
     a_i $ of the complex function $ f $ and encloses a compact set that lies entirely
     within $ \Omega $. $ \mathcal{C} $ contains a finite number of singularities of
@@ -216,7 +232,7 @@
   properties:
     format: PNG
 - title: 9.3 Estimation lemmas
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH9_Applications\9.3_Estimation_lemmas\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.3_Estimation_lemmas/standalone.PNG
   caption: 'Small limit theorem: The circular arc $ C^{t}_{\varepsilon} $ with center
     $ a $, radius $ \varepsilon > 0 $, and central angle $ \alpha $ can be described
     by the parametric equation $z(t) = a + \varepsilon e^{i(t + \beta)}, \, t : 0
@@ -224,7 +240,7 @@
   properties:
     format: PNG
 - title: 9.5 Summation of series
-  image: assets/generated_figures/Calculus_III\II_Complex_analysis\CH9_Applications\9.5_Summation_of_series\standalone.PNG
+  image: assets/generated_figures/Calculus_III/II_Complex_analysis/CH9_Applications/9.5_Summation_of_series/standalone.PNG
   caption: 'The function $ g(z) = \cot(\pi z) $ has simple poles at $ z = 0, \pm 1,
     \pm 2, \ldots $. If we consider the square $ V_N $ with center at the origin and
     side length $ 2N + 1 $, where $ N \in \mathbb{N} $, then we can compute the contour
