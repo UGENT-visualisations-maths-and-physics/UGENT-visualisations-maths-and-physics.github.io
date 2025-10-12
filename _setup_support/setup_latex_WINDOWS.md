@@ -1,8 +1,11 @@
-# Setup LaTeX (locally) on Windows (for use in VS Code)
+---
+layout: page
+title: Setup LaTeX on Windows
+---
 
 ## 1: Ensure that a LaTeX contribution is installed on device
 If not, download a LaTeX contribution: <br>
-e.g. MiKTeX (https://miktex.org/)
+e.g. MiKTeX [https://miktex.org/](https://miktex.org/)
 
 ## 2: Install "LaTeX workshop" extension in VSCODE
 
@@ -28,13 +31,13 @@ perl -v
 
 ### 4.1 In case of error: " 'perl' is not recognized as an internal or external command, operable program or batch file."
 -> install perl:
--Download the MSI file from strawberry perl (most popular perl version) (https://strawberryperl.com/)
+-Download the MSI file from strawberry perl (most popular perl version) ([https://strawberryperl.com/](https://strawberryperl.com/))
 -Run the installation
 
 - Verify installation via:
 perl -v
 
-- If there's still an error (after restarting terminal), check if perl is added to SYSTEM's PATH, otherwise add it (https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)
+- If there's still an error (after restarting terminal), check if perl is added to SYSTEM's PATH, otherwise add it ([link](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/))
 
 ## 5: Compile a LaTeX file
 If everything is properly installed a green run button "Build LaTeX project" should be visible, run it.
