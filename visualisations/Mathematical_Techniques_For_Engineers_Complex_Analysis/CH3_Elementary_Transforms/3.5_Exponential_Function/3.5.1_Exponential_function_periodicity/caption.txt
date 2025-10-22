@@ -1,1 +1,0 @@
-The exponential function $f(z) =e^z$ is periodic with period $2 \pi i$.

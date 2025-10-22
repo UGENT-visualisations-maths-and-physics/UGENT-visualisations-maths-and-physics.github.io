@@ -1,1 +1,0 @@
-(Left) Region of convergence of a positive power series. (Right) Region of convergence of a negative power series.

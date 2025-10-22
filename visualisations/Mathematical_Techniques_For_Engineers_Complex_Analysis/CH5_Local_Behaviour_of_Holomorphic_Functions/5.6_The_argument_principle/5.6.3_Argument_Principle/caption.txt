@@ -1,1 +1,0 @@
-Illustration of the argument principle for $ f(z) = z^2 + z $. The images of the circles $ \gamma_1, \gamma_2, \gamma_3 $ under $ f $ show how many times each curve winds around the origin, corresponding to the number of zeros of $ f $ inside each circle.

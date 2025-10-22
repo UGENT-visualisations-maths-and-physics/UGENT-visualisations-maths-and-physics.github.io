@@ -1,1 +1,0 @@
-The exponential function $f(z) = e^z$ maps horizontal lines onto half-lines originating from the origin.

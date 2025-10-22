@@ -1,6 +1,0 @@
-# ignore all standalone outputs
-standalone
-
-# ignore summary files
-Calculus_III.tex
-Mathematical_Techniques_For_Engineers_Complex_Analysis.tex

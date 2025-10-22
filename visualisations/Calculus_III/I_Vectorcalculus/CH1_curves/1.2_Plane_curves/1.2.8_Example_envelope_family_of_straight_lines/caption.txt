@@ -1,1 +1,0 @@
-Some examples from the family of lines $F(x,y,a) = \frac{x}{\cos(a)} + \frac{y}{\sin(a)} = 1$, and the corresponding astroid: $x^{2/3} + y^{2/3} = 1$.

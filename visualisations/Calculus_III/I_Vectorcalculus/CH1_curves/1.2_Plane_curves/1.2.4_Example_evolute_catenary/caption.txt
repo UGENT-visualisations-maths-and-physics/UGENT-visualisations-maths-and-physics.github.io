@@ -1,1 +1,0 @@
-The catenary $P(x) = [x, a \cosh(x/a)]$ and its evolute $Q(x) = \left[x-\frac{a}{2}\sinh(2x/a), 2a \cosh(x/a)\right]$.

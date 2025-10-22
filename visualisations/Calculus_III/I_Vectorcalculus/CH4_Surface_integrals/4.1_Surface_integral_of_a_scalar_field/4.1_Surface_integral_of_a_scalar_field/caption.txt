@@ -1,6 +1,0 @@
-Construction of the surface integral of a scalar field $\phi$ over a smooth surface $S= P(u,v)$:
-$\int_S \phi ~d\sigma := \int_D \phi \left(P(u,v)\right) \lVert \overrightarrow{\partial_u P} \times \overrightarrow{\partial_v P}\rVert ~du ~dv$
-(Below) An infinitesimal rectangle on $D$ with area $du_i ~dv_j$ is projected onto a curvilinear quadrilateral on $S$, which we can approximate by a parallelogram, with area:
-$\lvert \left(P(u_{i+1}, v_{j}) - P(u_{i}, v_{j}) \right) \left( P(u_{i}, v_{j+1}) - P(u_{i}, v_{j}) \right) \vert
-= \lVert\overrightarrow{\partial_u P(u_{i}, v_{j})} \times \overrightarrow{\partial_v P(u_{i}, v_{j})}\rVert ~du_i ~dv_j$.
-This is represented in the integral by the absolute value of the Jacobian determinant associated with the parameterization: $\lVert \overrightarrow{\partial_u P} \times \overrightarrow{\partial_v P}\rVert$.

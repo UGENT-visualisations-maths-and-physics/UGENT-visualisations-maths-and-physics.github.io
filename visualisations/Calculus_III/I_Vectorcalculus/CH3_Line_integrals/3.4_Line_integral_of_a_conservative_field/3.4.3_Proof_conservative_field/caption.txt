@@ -1,4 +1,0 @@
-Proof that path-independence implies conservativeness in fields.
-Consider a path-independent vector field $\overrightarrow{F}$ in an open, connected region $\Omega$. 
-A potential function $\phi(P_0)$ is constructed by integrating $\overrightarrow{F}$ along an arbitrary curve $\widehat{AP_0}$ from a fixed point $A$ to $P_0$. 
-The path independence ensures that $\phi$ is well-defined, and its gradient reproduces $\overrightarrow{F}$.

@@ -1,1 +1,0 @@
-Image of domain $\mathcal{D} = \{z\in \mathbb{C} \vert \mathrm{Re}(z) + \mathrm{Im}(z) \ge 1,  \lvert z-2 \rvert \le 1, \mathrm{Re}(z) \le 2 \}$ through the function $f(z) = \frac{z+i}{z-i}$.

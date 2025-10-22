@@ -1,1 +1,0 @@
-In every point  $g(x_0, y_0)$ of a surface $g(x,y)$, a tangent plane can be drawn (red). The tangent lines $t_x$, $t_y$ are oriented according to the $x$- and $y$-axis, respectively. They have a slope which corresponds to the partial derivatives $\frac{\partial}{\partial x}$ and $\frac{\partial}{\partial y}$, respectively.
