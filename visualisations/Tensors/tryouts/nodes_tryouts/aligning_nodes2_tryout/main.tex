@@ -1,0 +1,22 @@
+
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+
+
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
+
+
+
+\begin{document}
+\begin{tikzpicture}[every node/.style = {inner sep=0pt}]
+ \node (E) {E};
+ \node (p) [base right = 0pt of E] {p};
+ \node (i) [base right = 0pt of p] {i};
+ \node (c) [base right = 0pt of i] {c};
+ \node (.) [base right = 0pt of c] {.};
+    
+
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,22 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+
+
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
+
+
+
+\begin{document}
+\begin{tikzpicture}
+    \node (tekstje1) {text};
+    \draw (tekstje1.-90) circle [radius=2pt];
+    \draw (-2,0) circle [fill, radius=2pt] node [above] {text};
+
+     \node at (0,-3) [draw] (TikZ) {TikZ};
+     \node [draw, above right = -0.25 and 0.1cm of TikZ] {PDF};
+    
+
+
+\end{tikzpicture}
+\end{document}

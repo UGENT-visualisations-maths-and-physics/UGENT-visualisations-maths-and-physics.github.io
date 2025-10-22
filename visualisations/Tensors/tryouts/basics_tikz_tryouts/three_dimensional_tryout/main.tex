@@ -1,0 +1,16 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}[x={(-0.86cm,-0.5cm)}, y={(0.86cm,-0.5cm)}, z={(0cm,1cm)}]
+    \draw[very thick, blue] (-2,-2,0) -- (-2,2,0)-- (2,2,0) -- (2,-2,0) -- cycle;
+    \draw[->] (0,0,0) -- (3, 0,  0) node [left] {x};
+    \draw[->] (0,0,0) -- (0,  3, 0) node [right] {y};
+    \draw[->,dashed] (0,0,0) -- (0,  0, 3) node [above] {z};
+    \draw circle (2);
+
+
+        
+\end{tikzpicture}
+\end{document}
