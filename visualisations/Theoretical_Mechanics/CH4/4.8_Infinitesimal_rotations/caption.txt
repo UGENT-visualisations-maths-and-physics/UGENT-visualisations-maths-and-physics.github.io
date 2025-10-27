@@ -1,0 +1,1 @@
+Change in a vector $\boldsymbol{r}$ produced by an infinitesimal clockwise rotation $\mathrm{d}\Phi$ of the vector.

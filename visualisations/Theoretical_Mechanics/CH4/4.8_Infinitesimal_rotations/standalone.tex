@@ -1,0 +1,68 @@
+\documentclass[tikz,border=3.14mm]{standalone}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{arrows.meta,angles,quotes,calc,3d}
+\usepackage{mathpazo,amsmath}
+% Define a soft blue for shading
+\definecolor{myc}{RGB}{151, 186, 204}
+
+\begin{document}
+
+% Set the 3D camera view: elevation = 70°, azimuth = 100°
+\tdplotsetmaincoords{70}{100}
+
+\begin{tikzpicture}[tdplot_main_coords,>=stealth]
+
+% --- Global coordinate axes ---
+\draw[->] (0,0,0) coordinate (O) -- ++ (4,0,0) node[anchor=north east]{$x$};
+\draw[->] (O) -- ++(0,3,0) node[anchor=north west]{$y$};
+\draw[->] (O) -- ++(0,0,4) node[anchor=south]{$z$};
+
+% Small upward vector along z-axis representing dΩ or normal differential
+\draw[thick, orange!60!black,->] (0,0,3) -- (0,0,3.5)
+  node[anchor=north east]{\scriptsize $\boldsymbol{n}\mathrm{d}\Phi = \mathrm{d}\boldsymbol{\Omega}$};
+
+% --- Circular section in the xy-plane at z = 3 ---
+\begin{scope}[canvas is xy plane at z=3]
+  \draw[dashed] circle [radius=2cm];           % reference circle
+  \draw[gray] (0,0) -- (60:2);                 % radius at 60°
+  \draw[gray] (0,0) -- (40:2);                 % radius at 40°
+
+  % Arc and displacement vector showing infinitesimal change
+  \pgflowlevelsynccm
+  \draw[very thick,red!80!black,<-] (40:1.5) arc (40:60:1.5);
+  \draw[very thick,green!60!black,<-] (40:2) -- (60:2);
+\end{scope}
+
+% --- Floating 3D annotation labels (above the z=3 face) ---
+\node[inner sep=1pt] at ({1.3*cos(50)},{1.3*sin(50)},3.3)
+  {\scriptsize $\textcolor{red!80!black}{\mathrm{d}\Phi}$};
+\node[inner sep=1pt] at ({2*cos(50)},{2*sin(50)+0.14},3.3)
+  {\scriptsize $\textcolor{green!60!black}{\mathrm{d}\boldsymbol{r}}$};
+\node[inner sep=1pt] at ({0.8*cos(50)},{0.8*sin(50)},1.8)
+  {\scriptsize $\textcolor{blue!50!black}{\boldsymbol{r}'}$};
+\node[inner sep=1pt] at ({2*cos(50)},{2*sin(50)},2)
+  {\scriptsize $\textcolor{blue!50!black}{\boldsymbol{r}}$};
+
+% --- Blue position vectors ---
+\draw[thick,blue!50!black,->] (0,0,0) -- ({2*cos(60)},{2*sin(60)},3);
+\draw[thick,blue!50!black,->] (0,0,0) -- ({2*cos(40)},{2*sin(40)},3);
+
+% --- Tilt angle θ drawn in rotated coordinates ---
+% The local frame is rotated 40° around z so the plane of the tilt is visible.
+\tdplotsetrotatedcoords{40}{0}{0}
+\begin{scope}[tdplot_rotated_coords]
+  \pgfmathsetmacro{\ang}{atan(0.5)} % define inclination angle (~26.6°)
+
+  % Define key points
+  \coordinate (O) at (0,0,0);
+  \coordinate (Z) at (0,0,2);                      % along z-axis
+  \coordinate (V) at (0,{2*sin(\ang)},{2*cos(\ang)}); % tilted vector
+
+  % Mark the inclination θ between z-axis and tilted direction
+  \pic [red!80!black, draw, thick, <-, 
+        "\scriptsize $\theta$", angle radius=8mm, angle eccentricity=1.3]
+        {angle = V--O--Z};
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
