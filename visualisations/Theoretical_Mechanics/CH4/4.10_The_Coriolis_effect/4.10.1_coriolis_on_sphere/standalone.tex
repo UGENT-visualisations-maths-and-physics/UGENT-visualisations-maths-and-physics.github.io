@@ -1,4 +1,4 @@
-\documentclass{standalone}
+\documentclass{article}
 \usepackage{pgfplots}
 \usetikzlibrary{calc}
 \usepackage{xxcolor}
@@ -171,8 +171,7 @@
         \draw[semithick] (BeginPoint) circle (2pt);
         % draw the normal
         \draw[opacity=\OpacityInside] (0, 0, 0) -- (BeginPoint);
-        \draw[arrowstyle, thick] (BeginPoint) -- ($1.5*(BeginPoint)$) node[pos=1.0, left] {$\pmb{\omega}_z$};
-    
+        \draw[arrowstyle, thick] (BeginPoint) -- ($1.3*(BeginPoint)$) node[pos=1.0, left] {$\pmb{\omega}_z$};
 
     \end{axis}
 \end{tikzpicture}
