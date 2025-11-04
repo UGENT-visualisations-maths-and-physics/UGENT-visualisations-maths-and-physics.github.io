@@ -1,0 +1,75 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, angles, quotes}
+\usetikzlibrary{decorations.markings,intersections,calc}
+\usetikzlibrary{shapes}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{xcolor}
+\colorlet{bordeaux}{red!70!black}
+\colorlet{grey}{white!60!black}
+\tikzset{omega_arrows/.style={-stealth,thick,draw=grey}}
+\tikzset{L_vectors/.style={-stealth,very thick,bordeaux}}
+
+% Parameter voor aantal pijlen dat er zal getekend worden
+\def\NA{20}
+
+
+% Parameters van de ellipsoïde (h, w en d in cm)
+\def\m{0.9}
+\def\a{3}
+\def\b{1.5}
+\def\c{1.5}
+
+
+\begin{document}
+\begin{tikzpicture}
+
+    %definieren assenstelsel voor de leesbaarheid
+    \draw[thin,dotted] (-3,-3) grid (3,3);
+    \draw[->] (-3,0) -- (3,0) node [right] {x};
+    \draw[->] (0,-3) -- (0,3) node [above] {y};
+
+    %Nu een poging voor een ellipsoïde:
+
+    \node (ellipse) at (0,0)   [draw, thick, ellipse, shade,  top color=blue!10, bottom color=blue!60, minimum width= \a cm, minimum height= \b cm]{};
+
+    % \foreach \i [evaluate={\angle=(\i-1)*360/\NA;}] in {1,...,\NA}
+    %     {\draw[omega_arrows](ellipse.\angle) -- ++(\angle:1);}
+
+
+    %Neem aan dat de ellipsoïde semi-axes a, b, c and mass m heeft. De traagheidstensor wordt dan
+    % I=[[1/5*m*(b**2+c**2),0,0],[0,1/5*m*(a**2+c**2),0],[0,0,1/5*m*(a**2+b**2)]]
+    %Uiteraard zijn we, want het gaat om een 2D figuur, enkel geinteresseerd in vectoren in het XY vlak. Maar het gaat dus wel om een balk.
+
+    % Bereken de traagheidstensorcomponenten
+    \pgfmathsetmacro{\Ixx}{1/5*\m*(\b^2+\c^2)}
+    \pgfmathsetmacro{\Iyy}{1/5*\m*(\a^2+\c^2)}
+
+
+    % For-loop over de hoeken
+    \foreach \i [evaluate={\angle=(\i-1)*360/\NA;}] in {1,...,\NA}
+      {% omega vector (lengte 1)
+      \pgfmathsetmacro{\wx}{cos(\angle)}
+      \pgfmathsetmacro{\wy}{sin(\angle)}
+
+      % overeenkomstige L = I * omega
+      \pgfmathsetmacro{\Lx}{\Ixx*\wx}
+      \pgfmathsetmacro{\Ly}{\Iyy*\wy}
+
+      % pijl voor omega
+      \draw[omega_arrows]
+        (ellipse.\angle) -- ++(\angle:1);
+
+      % pijl voor L (zelfde aangrijpingspunt)
+      \draw[L_vectors]
+        (ellipse.\angle) -- ++({\Lx},{\Ly});}
+
+    % Legende
+    \node[anchor=north east, align=left, draw=black!30, fill=white, rounded corners, inner sep=4pt]
+    at (3,3) {\textcolor{bordeaux}{$\bm{L}$} = \textcolor{blue}{$\mathbf{I}$} $\cdot$ \textcolor{grey}{$\bm{\omega}$}};
+
+\end{tikzpicture}
+\end{document}
