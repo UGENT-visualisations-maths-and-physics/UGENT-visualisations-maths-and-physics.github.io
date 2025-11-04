@@ -1,9 +1,16 @@
 \documentclass[border=10pt]{standalone}
- \usepackage{tikz}
- \usetikzlibrary{positioning}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shadings}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows.meta}
+ \usetikzlibrary{decorations.fractals}
 
- \begin{document}
- \begin{tikzpicture}
-    \path (90:2) -- (210:2) -- (330:2) -- cycle;
- \end{tikzpicture}
- \end{document}
+\begin{document}
+ \begin{tikzpicture}[decoration=Koch curve type 2]
+\draw decorate{decorate{decorate{decorate{
+ (45:3) -- (135:3) -- (225:3) -- (315:3)--cycle}}}};
+\end{tikzpicture}
+\end{document}
