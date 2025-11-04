@@ -12,11 +12,11 @@
 \colorlet{grey}{white!60!black}
 \tikzset{omega_arrows/.style={-stealth,thick, draw=grey}}
 \tikzset{L_vectors/.style={-stealth,very thick,bordeaux}}
-% Parameter voor aantal pijlen dat er zal getekend worden
+% Parameter for the number of arrows that has to be drawn
 \def\NA{20}
 
 
-% Parameters van het blok (h, w en d in cm)
+% Beam parameters (h, w and d in cm)
 \def\m{7}
 \def\h{1}
 \def\w{2}
@@ -26,12 +26,12 @@
 \begin{document}
 \begin{tikzpicture}
 
-    % Definieren assenstelsel voor de leesbaarheid
+    % Define coordinate system for readability
     \draw[thin,dotted] (-3,-3) grid (3,3);
     \draw[->] (-3,0) -- (3,0) node [right] {x};
     \draw[->] (0,-3) -- (0,3) node [above] {y};
 
-    % Teken de balk als een node
+    % Draw the beam as a node
 
     \node (rectangle) at (0,0)   [draw, rectangle, thick, shade,  top color=blue!10, bottom color=blue!60, minimum width= \w cm, minimum height= \h cm]{};
 
@@ -39,35 +39,35 @@
     %     {\draw[omega_arrows](rectangle.\angle) -- ++(\angle:1);}
 
 
-    % Neem aan dat de balk width w (x-direction), height h (y-direction), depth d (z-direction) heeft en een massa m. De traagheidstensor wordt dan
+    % Assume that the beam has width w (x-direction), height h (y-direction), depth d (z-direction) and a mass m. The inertia tensor then becomes
     % I=[[1/12*m*(h**2+d**2),0,0],[0,1/12*m*(w**2+d**2),0],[0,0,1/12*m*(w**2+h**2)]]
-    % Uiteraard zijn we, want het gaat om een 2D figuur, enkel geinteresseerd in vectoren in het XY vlak. Maar het gaat dus wel om een balk.
+    % Obviously, since this is a 2D figure, we're only interested in vectors in the XY plane. 
 
-    % Bereken de traagheidstensorcomponenten
+    % Calculate the inertia tensor components
     \pgfmathsetmacro{\Ixx}{1/12*\m*(\h^2+\d^2)}
     \pgfmathsetmacro{\Iyy}{1/12*\m*(\w^2+\d^2)}
 
 
-    % For-loop over de hoeken
+    % For-loop over the angles
     \foreach \i [evaluate={\angle=(\i-1)*360/\NA;}] in {1,...,\NA}
-      {% omega vector (lengte 1)
+      {% omega vector (length 1)
       \pgfmathsetmacro{\wx}{cos(\angle)}
       \pgfmathsetmacro{\wy}{sin(\angle)}
 
-      % overeenkomstige L = I * omega
+      % define L = I * omega
       \pgfmathsetmacro{\Lx}{\Ixx*\wx}
       \pgfmathsetmacro{\Ly}{\Iyy*\wy}
 
-      % pijl voor omega
+      % arrow for omega
       \draw[omega_arrows]
         (rectangle.\angle) -- ++(\angle:1);
 
-      % pijl voor L (zelfde aangrijpingspunt)
+      % arrow for L (same starting point)
       \draw[L_vectors]
         (rectangle.\angle) -- ++({\Lx},{\Ly});}
 
 
-    % Legende
+    % Legend
     \node[anchor=north east, align=left, draw=black!30, fill=white, rounded corners, inner sep=4pt]
     at (3,3) {\textcolor{bordeaux}{$\bm{L}$} = \textcolor{blue}{$\mathbf{I}$} $\cdot$ \textcolor{grey}{$\bm{\omega}$}};
 
