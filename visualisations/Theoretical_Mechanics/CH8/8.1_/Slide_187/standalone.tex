@@ -13,7 +13,7 @@
 
 % E-veld vectoren
 \foreach \x in {-1, -0.5, 0, 0.5,1}{
-  \draw[->, thick] (\x,0.3) -- ++(0,-0.6);
+  \draw[red!80!black,->, thick] (\x,0.3) -- ++(0,-0.6);
 }
 
 
@@ -24,7 +24,7 @@
 
 % Labels
 \node at (2,1) {$\phi(\mathbf{r})$};
-\node at (1.8,-0.25) {$\vec{E} = -\nabla \phi$};
+\node[red!80!black] at (1.8,-0.25) {$\vec{E} = -\nabla \phi$};
 \node at (-3,-1.2) {$\phi(\mathbf{r})$};
 \node at (-1.8,1) {$\mathbf{r}$};
 \end{tikzpicture}
