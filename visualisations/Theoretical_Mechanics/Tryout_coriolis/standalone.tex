@@ -1,0 +1,51 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{xcolor}
+\usepackage{Bloch_Sphere_custom}         % this .sty file should be in your folder!
+\begin{document}
+
+
+\begin{tikzpicture}
+    \DrawBlochSphere{3.0}
+
+    \begin{scope}[tdplot_main_coords]       % apply transformation (defined in \DrawBlochSphere)
+    
+        % draw the rotation on the Bloch sphere
+        \pgfmathsetmacro{\ThetaVec}{30}
+        \pgfmathsetmacro{\PhiVecBegin}{30}
+        \pgfmathsetmacro{\PhiVecEnd}{90}
+
+        \definecolor{PulseRotationColor}{rgb}{0.0, 0.4, 0.0}
+            \begin{scope}[tdplot_main_coords]
+            % draw the circle which represents the rotation line
+            \tdplotCsDrawCircle{\r}{0}{0}{90 - \ThetaVec} 
+            % draw the actual arc
+            \tdplotCsDrawArc{\r}{0}{0}{90 - \ThetaVec}{\PhiVecBegin}{\PhiVecEnd}
+        \end{scope}
+
+        % parse inputs
+        \pgfmathsetmacro{\ThetaVecBegin}{60}
+        \pgfmathsetmacro{\ThetaVecEnd}{30}
+        \pgfmathsetmacro{\PhiVec}{10}
+
+        % convert coordinates to rotated frame
+        \pgfmathsetmacro{\phiVecCs}{\PhiVec - 90}
+        \pgfmathsetmacro{\ThetaVecBeginCs}{180-\ThetaVecBegin}
+        \pgfmathsetmacro{\ThetaVecEndCs}{180-(\ThetaVecEnd-2)}
+
+        \begin{scope}[tdplot_main_coords]
+            
+            % draw the circle which represents the rotation line
+            \tdplotCsDrawCircle{\r}{\phiVecCs}{90}{0} 
+            % draw the actual arc
+            \tikzset{tdplotCsFrontArc/.style={->, very thick, red, bend right=20}}
+            \tdplotCsDrawArc{\r}{\phiVecCs}{90}{-20}{\ThetaVecBeginCs}{\ThetaVecEndCs}
+        \end{scope}
+        
+    \end{scope}
+    
+
+\end{tikzpicture}
+
+\end{document}
