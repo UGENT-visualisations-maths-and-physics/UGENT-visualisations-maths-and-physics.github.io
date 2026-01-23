@@ -1,0 +1,1 @@
+Detailimage of the circle on which the rotation takes place.

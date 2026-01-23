@@ -1,0 +1,1 @@
+From left to right, monotone precession, spin-reversal precession and non-monotome precession.
