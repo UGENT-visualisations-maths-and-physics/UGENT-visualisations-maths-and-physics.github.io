@@ -1,0 +1,29 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usetikzlibrary{angles,quotes,calc,arrows.meta}
+\begin{document}
+
+\begin{tikzpicture}[scale=1.2, 
+  >={Stealth[length=4pt,width=4pt]},
+  vector/.style={->,thick},
+  charge/.style={circle,draw,fill=gray!20,minimum size=8pt,inner sep=0pt}
+  ]
+\coordinate (O) at (0,0);
+\coordinate (U1) at (0,-1);
+\coordinate (M1) at (-1.5,-2);
+\coordinate (U2) at (-1.5,-3);
+\coordinate (M2) at (-0.5,-3.5);
+\draw[->] (-3,0)--(3,0);
+\draw[->] (O)--(0,1);
+\draw[thick,-] (O)--(M1) node[midway,left] {$l_1$};
+\draw[thick,-] (M1)--(M2) node[midway,right] {$l_2$};
+\fill (M1) circle (2pt);
+\draw (M1) node[left] {$m_1$};
+\fill (M2) circle (2pt);
+\draw (M2) node[right] {$m_2$};
+\draw[red,dashed] (M1)--(U2);
+\draw[red,dashed] (O)--(U1);
+% Angles
+\pic[red,-,draw, thick,"$\theta_1$",angle radius=5mm,angle eccentricity=1.6] {angle = M1--O--U1};
+\pic[red,-,draw, thick,"$\theta_2$",angle radius=5mm,angle eccentricity=1.6] {angle = U2--M1--M2};
+\end{tikzpicture}
+\end{document}
