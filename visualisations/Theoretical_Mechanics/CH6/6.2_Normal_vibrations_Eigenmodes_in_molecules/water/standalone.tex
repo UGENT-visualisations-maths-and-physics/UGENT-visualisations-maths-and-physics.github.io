@@ -1,0 +1,119 @@
+\documentclass[border=5pt,convert={density=300}]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing,shapes.geometric,arrows.meta,shadings}
+\usetikzlibrary{calc}
+
+\begin{document}
+% Define atom styles with fixed size ,colour and spherical shading
+\tikzstyle{O}=[circle, ball color=red, shading=ball, minimum size=0.4cm]
+\tikzstyle{H}=[circle, ball color=gray!60, shading=ball, minimum size=0.3cm]
+\tikzstyle{C}=[circle, ball color=black!90, shading=ball, minimum size=0.35cm]
+
+\tikzstyle{springcompressed}=[decorate,decoration={coil,aspect=0.3,segment length=2.3pt,amplitude=2pt},thick,black!70]
+\tikzstyle{spring}=[decorate,decoration={coil,aspect=0.3,segment length=3pt,amplitude=2pt},thick,black!70]
+\tikzstyle{springelongated}=[decorate,decoration={coil,aspect=0.3,segment length=4pt,amplitude=2pt},thick,black!70]
+
+\tikzstyle{coord label theta}=[font=\scriptsize, midway, sloped, above, pos=0.5, yshift=-3pt] 
+\tikzstyle{coord label q}=[font=\scriptsize, midway, sloped, above, pos=0.5, yshift=2pt] 
+\tikzstyle{mode label}=[font=\tiny, below=0.1cm,align=center, text width=2.5cm, scale=0.9]
+
+
+% Figure 1: Water vibrational modes (3 modes such modes, 3 rotational modes and 3 translational modes too.)
+\begin{tikzpicture}[scale=0.8]
+  % Symmetric stretch
+  \begin{scope}[yshift=0cm,xshift=-3cm] % compressed
+    \node[O] (O1) at (0,0) {};
+    \node[H] (H1l) at (210:0.9) {};
+    \node[H] (H1r) at (330:0.9) {};
+    % O-H springs with q1, q2 labels 
+    \draw[springcompressed] (O1) -- (H1l) node[coord label q] {$q_1$};
+    \draw[springcompressed] (O1) -- (H1r) node[coord label q] {$q_2$};
+    % the bended spring (using arc)
+    \draw[spring] ($(O1)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {Symmetric stretch compressed};  
+  \end{scope}
+  \begin{scope}[yshift=0cm,xshift=0cm] % equilibrium
+    \node[O] (O1) at (0,0) {};
+    \node[H] (H1l) at (210:1.1) {};
+    \node[H] (H1r) at (330:1.1) {};
+    % O-H springs with q1, q2 labels 
+    \draw[spring] (O1) -- (H1l) node[coord label q] {$q_1$};
+    \draw[spring] (O1) -- (H1r) node[coord label q] {$q_2$};
+
+    \draw[spring] ($(O1)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=0cm,xshift=3cm] % Extended
+    \node[O] (O2) at (0,0) {};
+    \node[H] (H2l) at (210:1.3) {};
+    \node[H] (H2r) at (330:1.3) {};
+    % O-H springs with q1, q2 labels
+    \draw[springelongated,coord label] (O2) -- (H2l) node[coord label q] {$q_1$};
+    \draw[springelongated,coord label] (O2) -- (H2r) node[coord label q] {$q_2$};
+    % Bending spring using arc with exact angles, larger radius
+    \draw[spring] ($(O2)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1) {Symmetric stretch maximum}; 
+  \end{scope}
+
+
+  % Asymmetric stretch 
+  \begin{scope}[yshift=-3cm,xshift=-3cm] % Left compressed (q1 short, q2 long)
+    \node[O] (Oa1) at (0,0) {};
+    \node[H] (Ha1l) at (210:0.9) {};  % q1 short
+    \node[H] (Ha1r) at (330:1.3) {};  % q2 long
+    \draw[springcompressed] (Oa1) -- (Ha1l) node[coord label q] {$q_1$};
+    \draw[springelongated] (Oa1) -- (Ha1r) node[coord label q] {$q_2$};
+    \draw[spring] ($(Oa1)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {Asymmetric stretch, $q_1$ minimal};  
+  \end{scope}
+  \begin{scope}[yshift=-3cm,xshift=0cm] % Equilibrium
+    \node[O] (Oaeq) at (0,0) {};
+    \node[H] (Haeql) at (210:1.1) {};
+    \node[H] (Haeqr) at (330:1.1) {};
+    \draw[spring] (Oaeq) -- (Haeql) node[coord label q] {$q_1$};
+    \draw[spring] (Oaeq) -- (Haeqr) node[coord label q] {$q_2$};
+    \draw[spring] ($(Oaeq)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=-3cm,xshift=3cm] % Right compressed
+    \node[O] (Oa2) at (0,0) {};
+    \node[H] (Ha2l) at (210:1.3) {};  % q1 long
+    \node[H] (Ha2r) at (330:0.9) {};  % q2 short
+    \draw[springelongated] (Oa2) -- (Ha2l) node[coord label q] {$q_1$};
+    \draw[springcompressed] (Oa2) -- (Ha2r) node[coord label q] {$q_2$};
+    \draw[spring] ($(Oa2)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {Asymmetric stretch $q_2$ minimal};  
+  \end{scope}
+
+  % Bending mode column 
+  \begin{scope}[yshift=-6cm,xshift=-3cm] % Theta min
+    \node[O] (Ob1) at (0,0) {};
+    \node[H] (Hb1l) at (225:1.1) {};  % Fixed q, varying theta via the arc angles
+    \node[H] (Hb1r) at (315:1.1) {};
+    \draw[spring] (Ob1) -- (Hb1l) node[coord label q] {$q_1$};
+    \draw[spring] (Ob1) -- (Hb1r) node[coord label q] {$q_2$};
+    \draw[springcompressed] ($(Ob1)+(225:0.55)$) arc(225:315:0.55) node[coord label theta,yshift=-10pt] {$\theta$}; 
+    \node[mode label] at (0,-1.0) {Bending (minimum $\theta$)};  
+  \end{scope}
+  \begin{scope}[yshift=-6cm,xshift=0cm] % Equilibrium
+    \node[O] (Obeq) at (0,0) {};
+    \node[H] (Hbeql) at (210:1.1) {};
+    \node[H] (Hbeqr) at (330:1.1) {};
+    \draw[spring] (Obeq) -- (Hbeql) node[coord label q] {$q_1$};
+    \draw[spring] (Obeq) -- (Hbeqr) node[coord label q] {$q_2$};
+    \draw[spring] ($(Obeq)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=-6cm,xshift=3cm] % Theta max
+    \node[O] (Ob2) at (0,0) {};
+    \node[H] (Hb2l) at (195:1.1) {};
+    \node[H] (Hb2r) at (345:1.1) {};
+    \draw[spring] (Ob2) -- (Hb2l) node[coord label q] {$q_1$};
+    \draw[spring] (Ob2) -- (Hb2r) node[coord label q] {$q_2$};
+    \draw[springelongated] ($(Ob2)+(195:0.55)$) arc(195:345:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \node[mode label] at (0,-1.0) {Bending (maximum $\theta$)};  
+  \end{scope}
+
+\end{tikzpicture}
+
+\end{document}

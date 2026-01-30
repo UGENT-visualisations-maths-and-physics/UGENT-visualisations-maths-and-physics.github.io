@@ -1,0 +1,4 @@
+
+  Vibrational modes of CO$_2$: 3N=9 degrees of freedom total. 
+  4 vibrational (shown: symmetric and asymmetric stretch, bending in/out-plane), 3 translational, 2 rotational. 
+  Bending doubly degenerate (linear molecule). The springs between the C-O bonds and the corresponding generalized coordinate $\theta$ are omitted to avoid overloading the figure.

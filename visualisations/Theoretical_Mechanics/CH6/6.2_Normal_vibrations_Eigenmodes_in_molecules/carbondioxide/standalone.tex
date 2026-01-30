@@ -1,0 +1,133 @@
+\documentclass[border=5pt,convert={density=300}]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing,shapes.geometric,arrows.meta,shadings}
+\usetikzlibrary{calc}
+
+\begin{document}
+% Define atom styles with fixed size ,colour and spherical shading
+\tikzstyle{O}=[circle, ball color=red, shading=ball, minimum size=0.4cm]
+\tikzstyle{H}=[circle, ball color=gray!60, shading=ball, minimum size=0.3cm]
+\tikzstyle{C}=[circle, ball color=black!90, shading=ball, minimum size=0.35cm]
+
+\tikzstyle{springcompressed}=[decorate,decoration={coil,aspect=0.3,segment length=2.3pt,amplitude=2pt},thick,black!70]
+\tikzstyle{spring}=[decorate,decoration={coil,aspect=0.3,segment length=3pt,amplitude=2pt},thick,black!70]
+\tikzstyle{springelongated}=[decorate,decoration={coil,aspect=0.3,segment length=4pt,amplitude=2pt},thick,black!70]
+
+\tikzstyle{coord label theta}=[font=\scriptsize, midway, sloped, above, pos=0.5, yshift=-3pt] 
+\tikzstyle{coord label q}=[font=\scriptsize, midway, sloped, above, pos=0.5, yshift=2pt] 
+\tikzstyle{mode label}=[font=\tiny, below=0.1cm,align=center, text width=2.5cm, scale=0.9]
+
+
+% Figure 2: CO2 vibrational modes (four vibrational modes, bending mode is twice degenerate. there are further more three translational, and two rotational modes).
+\def\xshift{2.8cm}  % Horizontal spacing between molecules in row
+\def\yshift{2cm}  % Vertical spacing between modes
+
+\begin{tikzpicture}[scale=1]
+  % Symmetric stretch column
+  \begin{scope}[yshift=0cm,xshift=-\xshift] % Compressed
+    \node[O] (Os1l) at (180:0.64) {};
+    \node[C] (Cs1) at (0,0) {};
+    \node[O] (Os1r) at (0:0.64) {};
+    \draw[springcompressed] (Os1l) -- (Cs1) node[coord label q] {$q_1$};
+    \draw[springcompressed] (Cs1) -- (Os1r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Symmetric stretch minimum};  
+  \end{scope}
+  \begin{scope}[yshift=0cm,xshift=0cm] % eq
+    \node[O] (Oseq l) at (180:0.88) {};
+    \node[C] (Cseq) at (0,0) {};
+    \node[O] (Oseq r) at (0:0.88) {};
+    \draw[spring] (Oseq l) -- (Cseq) node[coord label q] {$q_1$};
+    \draw[spring] (Cseq) -- (Oseq r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=0cm,xshift=\xshift] % Extended
+    \node[O] (Os2l) at (180:1.12) {};
+    \node[C] (Cs2) at (0,0) {};
+    \node[O] (Os2r) at (0:1.12) {};
+    \draw[springelongated] (Os2l) -- (Cs2) node[coord label q] {$q_1$};
+    \draw[springelongated] (Cs2) -- (Os2r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Symmetric stretch maximum};  
+  \end{scope}
+
+  % Asymmetric stretch column
+  \begin{scope}[yshift=-\yshift,xshift=-\xshift]
+    \node[O] (Oa1l) at (180:0.64) {};
+    \node[C] (Ca1) at (0,0) {};
+    \node[O] (Oa1r) at (0:1.12) {};
+    \draw[springcompressed] (Oa1l) -- (Ca1) node[coord label q] {$q_1$};
+    \draw[springelongated] (Ca1) -- (Oa1r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Asymmetric stretch, $q_1$ minimal};  
+  \end{scope}
+  \begin{scope}[yshift=-\yshift,xshift=0cm]
+    \node[O] (Oaeq l) at (180:0.88) {};
+    \node[C] (Caeq) at (0,0) {};
+    \node[O] (Oaeq r) at (0:0.88) {};
+    \draw[spring] (Oaeq l) -- (Caeq) node[coord label q] {$q_1$};
+    \draw[spring] (Caeq) -- (Oaeq r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=-\yshift,xshift=\xshift]
+    \node[O] (Oa2l) at (180:1.12) {};
+    \node[C] (Ca2) at (0,0) {};
+    \node[O] (Oa2r) at (0:0.64) {};
+    \draw[springelongated] (Oa2l) -- (Ca2) node[coord label q] {$q_1$};
+    \draw[springcompressed] (Ca2) -- (Oa2r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Asymmetric stretch, $q_2$ minimal};  
+  \end{scope}
+
+  % Bending mode column
+  \begin{scope}[yshift=-2*\yshift,xshift=-\xshift]
+    \node[O] (Ob1l) at (165:0.88) {};
+    \node[C] (Cb1) at (0,0) {};
+    \node[O] (Ob1r) at (15:0.88) {};
+    \draw[spring] (Ob1l) -- (Cb1) node[coord label q] {$q_1$};
+    \draw[spring] (Cb1) -- (Ob1r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Bend in-plane minimum};  
+  \end{scope}
+  \begin{scope}[yshift=-2*\yshift,xshift=0cm]
+    \node[O] (Obeq l) at (180:0.88) {};
+    \node[C] (Cbeq) at (0,0) {};
+    \node[O] (Obeq r) at (0:0.88) {};
+    \draw[spring] (Obeq l) -- (Cbeq) node[coord label q] {$q_1$};
+    \draw[spring] (Cbeq) -- (Obeq r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=-2*\yshift,xshift=\xshift]
+    \node[O] (Ob2l) at (195:0.88) {};
+    \node[C] (Cb2) at (0,0) {};
+    \node[O] (Ob2r) at (-15:0.88) {};
+    \draw[spring] (Ob2l) -- (Cb2) node[coord label q] {$q_1$};
+    \draw[spring] (Cb2) -- (Ob2r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Bend in-plane maximum};  
+  \end{scope}
+
+    % Out-of-plane bending column
+   \begin{scope}[yshift=-3*\yshift,xshift=-\xshift]
+    \node[O,scale=0.7] (Obeq l) at (180:0.6) {};
+    \node[C] (Cbeq) at (0,0) {};
+    \node[O,scale=0.7] (Obeq r) at (0:0.6) {};
+    \draw[decorate,decoration={coil,aspect=0.75,segment length=1pt,amplitude=2pt}] (Obeq l) -- (Cbeq) node[coord label q] {$q_1$};
+    \draw[decorate,decoration={coil,aspect=0.75,segment length=1pt,amplitude=2pt}] (Cbeq) -- (Obeq r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {Bend into the plane};  
+  \end{scope}
+  \begin{scope}[yshift=-3*\yshift,xshift=0cm]
+    \node[O] (Obeq l) at (180:0.88) {};
+    \node[C] (Cbeq) at (0,0) {};
+    \node[O] (Obeq r) at (0:0.88) {};
+    \draw[spring] (Obeq l) -- (Cbeq) node[coord label q] {$q_1$};
+    \draw[spring] (Cbeq) -- (Obeq r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {equilibrium};  
+  \end{scope}
+  \begin{scope}[yshift=-3*\yshift,xshift=\xshift]
+    \node[O,scale=1.3] (Obeq l) at (180:0.7) {};
+    \node[C] (Cbeq) at (0,0) {};
+    \node[O,scale=1.3] (Obeq r) at (0:0.7) {};
+    \draw[decorate,decoration={coil,aspect=0.75,segment length=1pt,amplitude=2pt}] (Obeq l) -- (Cbeq) node[coord label q] {$q_1$};
+    \draw[decorate,decoration={coil,aspect=0.75,segment length=1pt,amplitude=2pt}] (Cbeq) -- (Obeq r) node[coord label q] {$q_2$};
+    \node[mode label] at (0,-0.4) {bend out of the plane};  
+  \end{scope}
+  
+\end{tikzpicture}
+
+
+\end{document}

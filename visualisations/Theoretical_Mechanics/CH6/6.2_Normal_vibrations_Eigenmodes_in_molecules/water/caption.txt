@@ -1,0 +1,3 @@
+Vibrational modes of H$_2$O: 3N=9 degrees of freedom total. 
+  3 vibrational (shown), 3 translational, 3 rotational. 
+  Modes: symmetric stretch ($q_1=q_2$), asymmetric stretch ($q_1 \neq q_2$), bending ($\theta$).
