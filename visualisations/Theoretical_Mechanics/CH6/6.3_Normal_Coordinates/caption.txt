@@ -1,0 +1,1 @@
+Expansion around a small diversion in a minumum up to second order.
