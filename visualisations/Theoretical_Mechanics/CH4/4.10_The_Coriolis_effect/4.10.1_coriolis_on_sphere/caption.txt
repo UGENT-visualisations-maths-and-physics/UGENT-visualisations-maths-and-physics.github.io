@@ -1,0 +1,1 @@
+Coriolis effect for an object moving northward on a rotating sphere. The green trajectory shows the motion for when the Coriolis effect is neglected, while the blue trajectory takes the Coriolis effect into account.

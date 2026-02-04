@@ -1,0 +1,1 @@
+Local view of Coriolis deflection (blue) for an object moving northward.
