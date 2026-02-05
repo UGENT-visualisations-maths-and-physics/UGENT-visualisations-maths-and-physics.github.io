@@ -1,0 +1,1 @@
+Rate change of a vector $\vec{G}$, as perceived by an observer in the fixed body frame: $d \vec{G}_{\text{body}}$ (right) and in the space frame: $d \vec{G}_{\text{space}} = d \vec{G}_{\text{body}} + \omega \times \vec{G}$ (left). The $z'$ axis is chosen such that it aligns with $\omega$.
