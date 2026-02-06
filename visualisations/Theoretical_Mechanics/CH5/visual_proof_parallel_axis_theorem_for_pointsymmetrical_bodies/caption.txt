@@ -1,4 +1,5 @@
 One wants to prove that \(I_a = I_b + M (\vb{R} \times \vb{n})^2\). 
+For this, one can consider the 3D figure. Notice that all vectors in green, blue and red are perpendicular to the vector \(\vb{n}\).
 For a point-symmetrical, homogeneous body, it is enough to show that for two point masses $ \mathrm{d}m_1$, $ \mathrm{d}m_2$, 
 \(\mathrm{d}I_a = \mathrm{d}I_b + dI_{\rm CM}\). 
 Here, 
