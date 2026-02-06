@@ -264,7 +264,7 @@ class tex_compiler:
             # append to body
             tex_middle += figure_object.tex_section + tex_middle_sub
 
-        packages_list=[r"\usepackage{float}", r"\usepackage{graphicx}", r"\usepackage{amsmath}", r"\usepackage{amssymb}"]     # used pacakges for summary file
+        packages_list=[r"\usepackage{float}", r"\usepackage{graphicx}", r"\usepackage{amsmath}", r"\usepackage{amssymb}",  r"\usepackage{bm}"]     # used packages for summary file
 
         # combine all into a tex file
         tex_begin = self.get_tex_begin(packages_list, title = "Figures " + title.replace("_", " "), authors=authors)  
