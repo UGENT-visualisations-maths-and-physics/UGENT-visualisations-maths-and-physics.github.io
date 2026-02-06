@@ -1,27 +1,15 @@
-One wants to prove that $I_a = I_b + M (\vb{R} \times \vb{n})^2$. 
-For this, one can consider the 3D figure. Notice that all vectors in green, blue and red are perpendicular to the vector \(\vb{n}\).
-For a point-symmetrical, homogeneous body, it is enough to show that for two point masses $ \mathrm{d}m_1$, $ \mathrm{d}m_2$, 
-$\mathrm{d}I_a = \mathrm{d}I_b + dI_{\rm CM}$. 
-Here, 
-$$
-\mathrm{d}I_a = \mathrm{d}m_2 \, r_2^2 + \mathrm{d}m_1 \, r_1^2 = \mathrm{d}m_1 (r_1^2 + r_2^2), 
-\quad dI_{\rm CM} = 2\, \mathrm{d}m_1 \, R^2, 
-\quad dI_b = 2\,\mathrm{d}m_1 \, r_1'^2,
-$$
-as due to homogeneity, $\mathrm{d}m_1 = \mathrm{d}m_2$. 
-We then have 
-$$
-dI_{\rm CM} + dI_b = 2\,\mathrm{d}m_1 (R^2 + r_1'^2),
-$$
-so for equivalence to hold, one needs that 
-$$
-r_1^2 + r_2^2 = 2 \,(R^2 + r_1'^2).
-$$
-This can be interpreted in the 2D triangle of the second figure. 
-One finds this triangle by combining the two smaller triangles in the 3D figure and projecting them on a plane perpendicular to the vector $\vb{n}$. 
-Notice that, as masses $\mathrm{d}m_1$ and $\mathrm{d}m_2$ were chosen symmetrically with respect to CM, one has that $r_1' = r_2'$. 
-The relation 
-$$
-r_1^2 + r_2^2 = 2 \,(R^2 + r_1'^2)
-$$
-then trivially holds due to Apollonius's theorem.
+One wants to prove that $I_a = I_b + M ( \vec{R} \times \vec{n} )^2$.
+For this, one can consider the 3D figure. Notice that all vectors in green, blue and red are perpendicular to the vector $\vec{n}$.
+For a point-symmetrical, homogeneous body, it is enough to show that for two point masses $dm_1$, $dm_2$,
+$dI_a = dI_b + dI_{CM}$.
+Here,
+$dI_a = dm_2 r_2^2 + dm_1 r_1^2 = dm_1 (r_1^2 + r_2^2)$,
+$dI_{CM} = 2 dm_1 R^2$, and
+$dI_b = 2 dm_1 r_1'^2$,
+as due to homogeneity $dm_1 = dm_2$.
+We then have $dI_{CM} + dI_b = 2 dm_1 (R^2 + r_1'^2)$, so for equivalence to hold one needs that
+$r_1^2 + r_2^2 = 2 (R^2 + r_1'^2)$.
+This can be interpreted in the 2D triangle of the second figure.
+One finds this triangle by combining the two smaller triangles in the 3D figure and projecting them on a plane perpendicular to the vector $\vec{n}$.
+Notice that, as masses $dm_1$ and $dm_2$ were chosen symmetrically with respect to the CM, one has $r_1' = r_2'$.
+The relation $r_1^2 + r_2^2 = 2 (R^2 + r_1'^2)$ then trivially holds due to Apollonius's theorem.
