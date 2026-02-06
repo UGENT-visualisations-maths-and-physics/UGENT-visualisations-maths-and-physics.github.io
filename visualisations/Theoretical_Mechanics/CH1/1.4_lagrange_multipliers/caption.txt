@@ -1,0 +1,8 @@
+We seek to find the maxima and minima of $f(x,y) = (x-3)^2 + (y-2)^2 - 3x$ 
+subject to the constraint $(x-2)^2 + (y-2)^2 = 4$, i.e., $g(x,y) = 4$.
+
+This constraint circle is shown in red on the surface $(x, y, f(x,y))$ in Figure~1. Maxima on this restricted curve do not require $\nabla f = 0$. Indeed, the non-zero gradient vectors in the extrema are drawn here, tangent to the surface along the curve (blue and green vectors).
+
+In Figure~2 ($xy$-plane), notice that only at extrema is $\nabla f$ parallel to $\nabla g$. The gradient $\nabla g$ is always perpendicular to the level curve $g(x,y)=4$ (brown arrows).
+
+Thus, a sufficient condition for extrema is $\nabla f = \lambda \nabla g$, where $\lambda$ are the Lagrange multipliers. This gives, together with the equation $g(x,y) = 4$, a system that can be solved for the extrema.
