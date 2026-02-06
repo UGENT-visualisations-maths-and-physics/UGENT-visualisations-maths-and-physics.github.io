@@ -22,6 +22,17 @@
 \caption{Double pendulum.}
 \end{figure}
 
+\section*{1.4 lagrange multipliers}
+\begin{figure}[H]
+\centering
+\includegraphics{CH1/1.4_lagrange_multipliers/standalone.pdf}
+\caption{We seek to find the maxima and minima of $f(x,y) = (x-3)^2 + (y-2)^2 - 3x$ 
+subject to the constraint $(x-2)^2 + (y-2)^2 = 4$, i.e., $g(x,y) = 4$.
+This constraint circle is shown in red on the surface $(x, y, f(x,y))$ in Figure~1. Maxima on this restricted curve do not require $\nabla f = 0$. Indeed, the non-zero gradient vectors in the extrema are drawn here, tangent to the surface along the curve (blue and green vectors).
+In Figure~2 ($xy$-plane), notice that only at extrema is $\nabla f$ parallel to $\nabla g$. The gradient $\nabla g$ is always perpendicular to the level curve $g(x,y)=4$ (brown arrows).
+Thus, a sufficient condition for extrema is $\nabla f = \lambda \nabla g$, where $\lambda$ are the Lagrange multipliers. This gives, together with the equation $g(x,y) = 4$, a system that can be solved for the extrema.}
+\end{figure}
+
 \section*{1.6 Atwoods Machine}
 \begin{figure}[H]
 \centering
@@ -98,7 +109,21 @@ The rectangular beam has dimensions 2, 1, and 0.2 along the x, y, and z axes res
 \begin{figure}[H]
 \centering
 \includegraphics{CH5/5.3_visual_proof_parallel_axis_theorem_for_pointsymmetrical_bodies/standalone.pdf}
-\caption{}
+\caption{One wants to prove that $I_a = I_b + M ( \vec{R} \times \vec{n} )^2$.
+For this, one can consider the 3D figure. Notice that all vectors in green, blue and red are perpendicular to the vector $\vec{n}$.
+For a point-symmetrical, homogeneous body, it is enough to show that for two point masses $dm_1$, $dm_2$,
+$dI_a = dI_b + dI_{CM}$.
+Here,
+$dI_a = dm_2 r_2^2 + dm_1 r_1^2 = dm_1 (r_1^2 + r_2^2)$,
+$dI_{CM} = 2 dm_1 R^2$, and
+$dI_b = 2 dm_1 r_1'^2$,
+as due to homogeneity $dm_1 = dm_2$.
+We then have $dI_{CM} + dI_b = 2 dm_1 (R^2 + r_1'^2)$, so for equivalence to hold one needs that
+$r_1^2 + r_2^2 = 2 (R^2 + r_1'^2)$.
+This can be interpreted in the 2D triangle of the second figure.
+One finds this triangle by combining the two smaller triangles in the 3D figure and projecting them on a plane perpendicular to the vector $\vec{n}$.
+Notice that, as masses $dm_1$ and $dm_2$ were chosen symmetrically with respect to the CM, one has $r_1' = r_2'$.
+The relation $r_1^2 + r_2^2 = 2 (R^2 + r_1'^2)$ then trivially holds due to Apollonius's theorem.}
 \end{figure}
 
 \section*{5.3 parallelaxistheorem}

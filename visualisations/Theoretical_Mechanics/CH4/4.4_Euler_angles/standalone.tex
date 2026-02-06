@@ -19,7 +19,7 @@
   \begin{scope}[rotate around y =-55, rotate around x = -90, rotate around y = 5]
 
     % Original plane
-    \draw[fill=gray,opacity=0.4] (0,0) circle (\radius);
+    \draw[thick, fill=gray,opacity=0.4] (0,0) circle (\radius);
     
 
     \begin{scope}[rotate around z = \phiAngle]
@@ -33,7 +33,7 @@
 
     % red nutation plane
     \begin{scope}[rotate around x = \thetaAngle]
-        \draw[fill=red!80!black,opacity=0.5] (0,0,0) -- (\radius,0,0 ) arc (0:180:\radius);
+        \draw[thick, fill=red!80!black,opacity=0.5] (0,0,0) -- (\radius,0,0 ) arc (0:180:\radius);
     \end{scope}
 
     % z-axis
@@ -70,7 +70,7 @@
   \begin{scope}[rotate around y =-55, rotate around x = -90, rotate around y = 5]
 
     % Original plane
-    \draw[fill=gray,opacity=0.4] (0,0) circle (\radius);
+    \draw[thick, fill=gray,opacity=0.4] (0,0) circle (\radius);
 
     % x-axis
     \begin{scope}[rotate around z = \phiAngle]
@@ -105,7 +105,7 @@
 
     % red nutation plane
     \begin{scope}[rotate around x = \thetaAngle]
-        \draw[fill=red!80!black,opacity=0.5] (0,0,0) -- (\radius,0,0 ) arc (0:180:\radius);
+        \draw[thick, fill=red!80!black,opacity=0.5] (0,0,0) -- (\radius,0,0 ) arc (0:180:\radius);
     \end{scope}
 
     % z-axis

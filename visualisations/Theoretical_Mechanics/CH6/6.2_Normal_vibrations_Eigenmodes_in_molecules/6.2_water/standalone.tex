@@ -29,7 +29,7 @@
     \draw[springcompressed] (O1) -- (H1l) node[coord label q] {$q_1$};
     \draw[springcompressed] (O1) -- (H1r) node[coord label q] {$q_2$};
     % the bended spring (using arc)
-    \draw[spring] ($(O1))$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
+    \draw[spring] ($(O1)+(210:0.55)$) arc(210:330:0.55) node[coord label theta,yshift=-10pt] {$\theta$};
     \node[mode label] at (0,-1.0) {Symmetric stretch compressed};  
   \end{scope}
   \begin{scope}[yshift=0cm,xshift=0cm] % equilibrium
