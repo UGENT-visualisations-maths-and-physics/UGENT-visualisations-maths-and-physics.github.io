@@ -7,7 +7,7 @@ from TexCompiler import tex_compiler
 
 # call the class now
 Analyse_compiler = tex_compiler(folder="Theoretical_Mechanics")
-Analyse_compiler.create_summary_file(title="Theoretical_Mechanics", authors="Felix Claeys, Brecht Verbeken, Simon Verbruggen", reset=False)
+Analyse_compiler.create_summary_file(title="Theoretical_Mechanics", authors="Felix Claeys, Brecht Verbeken, Simon Verbruggen, Jorrit Vander Bracht", reset=False)
 #%%
 Analyse_compiler.export_for_syllabus()      # export standalone files for syllabus integration
 #%%
