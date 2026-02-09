@@ -82,14 +82,16 @@
       (-1,2,\zBe)
     };
   \end{axis}
-\end{tikzpicture}
+%\end{tikzpicture}
 
 
 
 
 \usetikzlibrary{calc}
 
-\begin{tikzpicture}[scale=1]
+%\begin{tikzpicture}[scale=1]
+
+\begin{scope}[shift={(1,-6)},scale=1]
   % Circle: (x-2)^2 + (y-2)^2 = 4 = g(x,y)
   \draw[thick, red!90!black] (2,2) circle[radius=2] node[right=60, below=50] {$g(x,y)=constant$};
 
@@ -122,6 +124,8 @@
 
   % Mark the centre
   \fill (2,2) circle[radius=1.5pt];
+
+\end{scope}
 \end{tikzpicture}
 
 

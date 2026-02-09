@@ -149,11 +149,11 @@
 \draw[black!70, dash pattern=on 2pt off 1pt on 0.5pt off 1pt] (Ris) -- (Riss);
 
 
-\end{tikzpicture}
+%\end{tikzpicture}
 
 %__The 2D projection perpendicular on vector n, of the triangle that is the result of combinating the two triangles on the 3D figure
-\begin{tikzpicture}[scale=1,>=latex]
-
+%\begin{tikzpicture}[scale=1,>=latex]
+\begin{scope}[shift={(0,-6)},scale=1]
 % triangle points
 \coordinate (Top)   at (1.5,2);   % top vertex
 \coordinate (Left)  at (-2.5,0);  % left vertex
@@ -174,6 +174,8 @@
 % vector from top to CM
 \draw[xcol'',thick,->] (Top) -- (CM) node[midway,right] {$\vb{R}$};
 
+
+\end{scope}
 \end{tikzpicture}
 
 
