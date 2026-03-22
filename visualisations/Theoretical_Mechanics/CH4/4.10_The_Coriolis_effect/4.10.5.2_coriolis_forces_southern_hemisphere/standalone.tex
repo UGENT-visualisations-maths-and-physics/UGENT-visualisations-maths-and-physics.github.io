@@ -52,26 +52,29 @@
     z={( 0.0cm, 1.0cm)}    % z-axis: up
   ]
 
-  % axes
-  \draw[->,thick] (0,0,0) -- (1.5,0,0) node[below left] {$x$};
-  \draw[->,thick] (0,0,0) -- (0,1.5,0) node[right] {$y$};
-  \draw[->,thick] (0,0,0) -- (0,0,1.5) node[above] {$z$};
-
-
+ 
   % cross product v_r × omega = (sin30, 0, 0)
   \draw[->,very thick,green!60!black,line cap=round]
     (0,0,0) --
-    ({-sin(30)},0,0)
-    node[pos=1,below right] {$\vb{v}_r \times \vb*{\omega}$};
+    ({-2*sin(30)},0,0)
+    node[pos=1,above right] {$\vb{v}_r \times \vb*{\omega}$};
   % omega vector: (0, -cos30, sin30)
   \draw[force] (0,0,0) --
     (0, {-cos(30)}, {-sin(30)})
     node[pos=1,above left] {$\vb*{\omega}$};
 
+
+     % axes
+  \draw[->,thick] (0,0,0) -- (1.5,0,0) node[below left] {$x$};
+  \draw[->,thick] (0,0,0) -- (0,1.5,0) node[right] {$y$};
+  \draw[->,thick] (0,0,0) -- (0,0,1.5) node[above] {$z$};
+
   % v_r vector: (0,1,0)
   \draw[->,very thick,blue!85!black,line cap=round]
     (0,0,0) -- (0,1,0)
-    node[pos=0.5,above] {$\vb{v}_r$};
+    node[pos=0.5,below] {$\vb{v}_r$};
+
+    
 
   
 
