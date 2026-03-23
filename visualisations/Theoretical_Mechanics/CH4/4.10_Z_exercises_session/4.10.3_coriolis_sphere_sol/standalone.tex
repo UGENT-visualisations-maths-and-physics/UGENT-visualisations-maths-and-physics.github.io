@@ -85,8 +85,7 @@
     \colorlet{gcol}{green!60!black}
 
     \draw[gcol,thick] (R) circle (0.07);
-    \draw[gcol,thick] ($(R)+(-0.05,-0.05)$) -- ($(R)+(0.05,0.05)$);
-    \draw[gcol,thick] ($(R)+(-0.05,0.05)$) -- ($(R)+(0.05,-0.05)$);
+    \fill[gcol,thick] (R) circle (0.035);
 
     % node with ω × r in the same color
     \node[gcol,below right=2pt] at ($(R)+(-0.25,0)$) {$\vb*{\omega} \times \vb{r}$};
@@ -103,8 +102,6 @@
     \coordinate (RPlane) at ($(R)+(\ang:0.4)$);
     \coordinate (Oplane) at ($(R)+(\ang:0.075)$);
     \coordinate (Aplane) at ($(R)+(0,0.075 + 0.6*\E)$);
-
-    \draw (Oplane) circle (1.5pt);
 
     \draw pic[<-,"$\theta$"{scale=0.7},
       draw,angle radius=12.5,angle eccentricity=1.3]
