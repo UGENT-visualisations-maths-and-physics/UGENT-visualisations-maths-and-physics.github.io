@@ -57,7 +57,7 @@
 
     % draw the actual particle
     \filldraw (P) circle (1.5pt);
-    \draw[dashed] (\ParticleXOffset,0) -- (P); 
+    \draw[dashed, gray] (\ParticleXOffset,0) -- (P) node[pos=0.1, below left, inner sep=2.5pt] {$z_0$}; 
 
     % draw the angle
     \def\E{0.8}
