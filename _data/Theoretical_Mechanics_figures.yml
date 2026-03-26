@@ -1,0 +1,254 @@
+- title: 1.2 Mechanics of Multiple Particles
+  image: assets/generated_figures/Theoretical_Mechanics/CH1/1.2_Mechanics_of_Multiple_Particles/standalone.PNG
+  caption: 'Vector notations for points of mass and the center of mass.'
+  properties:
+    format: PNG
+- title: 1.3 Bindings
+  image: assets/generated_figures/Theoretical_Mechanics/CH1/1.3_Bindings/standalone.PNG
+  caption: 'Double pendulum.'
+  properties:
+    format: PNG
+- title: 1.4 lagrange multipliers
+  image: assets/generated_figures/Theoretical_Mechanics/CH1/1.4_lagrange_multipliers/standalone.PNG
+  caption: "We seek to find the maxima and minima of $f(x,y) = (x-3)^2 + (y-2)^2 -\
+    \ 3x$ \nsubject to the constraint $(x-2)^2 + (y-2)^2 = 4$, i.e., $g(x,y) = 4$.\n\
+    This constraint circle is shown in red on the surface $(x, y, f(x,y))$ in Figure~1.\
+    \ Maxima on this restricted curve do not require $\\nabla f = 0$. Indeed, the\
+    \ non-zero gradient vectors in the extrema are drawn here, tangent to the surface\
+    \ along the curve (blue and green vectors).\nIn Figure~2 ($xy$-plane), notice\
+    \ that only at extrema is $\\nabla f$ parallel to $\\nabla g$. The gradient $\\\
+    nabla g$ is always perpendicular to the level curve $g(x,y)=4$ (brown arrows).\n\
+    Thus, a sufficient condition for extrema is $\\nabla f = \\lambda \\nabla g$,\
+    \ where $\\lambda$ are the Lagrange multipliers. This gives, together with the\
+    \ equation $g(x,y) = 4$, a system that can be solved for the extrema."
+  properties:
+    format: PNG
+- title: 1.6 Atwoods Machine
+  image: assets/generated_figures/Theoretical_Mechanics/CH1/1.6_Atwoods_Machine/standalone.PNG
+  caption: 'Atwood''s machine.'
+  properties:
+    format: PNG
+- title: 2.6 Conservation Properties and Symmetry Properties
+  image: assets/generated_figures/Theoretical_Mechanics/CH2/2.6_Conservation_Properties_and_Symmetry_Properties/standalone.PNG
+  caption: 'Change of position vector under rotation.'
+  properties:
+    format: PNG
+- title: 4.4 Euler angles
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.4_Euler_angles/standalone.PNG
+  caption: 'The rotations defining the Eulerian angles.'
+  properties:
+    format: PNG
+- title: 4.7 Finite Rotations Detail
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.7_Finite_Rotations_Detail/standalone.PNG
+  caption: 'Detailimage of the circle on which the rotation takes place.'
+  properties:
+    format: PNG
+- title: 4.7 Finite Rotations
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.7_Finite_Rotations/standalone.PNG
+  caption: 'Finite rotation around an axis.'
+  properties:
+    format: PNG
+- title: 4.8 Infinitesimal rotations
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.8_Infinitesimal_rotations/standalone.PNG
+  caption: 'Change in a vector $\boldsymbol{r}$ produced by an infinitesimal clockwise
+    rotation $\mathrm{d}\Phi$ of the vector.'
+  properties:
+    format: PNG
+- title: 4.9 Rate of change of a vector
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.9_Rate_of_change_of_a_vector/standalone.PNG
+  caption: 'Rate change of a vector $\vec{G}$, as perceived by an observer in the
+    fixed body frame: $d \vec{G}_{\text{body}}$ (right) and in the space frame: $d
+    \vec{G}_{\text{space}} = d \vec{G}_{\text{body}} + \omega \times \vec{G}$ (left).
+    The $z''$ axis is chosen such that it aligns with $\omega$.'
+  properties:
+    format: PNG
+- title: 4.10.1 coriolis on sphere
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.1_coriolis_on_sphere/standalone.PNG
+  caption: 'Coriolis effect for an object moving northward on a rotating sphere. The
+    green trajectory shows the motion for when the Coriolis effect is neglected, while
+    the blue trajectory takes the Coriolis effect into account.'
+  properties:
+    format: PNG
+- title: 4.10.2 coriolis effect local
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.2_coriolis_effect_local/standalone.PNG
+  caption: 'Local view of Coriolis deflection (blue) for an object moving northward.'
+  properties:
+    format: PNG
+- title: 4.10.3 centrifugal force
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.3_centrifugal_force/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.3 coriolis sphere sol
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_Z_exercises_session/4.10.3_coriolis_sphere_sol/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.3 coriolis sphere task
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_Z_exercises_session/4.10.3_coriolis_sphere_task/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.4 coriolis local task
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_Z_exercises_session/4.10.4_coriolis_local_task/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.4 coriolis local sol
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_Z_exercises_session/4.10.4_coriolis_local_sol/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.4.1 coriolis forces northern hemisphere
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.4.1_coriolis_forces_northern_hemisphere/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.4.2 coriolis forces northern hemisphere
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.4.2_coriolis_forces_northern_hemisphere/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.5.1 coriolis forces southern hemisphere
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.5.1_coriolis_forces_southern_hemisphere/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.5.2 coriolis forces southern hemisphere
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.5.2_coriolis_forces_southern_hemisphere/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.6 coriolis effect vortex
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.6_coriolis_effect_vortex/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.7.1 coriolis NH vertical velocity
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.7.1_coriolis_NH_vertical_velocity/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.7.2 coriolis NH vertical velocity
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.7.2_coriolis_NH_vertical_velocity/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.8.1 coriolis SH vertical velocity
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.8.1_coriolis_SH_vertical_velocity/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.8.2 coriolis SH vertical velocity
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.8.2_coriolis_SH_vertical_velocity/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 5.2 traagheidstensor balk 2D visualisatie
+  image: assets/generated_figures/Theoretical_Mechanics/CH5/5.2_traagheidstensor_balk_2D_visualisatie/standalone.PNG
+  caption: "Graphical representation of the relationship between the angular velocity\
+    \ vector $\\bm{\\omega}$ (gray) and the angular momentum vector $\\bm{L}$ (red)\
+    \ for a rectangular beam with inertia tensor $\\mathbf{I}$. \nThe directions of\
+    \ $\\bm{L}$ and $\\bm{\\omega}$ do not coincide due to the anisotropy of the inertia\
+    \ tensor. \nThe rectangular beam has dimensions 2, 1, and 0.2 along the x, y,\
+    \ and z axes respectively and is homogeneous in density. "
+  properties:
+    format: PNG
+- title: 5.3 visual proof parallel axis theorem for pointsymmetrical bodies
+  image: assets/generated_figures/Theoretical_Mechanics/CH5/5.3_visual_proof_parallel_axis_theorem_for_pointsymmetrical_bodies/standalone.PNG
+  caption: 'One wants to prove that $I_a = I_b + M ( \vec{R} \times \vec{n} )^2$.
+
+    For this, one can consider the 3D figure. Notice that all vectors in green, blue
+    and red are perpendicular to the vector $\vec{n}$.
+
+    For a point-symmetrical, homogeneous body, it is enough to show that for two point
+    masses $dm_1$, $dm_2$,
+
+    $dI_a = dI_b + dI_{CM}$.
+
+    Here,
+
+    $dI_a = dm_2 r_2^2 + dm_1 r_1^2 = dm_1 (r_1^2 + r_2^2)$,
+
+    $dI_{CM} = 2 dm_1 R^2$, and
+
+    $dI_b = 2 dm_1 r_1''^2$,
+
+    as due to homogeneity $dm_1 = dm_2$.
+
+    We then have $dI_{CM} + dI_b = 2 dm_1 (R^2 + r_1''^2)$, so for equivalence to
+    hold one needs that
+
+    $r_1^2 + r_2^2 = 2 (R^2 + r_1''^2)$.
+
+    This can be interpreted in the 2D triangle of the second figure.
+
+    One finds this triangle by combining the two smaller triangles in the 3D figure
+    and projecting them on a plane perpendicular to the vector $\vec{n}$.
+
+    Notice that, as masses $dm_1$ and $dm_2$ were chosen symmetrically with respect
+    to the CM, one has $r_1'' = r_2''$.
+
+    The relation $r_1^2 + r_2^2 = 2 (R^2 + r_1''^2)$ then trivially holds due to Apollonius''s
+    theorem.'
+  properties:
+    format: PNG
+- title: 5.3 parallelaxistheorem
+  image: assets/generated_figures/Theoretical_Mechanics/CH5/5.3_parallelaxistheorem/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 5.3 traagheidstensor ellipsoïde 2D visualisatie
+  image: assets/generated_figures/Theoretical_Mechanics/CH5/5.3_traagheidstensor_ellipsoïde_2D_visualisatie/standalone.PNG
+  caption: "Graphical representation of the relationship between the angular velocity\
+    \ vector $\\bm{\\omega}$ (gray) and the angular momentum vector $\\bm{L}$ (red)\
+    \ for an ellipsoid with inertia tensor $\\mathbf{I}$. \nThe directions of $\\\
+    bm{L}$ and $\\bm{\\omega}$ do not coincide due to the anisotropy of the inertia\
+    \ tensor. \nThe ellipsoid has dimensions 3, 1.5 and 1.5 along the x, y, and z\
+    \ axes respectively and is homogeneous in density. "
+  properties:
+    format: PNG
+- title: 5.7 Heavy symmetrical top with one point fixed
+  image: assets/generated_figures/Theoretical_Mechanics/CH5/5.7_Heavy_symmetrical_top_with_one_point_fixed/standalone.PNG
+  caption: 'From left to right, monotone precession, spin-reversal precession and
+    non-monotome precession.'
+  properties:
+    format: PNG
+- title: 6.2 water
+  image: assets/generated_figures/Theoretical_Mechanics/CH6/6.2_Normal_vibrations_Eigenmodes_in_molecules/6.2_water/standalone.PNG
+  caption: "Vibrational modes of H$_2$O: 3N=9 degrees of freedom total. \n  3 vibrational\
+    \ (shown), 3 translational, 3 rotational. \n  Modes: symmetric stretch ($q_1=q_2$),\
+    \ asymmetric stretch ($q_1 \\neq q_2$), bending ($\\theta$)."
+  properties:
+    format: PNG
+- title: 6.2 carbondioxide
+  image: assets/generated_figures/Theoretical_Mechanics/CH6/6.2_Normal_vibrations_Eigenmodes_in_molecules/6.2_carbondioxide/standalone.PNG
+  caption: "\n  Vibrational modes of CO$_2$: 3N=9 degrees of freedom total. \n  4\
+    \ vibrational (shown: symmetric and asymmetric stretch, bending in/out-plane),\
+    \ 3 translational, 2 rotational. \n  Bending doubly degenerate (linear molecule).\
+    \ The springs between the C-O bonds and the corresponding generalized coordinate\
+    \ $\\theta$ are omitted to avoid overloading the figure."
+  properties:
+    format: PNG
+- title: 6.3 Normal Coordinates
+  image: assets/generated_figures/Theoretical_Mechanics/CH6/6.3_Normal_Coordinates/standalone.PNG
+  caption: 'Expansion around a small diversion in a minumum up to second order.
+
+    '
+  properties:
+    format: PNG
+- title: 8.1 Afbeelding1
+  image: assets/generated_figures/Theoretical_Mechanics/CH8/8.1_/8.1_Afbeelding1/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 8.1 Slide 187b
+  image: assets/generated_figures/Theoretical_Mechanics/CH8/8.1_/8.1_Slide_187b/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 8.1 Slide 187
+  image: assets/generated_figures/Theoretical_Mechanics/CH8/8.1_/8.1_Slide_187/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
