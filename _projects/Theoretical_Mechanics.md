@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Theoretical Mechanics"
-thumbnail: "assets/manual_figures/Mathematical_Techniques_For_Engineers_Complex_Analysis/thumbnail.png"
-figures_data: "Mathematical_Techniques_For_Engineers_Complex_Analysis_figures"
+thumbnail: "assets/manual_figures/Theoretical_Mechanics/thumbnail.PNG"
+figures_data: "Theoretical_Mechanics_figures"
 figures_pdf : "assets/generated_figures/Theoretical_Mechanics/Theoretical_Mechanics.pdf"
 excerpt: "<strong>Theoretical Mechanics</strong>: Euler angles, Finite rotations, Cauchy's theorem, Angular momentum, Inertia tensor... <br>"
 ---
