@@ -65,7 +65,7 @@ def get_section(chapter_digits, chapter_parts):
         section = "\\chapter*"
     elif len(chapter_parts)==2:
         section = "\\section*"
-    elif len(chapter_parts)==3:
+    elif len(chapter_parts)>=3:
         section = "\\subsection*"
     return section + "{" + chapter_digits + "}\n"
 
