@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+\usetikzlibrary{angles,quotes} % for pic
+\usetikzlibrary{arrows.meta} % for arrow size
+\usetikzlibrary{bending} % for arrow head angle
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\colorlet{xcol}{blue!70!black}
+\tikzset{>=latex} % for LaTeX arrow head
+
+\begin{tikzpicture}[thick]
+    \tikzset{arrowstyle/.style={->}}
+    
+    \pgfmathsetmacro{\AxisSize}{2.0}
+    \pgfmathsetmacro{\XOffset}{1.0}
+    \pgfmathsetmacro{\YOffset}{\AxisSize*0.8}
+    \draw[arrowstyle] (0,0) -- (\AxisSize, 0) node[pos=1.0, right]  {$x$};
+    \draw[arrowstyle] (0,0) -- (0, \AxisSize) node[pos=1.0, above]  {$y$};
+    \draw[black!60!green] (0,0) to [out=90, in=205, looseness=1.1] (\XOffset, \YOffset);
+
+    \draw[xcol, dashed] (0, \YOffset) -- (\XOffset, \YOffset);
+    \draw[xcol, dashed] (\XOffset, \YOffset) -- (\XOffset, 0);
+    \draw[xcol, dashed] (0, 0) -- (\XOffset, \YOffset) ;
+    \draw[xcol, rotate=60] (0.5,0) arc[start angle=0, end angle=30, radius=0.5] node[pos=0.15, above] {$\theta$};
+
+\end{tikzpicture}
+
+\end{document}
