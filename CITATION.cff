@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "Beauty is in the eye of the beholder: visualisations of mathematical concepts in classical and modern physics"
+message: "If you use these materials, please cite them as below."
+type: software
+license: MIT
+url: "https://ugent-visualisations-maths-and-physics.github.io"
+year: 2026
+authors:
+  - family-names: Claeys
+    given-names: Felix D.S.
+  - family-names: Verbeken
+    given-names: Brecht R.
+  - family-names: Verbruggen
+    given-names: Simon
+  - family-names: Vander Bracht
+    given-names: Jorrit
+  - family-names: Lazendic
+    given-names: Srdan
+  - family-names: Verdoolaege
+    given-names: Geert

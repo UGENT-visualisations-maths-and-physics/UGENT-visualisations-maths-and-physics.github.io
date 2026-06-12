@@ -90,3 +90,20 @@ Ghent University (Belgium), Faculty of Engineering and Architecture & Faculty of
 <h2>Source code</h2>
 LaTeX source code for all the figures are available at GitHub (open source):  
 [UGENT-visualisations-maths-and-physics]({{ site.github_repo }}).
+
+<h2>Citation</h2>
+<p>If you use these materials, please cite them as:</p>
+
+<blockquote>
+F. D.S. Claeys, J. Vander Bracht, B. R. Verbeken, S. Verbruggen, S. Lazendic and G. Verdoolaege, "Beauty is in the eye of the beholder: visualisations of mathematical concepts in classical and modern physics," <a href="https://ugent-visualisations-maths-and-physics.github.io">https://ugent-visualisations-maths-and-physics.github.io</a>, 2026.
+</blockquote>
+
+<p>Or in BibTeX:</p>
+
+<pre><code>@misc{2026HPEvisualisations,
+  author    = {Claeys, Felix D.S. and Vander Bracht, Jorrit and Verbeken, Brecht R. and Verbruggen, Simon and Lazendic, Srdan and Verdoolaege, Geert},
+  title     = {Beauty is in the eye of the beholder: visualisations of mathematical concepts in classical and modern physics},
+  year      = {2026},
+  url       = {https://ugent-visualisations-maths-and-physics.github.io},
+  note      = {MIT License}
+}</code></pre>
