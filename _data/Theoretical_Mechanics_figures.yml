@@ -109,6 +109,16 @@
   caption: ''
   properties:
     format: PNG
+- title: 4.10.5 Deflection Angle task
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_Z_exercises_session/4.10.5_Deflection_Angle_task/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
+- title: 4.10.5 Deflection Angle sol
+  image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_Z_exercises_session/4.10.5_Deflection_Angle_sol/standalone.PNG
+  caption: ''
+  properties:
+    format: PNG
 - title: 4.10.5.1 coriolis forces southern hemisphere
   image: assets/generated_figures/Theoretical_Mechanics/CH4/4.10_The_Coriolis_effect/4.10.5.1_coriolis_forces_southern_hemisphere/standalone.PNG
   caption: ''
